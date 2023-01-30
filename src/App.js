@@ -1,7 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { auth } from "./services/firebase";
 
 function App() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => setUser(user));
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
