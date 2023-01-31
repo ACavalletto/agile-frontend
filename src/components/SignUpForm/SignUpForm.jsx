@@ -19,7 +19,9 @@ const SignUpForm = () => {
   };
 
   const onSubmitForm = e => {
-    e.preventDefault(); 
+    e.preventDefault()
+    emailSignup(form.email, form.password);
+    
   } 
 
   return (
@@ -49,7 +51,7 @@ const SignUpForm = () => {
           onChange={onUpdateField}
           required
         />
-        <button type="submit" onClick={emailSignup(form.email, form.password)}>
+        <button type="submit">
           Sign Up
         </button>
       </form>
