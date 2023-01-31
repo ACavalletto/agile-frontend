@@ -1,7 +1,8 @@
+// Helmet allows us to disconnect our other stylesheets and partials (e.g. a nav bar) from this AuthPage and its components (so we don't see a nav bar before login)
 import {Helmet} from "react-helmet";
 import { useState } from "react";
 import Login from "../../components/Login/Login";
-import SignUpForm from "../../components/SignUpForm/SignUpForm";
+import SignUp from "../../components/SignUp/SignUp";
 
 function AuthPage() {
     const [login, setLogin] = useState(true)
@@ -20,14 +21,14 @@ function AuthPage() {
                 <>
                     <div className="auth-page-form">
                         <h1>Log In</h1>
-                        <Login />
+                        <Login handleToggle={handleToggle}/>
                     </div>
                 </>
                 :
                 <>
                     <div className="auth-page-form">
                         <h1>Sign Up</h1>
-                        <SignUpForm />
+                        <SignUp handleToggle={handleToggle}/>
                     </div>
                 </>
             }
