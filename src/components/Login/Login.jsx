@@ -1,5 +1,6 @@
-import { login } from "../services/firebase";
+import { googleLogin } from "../../services/firebase";
 import { redirect } from "react-router-dom";
+import LoginForm from "../LoginForm/LoginForm";
 
 const Login = () => {
   <div>
@@ -11,7 +12,7 @@ const Login = () => {
       decide to use it. */}
     <button
       onClick={() => {
-        login();
+        googleLogin();
         return redirect("/homepage");
       }}
     >

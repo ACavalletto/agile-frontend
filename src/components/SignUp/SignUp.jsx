@@ -1,7 +1,7 @@
 import React from 'react'
-import SignUpForm from '../components/SignUpForm'
+import SignUpForm from '../SignUpForm/SignUpForm'
 import { redirect } from 'react-router-dom'
-import { googleLogin } from '../services/firebase'
+import { googleLogin } from '../../services/firebase'
 
 const Signup = () => {
   return (
