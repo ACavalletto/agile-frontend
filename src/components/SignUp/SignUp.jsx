@@ -1,9 +1,8 @@
-import React from 'react'
-import SignUpForm from '../SignUpForm/SignUpForm'
-import { redirect } from 'react-router-dom'
-import { googleLogin } from '../../services/firebase'
+import SignUpForm from "../SignUpForm/SignUpForm"
+import { redirect } from "react-router-dom"
+import { googleLogin } from "../../services/firebase"
 
-const Signup = () => {
+const SignUp = () => {
   return (
     <div>
           <SignUpForm />
@@ -15,4 +14,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignUp

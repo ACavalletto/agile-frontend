@@ -1,7 +1,7 @@
 import {Helmet} from "react-helmet";
 import { useState } from "react";
 import Login from "../../components/Login/Login";
-import SignUpForm from "../../components/SignUpForm/SignUpForm";
+import SignUp from "../../components/SignUp/SignUp";
 
 function AuthPage() {
     const [login, setLogin] = useState(true)
@@ -16,6 +16,7 @@ function AuthPage() {
             <Helmet>
                 <link rel="stylesheet" href="AuthPage.css" />
             </Helmet>
+            <button onClick = {()=> handleToggle()}>Toggle Login</button>
             { login ? 
                 <>
                     <div className="auth-page-form">
@@ -27,7 +28,7 @@ function AuthPage() {
                 <>
                     <div className="auth-page-form">
                         <h1>Sign Up</h1>
-                        <SignUpForm />
+                        <SignUp />
                     </div>
                 </>
             }
