@@ -9,28 +9,15 @@ function App() {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, []); 
 
   return (
     // Ternary conditional to choose what to render based on if user is logged in or not
     // {user ? [path if user is logged in] : [path if user is not logged in]}
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Hello World</p>
     </div>
   );
-}
+  }
 
 export default App;
