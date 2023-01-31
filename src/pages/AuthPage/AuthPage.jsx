@@ -17,6 +17,7 @@ function AuthPage() {
             <Helmet>
                 <link rel="stylesheet" href="AuthPage.css" />
             </Helmet>
+            <button onClick = {()=> handleToggle()}>Toggle Login</button>
             { login ? 
                 <>
                     <div className="auth-page-form">

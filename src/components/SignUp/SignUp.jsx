@@ -1,7 +1,6 @@
-import React from 'react'
-import SignUpForm from '../SignUpForm/SignUpForm'
-import { redirect } from 'react-router-dom'
-import { googleLogin } from '../../services/firebase'
+import SignUpForm from "../SignUpForm/SignUpForm"
+import { redirect } from "react-router-dom"
+import { googleLogin } from "../../services/firebase"
 
 const SignUp = ({ handleToggle }) => {
   return (
