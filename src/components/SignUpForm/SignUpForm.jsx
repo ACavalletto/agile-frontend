@@ -1,5 +1,7 @@
 import { useState } from "react";
-import * as yup from "yup";
+import { emailSignup } from "../../services/firebase";
+
+
 
 const SignUpForm = () => {
   const [form, setForm] = useState({
@@ -47,7 +49,9 @@ const SignUpForm = () => {
           onChange={onUpdateField}
           required
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" onClick={emailSignup(form.email, form.password)}>
+          Sign Up
+        </button>
       </form>
     </div>
   )
