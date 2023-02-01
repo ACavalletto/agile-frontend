@@ -21,7 +21,6 @@ const SignUpForm = () => {
   const onSubmitForm = e => {
     e.preventDefault()
     emailSignup(form.email, form.password);
-    
   } 
 
   return (

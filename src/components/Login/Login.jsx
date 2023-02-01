@@ -13,12 +13,7 @@ const Login = ({ handleToggle }) => {
       {/*This onClick function will login a user via the google login popup and redirect to whatever
         homepage route we setup so route is changeable. This is also using react-router-dom if we
         decide to use it. */}
-      <button
-        onClick={() => {
-          googleLogin();
-          return redirect("/");
-        }}
-      >
+      <button onClick={() => { googleLogin() }}>
         Sign in with Google
       </button>
       {/* <Link to="" onClick={handleToggle}>New here? Sign up!</Link> */}
