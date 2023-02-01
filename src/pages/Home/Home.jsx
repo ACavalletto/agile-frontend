@@ -1,14 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({user}) => {
 
     return (
         <div>
-            <Routes>
-                <Route 
-                    path="/" 
-                    element={<Home />} />
-            </Routes>
+            {console.log(user.uid)}
+            Home
         </div>
     )
 }
