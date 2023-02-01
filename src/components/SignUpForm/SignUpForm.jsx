@@ -1,5 +1,7 @@
 import { useState } from "react";
-import * as yup from "yup";
+import { emailSignup } from "../../services/firebase";
+
+
 
 const SignUpForm = () => {
   const [form, setForm] = useState({
@@ -17,27 +19,21 @@ const SignUpForm = () => {
   };
 
   const onSubmitForm = e => {
-    e.preventDefault();
-  }
-
-  let schema = yup.object().shape({
-    email: yup.string()
-      .email("Invalid email address")
-      .required("Required"),
-    password: yup.string()
-      .required("No password Provided")
-      .min(8, "Password must be at least 8 characters long")
-  })  
+    e.preventDefault()
+    emailSignup(form.email, form.password);
+    
+  } 
 
   return (
     <div>
       <form onSubmit={onSubmitForm}>
         <label>Email:</label>
         <input
-          type="text"
+          type="email"
           name="email"
           value={form.email}
           onChange={onUpdateField}
+          required
         />
         <label>Password:</label>
         <input
@@ -45,6 +41,7 @@ const SignUpForm = () => {
           name="password"
           value={form.password}
           onChange={onUpdateField}
+          required
         />
         <label>Confirm Password</label>
         <input
@@ -52,8 +49,11 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={form.confirmPassword}
           onChange={onUpdateField}
+          required
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   )
