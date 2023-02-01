@@ -23,18 +23,28 @@ function emailSignup(email, password) {
               return redirect("/")
             })
             .catch((error) => {
-              let errorCode = error.code;
-              let errorMessage = error.message;
-              console.log(errorCode, errorMessage);
+              console.log(error.code, error.message);
             })
+}
+
+function emailLogin(email, password) {
+  firebase.auth().signInWithEmailAndPassword(email,password)
+  .then(() => {
+    return redirect("/")
+  })
+    .catch((error) => {
+      console.log(error.code, error.message);
+
+  })
 }
 
 function googleLogin() {
   auth.signInWithPopup(googleAuth);
+  return redirect("/");
 }
 
 function googleLogout() {
   return auth.signOut();
 }
 
-export { auth, googleLogin, googleLogout, emailSignup };
+export { auth, googleLogin, googleLogout, emailSignup, emailLogin };
