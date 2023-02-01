@@ -33,6 +33,7 @@ function AuthPage() {
                     </div>
                 </>
             }
+
         </main>
     )
 }

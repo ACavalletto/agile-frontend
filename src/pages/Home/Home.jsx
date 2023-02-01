@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import ProfilePage from '../Profile/ProfilePage';
 
 const Home = () => {
 
@@ -8,7 +9,11 @@ const Home = () => {
                 <Route 
                     path="/" 
                     element={<Home />} />
+
+                <Route path="/profile"
+                    element={<ProfilePage/>} />
             </Routes>
+
         </div>
     )
 }
