@@ -24,7 +24,9 @@ const SignUpForm = () => {
     e.preventDefault()
     if (form.password != form.confirmPassword) {
       setError("Passwords do not match");
-    } else {
+    } else if (form.password.length > 8) {
+      setError("Password must be at least 8 characters")
+    }else {
       setError("")
       emailSignup(form.email, form.password);
     }
@@ -33,29 +35,28 @@ const SignUpForm = () => {
   return (
     <div className={style}>
       <form onSubmit={onSubmitForm}>
-        <label>Email:</label>
         <input
           type="email"
           name="email"
+          placeholder="Email"
           value={form.email}
           onChange={onUpdateField}
           required
         />
         <br />
-        <label>Password:</label>
         <input
           type="password"
           name="password"
-          min = "8"
+          placeholder="Password"
           value={form.password}
           onChange={onUpdateField}
           required
         />
         <br />
-        <label>Confirm Password</label>
         <input
           type="password"
           name="confirmPassword"
+          placeholder="Confirm Password"
           value={form.confirmPassword}
           onChange={onUpdateField}
           required

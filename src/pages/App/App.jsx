@@ -19,7 +19,7 @@ function App() {
       <p>App.jsx</p>
       { user ? 
         // Home is just a placeholder for now, as I'm unsure how to want to route unlogged-in users
-        <Home />
+        <Home user={user} />
       : 
         <AuthPage />
       }
