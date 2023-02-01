@@ -22,7 +22,7 @@ const SignUpForm = () => {
 
   const onSubmitForm = e => {
     e.preventDefault()
-    if (form.password != form.confirmPassword) {
+    if (form.password !== form.confirmPassword) {
       setError("Passwords do not match");
     } else {
       setError("")
