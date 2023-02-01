@@ -10,9 +10,6 @@ const SignUp = ({ handleToggle }) => {
           googleLogin();
           return redirect("/")
       }}>Sign in with Google</button>
-      {/* <Link to="" onClick={handleToggle}>New here? Sign up!</Link> */}
-      <br />
-      {/* This toggle switch is a placeholder until we get our routing figured out and can use the <Link /> feature above */}
     </div>
   )
 }
