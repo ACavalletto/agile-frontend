@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { emailSignup } from "../../services/firebase";
+import style from "./SignUpForm.css"
 
 
 
@@ -9,6 +10,7 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
+  const [error, setError] = useState('')
 
   const onUpdateField = e => {
     const nextFormState = {
@@ -20,11 +22,16 @@ const SignUpForm = () => {
 
   const onSubmitForm = e => {
     e.preventDefault()
-    emailSignup(form.email, form.password);
+    if (form.password != form.confirmPassword) {
+      setError("Passwords do not match");
+    } else {
+      setError("")
+      emailSignup(form.email, form.password);
+    }
   } 
 
   return (
-    <div>
+    <div className={style}>
       <form onSubmit={onSubmitForm}>
         <label>Email:</label>
         <input
@@ -34,14 +41,17 @@ const SignUpForm = () => {
           onChange={onUpdateField}
           required
         />
+        <br />
         <label>Password:</label>
         <input
           type="password"
           name="password"
+          min = "8"
           value={form.password}
           onChange={onUpdateField}
           required
         />
+        <br />
         <label>Confirm Password</label>
         <input
           type="password"
@@ -50,6 +60,9 @@ const SignUpForm = () => {
           onChange={onUpdateField}
           required
         />
+        <br />
+        {error && <div>{error}</div>}
+        <br />
         <button type="submit">
           Sign Up
         </button>
