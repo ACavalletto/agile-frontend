@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import { React, useState } from "react";
 import { emailLogin } from "../../services/firebase";
-import style from "./LoginForm.css"
+import style from "./LoginForm.css";
 
 const LoginForm = () => {
   const [form, setForm] = useState({

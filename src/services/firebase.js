@@ -19,18 +19,18 @@ const googleAuth = new firebase.auth.GoogleAuthProvider();
 
 function emailSignup(email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then(() => {
-              return redirect("/")
-            })
-            .catch((error) => {
-              console.log(error.code, error.message);
-            })
+    .then(() => {
+      return redirect("/");
+    })
+    .catch((error) => {
+      console.log(error.code, error.message);
+    })
 }
 
 function emailLogin(email, password) {
   firebase.auth().signInWithEmailAndPassword(email,password)
   .then(() => {
-    return redirect("/")
+    return redirect("/");
   })
     .catch((error) => {
       console.log(error.code, error.message);

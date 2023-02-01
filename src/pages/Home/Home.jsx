@@ -1,15 +1,9 @@
-import { Route, Routes } from 'react-router-dom';
-
-const Home = () => {
+const Home = ({ setUser }) => {
 
     return (
         <div>
-            <Routes>
-                <Route 
-                    path="/" 
-                    element={<Home />} 
-                />
-            </Routes>
+            <h1>Home</h1>
+            <button onClick={() => { setUser(false) }}>Logout</button>
         </div>
     )
 }
