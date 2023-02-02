@@ -4,8 +4,7 @@ import ProfilePage from '../Profile/ProfilePage';
 const Home = () => {
 
     return (
-        <div>
-            <Routes>
+        <div><Routes>
                 <Route 
                     path="/" 
                     element={<Home />} />
