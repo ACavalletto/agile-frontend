@@ -1,9 +1,8 @@
 import { googleLogin } from "../../services/firebase";
-import { redirect, Link } from "react-router-dom";
 import LoginForm from "../LoginForm/LoginForm";
 import "./Login.css";
 
-const Login = ({ handleToggle }) => {
+const Login = () => {
 
   return (
     <div>
@@ -16,12 +15,6 @@ const Login = ({ handleToggle }) => {
       <button onClick={() => { googleLogin() }}>
         Sign in with Google
       </button>
-      {/* <Link to="" onClick={handleToggle}>New here? Sign up!</Link> */}
-      <br />
-      <label className="switch">
-        <input type="checkbox" onClick={handleToggle}/>
-        <span className="slider round"></span>Login or Signup?
-      </label>
     </div>
   )
 };
