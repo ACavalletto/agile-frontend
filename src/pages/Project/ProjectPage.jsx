@@ -26,11 +26,11 @@ function ProjectPage (){
 
     return (
     <div className="Profile-Page">
-        <div className="Profile-info">
-            <div id="profileName">Name : {projectInfo.name} <input
+        <div className="Project-info">
+            <div id="projectName">Name : {projectInfo.name} <input
             
             type="text" 
-            placeholder="Name"
+            placeholder="title"
             name="name"
             onChange={handleChange}
             value={projectInfo.name}
