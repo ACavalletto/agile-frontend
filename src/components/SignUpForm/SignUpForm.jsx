@@ -64,7 +64,7 @@ const SignUpForm = () => {
         <br />
         {error && <div>{error}</div>}
         <br />
-        <button type="submit">
+        <button class="btn btn-primary"type="submit">
           Sign Up
         </button>
       </form>

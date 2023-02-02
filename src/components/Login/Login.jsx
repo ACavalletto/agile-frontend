@@ -12,7 +12,7 @@ const Login = ({ setUser }) => {
       {/*This onClick function will login a user via the google login popup and redirect to whatever
         homepage route we setup so route is changeable. This is also using react-router-dom if we
         decide to use it. */}
-      <button onClick={() => { googleLogin() }}>
+      <button type="button" class="btn btn-primary" onClick={() => { googleLogin() }}>
         Sign in with Google
       </button>
     </div>

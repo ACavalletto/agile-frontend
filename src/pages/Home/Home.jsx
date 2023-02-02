@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Home = ({ user, setUser }) => {
 
@@ -6,6 +6,8 @@ const Home = ({ user, setUser }) => {
         <div>
             {console.log(user.uid)}
             <h1>Home</h1>
+            <Link to="/projects" >See Projects</Link>
+
             <button onClick={() => { setUser(false) }}>Logout</button>
         </div>
     )
