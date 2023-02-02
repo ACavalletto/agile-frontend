@@ -6,7 +6,7 @@ const SignUp = ({ handleToggle }) => {
   return (
     <div>
       <SignUpForm />
-      <button onClick={() => {
+      <button type="button" class="btn btn-primary" onClick={() => {
           googleLogin();
           return redirect("/")
       }}>Sign in with Google</button>
