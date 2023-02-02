@@ -2,12 +2,12 @@ import { googleLogin } from "../../services/firebase";
 import LoginForm from "../LoginForm/LoginForm";
 import "./Login.css";
 
-const Login = () => {
+const Login = ({ setUser }) => {
 
   return (
     <div>
       {/*Form for email and password login. Still need to setup this auth in firebase file */}
-      <LoginForm />
+      <LoginForm setUser={setUser}/>
 
       {/*This onClick function will login a user via the google login popup and redirect to whatever
         homepage route we setup so route is changeable. This is also using react-router-dom if we

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
 
-function AuthPage() {
+function AuthPage({ setUser }) {
     const [login, setLogin] = useState(true)
 
     function handleToggle() {
@@ -22,7 +22,7 @@ function AuthPage() {
                 <>
                     <div className="auth-page-form">
                         <h1>Log In</h1>
-                        <Login />
+                        <Login setUser={setUser}/>
                     </div>
                     <Link to="" onClick={handleToggle}>New here? Sign up!</Link>
 

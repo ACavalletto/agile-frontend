@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { emailLogin } from "../../services/firebase";
 import style from "./LoginForm.css";
 
-const LoginForm = () => {
+const LoginForm = ({ setUser }) => {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -24,25 +24,26 @@ const LoginForm = () => {
     } else {
       setError("")
       emailLogin(form.email, form.password);
+      setUser(true);
     }
   } 
 
   return (
     <div className={style}>
       <form onSubmit={onSubmitForm}>
-        <label>Email:</label>
         <input
           type="email"
           name="email"
           value={form.email}
+          placeholder="Email"
           onChange={onUpdateField}
           required
         />
         <br />
-        <label>Password:</label>
         <input
           type="password"
           name="password"
+          placeholder="Password"
           min = "8"
           value={form.password}
           onChange={onUpdateField}
