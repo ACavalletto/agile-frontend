@@ -23,6 +23,7 @@ githubAuth.addScope('repo')
 
 function emailSignup(email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
+
             .then(() => {
             })
             .catch((error) => {
@@ -33,6 +34,7 @@ function emailSignup(email, password) {
 function emailLogin(email, password) {
   firebase.auth().signInWithEmailAndPassword(email,password)
   .then(() => {
+
   })
     .catch((error) => {
       console.log(error.code, error.message);
