@@ -15,12 +15,15 @@ const config = {
 firebase.initializeApp(config);
 
 const auth = firebase.auth();
+
 const googleAuth = new firebase.auth.GoogleAuthProvider();
+
+const githubAuth = new firebase.auth.GithubAuthProvider();
+githubAuth.addScope('repo')
 
 function emailSignup(email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(() => {
-              return redirect("/")
             })
             .catch((error) => {
               console.log(error.code, error.message);
@@ -30,7 +33,6 @@ function emailSignup(email, password) {
 function emailLogin(email, password) {
   firebase.auth().signInWithEmailAndPassword(email,password)
   .then(() => {
-    return redirect("/")
   })
     .catch((error) => {
       console.log(error.code, error.message);
@@ -40,11 +42,28 @@ function emailLogin(email, password) {
 
 function googleLogin() {
   auth.signInWithPopup(googleAuth);
-  return redirect("/");
 }
 
-function googleLogout() {
+function logout() {
   return auth.signOut();
 }
 
-export { auth, googleLogin, googleLogout, emailSignup, emailLogin };
+function githubLogin() {
+  firebase.auth().signInWithPopup(githubAuth)
+    .then((result) => {
+      const credential = result.credential;
+
+      const githubToken = credential.accessToken
+    }).catch ((error) => { 
+      console.log(
+        `Code:  ${error.code}
+         Message: ${error.message}
+         Email: ${error.email}
+         Credential: ${error.credential}`)
+    })
+}
+
+
+
+
+export { auth, googleLogin, logout, emailSignup, emailLogin, githubLogin };
