@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import Home from '../Home/Home';
 import AuthPage from '../AuthPage/AuthPage';
+import ProjectList from "../ProjectList/ProjectList";
+import ProjectDetail from "../ProjectDetail/ProjectDetail";
 import "./App.css";
 
 function App() {
@@ -24,7 +26,15 @@ function App() {
           <Route 
             path="/" 
             // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
-            element={<Home user={user} setUser={ setUser } />} 
+            element={<Home user={user} setUser={setUser} />} 
+          />
+          <Route 
+            path="/projects" 
+            element={<ProjectList user={user} setUser={setUser} />} 
+          />
+          <Route 
+            path="/projects/:projectId" 
+            element={<ProjectDetail user={user} setUser={setUser} />} 
           />
         </Routes>
       : 
