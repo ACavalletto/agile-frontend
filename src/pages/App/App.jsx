@@ -26,6 +26,7 @@ function App() {
           <Route 
             path="/" 
             // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
+
             element={<Home user={user} setUser={setUser} />} 
           />
           <Route 
@@ -35,6 +36,7 @@ function App() {
           <Route 
             path="/projects/:projectId" 
             element={<ProjectDetail user={user} setUser={setUser} />} 
+
           />
         </Routes>
       : 

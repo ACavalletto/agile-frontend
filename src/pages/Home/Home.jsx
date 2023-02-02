@@ -7,6 +7,7 @@ const Home = ({ user, setUser }) => {
             {console.log(user.uid)}
             <h1>Home</h1>
             <Link to="/projects" >See Projects</Link>
+
             <button onClick={() => { setUser(false) }}>Logout</button>
         </div>
     )

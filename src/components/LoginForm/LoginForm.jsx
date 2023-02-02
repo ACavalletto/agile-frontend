@@ -52,7 +52,9 @@ const LoginForm = ({ setUser }) => {
         <br />
         {error && <div>{error}</div>}
         <br />
+
         <button class="btn btn-primary" type="submit">
+
           Log In
         </button>
       </form>
