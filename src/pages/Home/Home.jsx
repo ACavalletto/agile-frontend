@@ -4,7 +4,7 @@ const Home = ({ user, setUser }) => {
 
     return (
         <div>
-            {console.log(user.uid)}
+            {console.log(user)}
             <h1>Home</h1>
             <Link to="/projects" >See Projects</Link>
 

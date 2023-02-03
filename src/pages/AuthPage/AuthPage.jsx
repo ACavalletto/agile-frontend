@@ -36,6 +36,7 @@ function AuthPage({ setUser }) {
                     <Link to="" onClick={handleToggle}>Already have an account? Log in!</Link>
                 </>
             }
+
         </main>
     )
 }
