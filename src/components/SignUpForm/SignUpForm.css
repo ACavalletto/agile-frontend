@@ -1,0 +1,9 @@
+form {
+    text-align: center;
+    margin-bottom: 10px;
+}
+form input{
+    margin: 5px 0;
+    height: 20px;
+    width: 150px;
+}

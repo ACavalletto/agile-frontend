@@ -1,69 +1,80 @@
 import React from "react";
 import { useState } from "react";
 
-function ProjectPage (){
+function ProjectPage (user){
 
     const [projectInfo, setProjectInfo] = useState(
         {
         title:"",
         projMembers:[""],
         description:"",
-        technologies:["skill1","skill2"],
+        technologies:[""],
         timeline:"",
         roles:[""],
         categories:[""],
         links:[""]
-    
     })
 
+
+
     const handleChange =({ currentTarget: input}) => {
+
+        
         setProjectInfo({...projectInfo,[input.name]:input.value})
     }
 
     const toggleEdit =(target) =>{
-        console.log(target.nativeEvent.target.parentElement)
+        console.log(target.nativeEvent.target.previousSibling)
+        // target.nativeEvent.target.parentElement.style.display === "none" ? 
+        // target.nativeEvent.target.parentElement.style.display = "block" : target.nativeEvent.target.parentElement.style.display = "none" ;
+        target.nativeEvent.target.previousSibling.style.display === "none" ? 
+         target.nativeEvent.target.previousSibling.style.display = "inline" : target.nativeEvent.target.previousSibling.style.display = "none" ;
+
+
     }
 
     return (
+
     <div className="Profile-Page">
+        {console.log(user)}
         <div className="Project-info">
-            <div id="projectName">Name : {projectInfo.name} <input
+            <div id="projectName">Project Title : {projectInfo.title} <input
+            display="none"
             
             type="text" 
-            placeholder="title"
-            name="name"
+            placeholder="Title"
+            name="title"
             onChange={handleChange}
             value={projectInfo.name}
             required
             
             ></input><span className="edit-button" onClick={toggleEdit}>edit</span></div>
-                        <div id="profileName">Username : {projectInfo.username} <input
-            
+
+            <div id="projDescription">Project Description : {projectInfo.username} <input
             type="text" 
-            placeholder="username"
-            name="username"
+            placeholder="Description"
+            name="description"
             onChange={handleChange}
             value={projectInfo.username}
             required
-            
             ></input><span className="edit-button" onClick={toggleEdit}>edit</span></div>
-                        <div id="profileName">Birthday : {projectInfo.bday} <input
-            
+
+            <div id="projectTechnologies">Technologies : {projectInfo.technologies} <input
             type="text" 
-            placeholder="Birthday"
-            name="bday"
+            placeholder="New Technology"
+            name="technologies"
             onChange={handleChange}
             value={projectInfo.bday}
             required
             
             ></input><span className="edit-button" onClick={toggleEdit}>edit</span></div>
-                        <div id="profileName">Skills : {projectInfo.skills} <input
-            
+
+            <div id="projectMembers">Skills : {projectInfo.skills} <input
             type="text" 
             placeholder="Name"
             name="name"
             onChange={handleChange}
-            value={projectInfo.skills[projectInfo.skills.length-1]}
+            value={projectInfo.technologies }
             required
             
             ></input><span className="edit-button" onClick={toggleEdit}>edit</span></div>

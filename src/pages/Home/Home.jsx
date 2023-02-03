@@ -1,18 +1,14 @@
-import { Route, Routes } from 'react-router-dom';
-import ProfilePage from '../Profile/ProfilePage';
+import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ user, setUser }) => {
 
     return (
-        <div><Routes>
-                <Route 
-                    path="/" 
-                    element={<Home />} />
+        <div>
+            {console.log(user)}
+            <h1>Home</h1>
+            <Link to="/projects" >See Projects</Link>
 
-                <Route path="/profile"
-                    element={<ProfilePage/>} />
-            </Routes>
-
+            <button onClick={() => { setUser(false) }}>Logout</button>
         </div>
     )
 }

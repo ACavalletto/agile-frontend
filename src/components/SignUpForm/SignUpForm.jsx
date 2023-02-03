@@ -1,5 +1,8 @@
 import { useState } from "react";
-import * as yup from "yup";
+import { emailSignup } from "../../services/firebase";
+import style from "./SignUpForm.css"
+
+
 
 const SignUpForm = () => {
   const [form, setForm] = useState({
@@ -7,6 +10,7 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
+  const [error, setError] = useState('')
 
   const onUpdateField = e => {
     const nextFormState = {
@@ -17,43 +21,52 @@ const SignUpForm = () => {
   };
 
   const onSubmitForm = e => {
-    e.preventDefault();
-  }
-
-  let schema = yup.object().shape({
-    email: yup.string()
-      .email("Invalid email address")
-      .required("Required"),
-    password: yup.string()
-      .required("No password Provided")
-      .min(8, "Password must be at least 8 characters long")
-  })  
+    e.preventDefault()
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match");
+    } else if (form.password.length > 8) {
+      setError("Password must be at least 8 characters")
+    }else {
+      setError("")
+      emailSignup(form.email, form.password);
+    }
+  } 
 
   return (
-    <div>
+    <div className={style}>
       <form onSubmit={onSubmitForm}>
-        <label>Email:</label>
         <input
-          type="text"
+          type="email"
           name="email"
+          placeholder="Email"
           value={form.email}
           onChange={onUpdateField}
+          required
         />
-        <label>Password:</label>
+        <br />
         <input
           type="password"
           name="password"
+          placeholder="Password"
           value={form.password}
           onChange={onUpdateField}
+          required
         />
-        <label>Confirm Password</label>
+        <br />
         <input
           type="password"
           name="confirmPassword"
+          placeholder="Confirm Password"
           value={form.confirmPassword}
           onChange={onUpdateField}
+          required
         />
-        <button type="submit">Sign Up</button>
+        <br />
+        {error && <div>{error}</div>}
+        <br />
+        <button class="btn btn-primary"type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   )

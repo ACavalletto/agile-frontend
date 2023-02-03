@@ -1,7 +1,13 @@
 import { auth } from "../../services/firebase";
 import { useState, useEffect } from "react";
+import { Route, Routes } from 'react-router-dom';
+
 import Home from '../Home/Home';
 import AuthPage from '../AuthPage/AuthPage';
+import ProjectList from "../ProjectList/ProjectList";
+import ProjectDetail from "../ProjectDetail/ProjectDetail";
+import ProfilePage from "../Profile/ProfilePage";
+import ProjectPage from "../Project/ProjectPage";
 import "./App.css";
 
 function App() {
@@ -18,10 +24,33 @@ function App() {
     <main className="App">
       <p>App.jsx</p>
       { user ? 
-        // Home is just a placeholder for now, as I'm unsure how to want to route unlogged-in users
-        <Home />
+        <Routes>
+          <Route 
+            path="/" 
+            // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
+
+            element={<Home user={user} setUser={setUser} />} 
+          />
+          <Route
+          path="/profile"
+          element={<ProfilePage user={user} setUser={setUser}/>}
+          />
+          <Route 
+            path="/projects" 
+            element={<ProjectList user={user} setUser={setUser} />} 
+          />
+                    <Route 
+            path="/projects/new" 
+            element={<ProjectPage user={user} setUser={setUser} />} 
+          />
+          <Route 
+            path="/projects/:projectId" 
+            element={<ProjectDetail user={user} setUser={setUser} />} 
+
+          />
+        </Routes>
       : 
-        <AuthPage />
+        <AuthPage setUser={setUser}/>
       }
     </main>
   );
