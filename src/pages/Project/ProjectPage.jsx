@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function ProjectPage (user){
 
@@ -37,6 +38,8 @@ function ProjectPage (user){
 
     <div className="Profile-Page">
         {console.log(user)}
+        <Link to="/">Home</Link>
+
         <div className="Project-info">
             <div id="projectName">Project Title : {projectInfo.title} <input
             display="none"

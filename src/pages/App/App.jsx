@@ -44,6 +44,10 @@ function App() {
             element={<ProjectPage user={user} setUser={setUser} />} 
           />
           <Route 
+            path="/projects/new" 
+            element={<ProjectPage user={user} setUser={setUser} />} 
+          />
+          <Route 
             path="/projects/:projectId" 
             element={<ProjectDetail user={user} setUser={setUser} />} 
 

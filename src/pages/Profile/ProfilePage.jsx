@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 
 function ProfilePage (){
@@ -40,6 +40,7 @@ function ProfilePage (){
 
     return (
     <div className="Profile-Page">
+        <Link to="/">Home</Link>
         <form onSubmit={handleSubmit} className="Profile-info">
             <div id="profileName">Name : {profileInfo.name} <input
             
