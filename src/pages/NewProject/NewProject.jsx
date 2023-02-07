@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import CreatableSelect from 'react-select/creatable';
 
-function ProjectPage (user){
+function NewProject (user){
 
     const [projectInfo, setProjectInfo] = useState(
         {
@@ -91,4 +91,4 @@ function ProjectPage (user){
 
 }
 
-export default ProjectPage;
+export default NewProject;
