@@ -6,8 +6,8 @@ import Home from "../Home/Home";
 import AuthPage from "../AuthPage/AuthPage";
 import ProjectList from "../ProjectList/ProjectList";
 import ProjectDetail from "../ProjectDetail/ProjectDetail";
-import ProfilePage from "../Profile/ProfilePage";
-import ProjectPage from "../Project/ProjectPage";
+import ProfilePage from "../ProfilePage/ProfilePage";
+import NewProject from "../NewProject/NewProject";
 import "./App.css";
 
 function App() {
@@ -33,8 +33,7 @@ function App() {
           />
           <Route path="/profile" element={<ProfilePage user={user} />} />
           <Route path="/projects" element={<ProjectList user={user} />} />
-          <Route path="/projects/new" element={<ProjectPage user={user} />} />
-          <Route path="/projects/new" element={<ProjectPage user={user} />} />
+          <Route path="/projects/new" element={<NewProject user={user} />} />
           <Route
             path="/projects/:projectId"
             element={<ProjectDetail user={user} />}
