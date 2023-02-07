@@ -1,9 +1,9 @@
 import { auth } from "../../services/firebase";
 import { useState, useEffect } from "react";
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import Home from '../Home/Home';
-import AuthPage from '../AuthPage/AuthPage';
+import Home from "../Home/Home";
+import AuthPage from "../AuthPage/AuthPage";
 import ProjectList from "../ProjectList/ProjectList";
 import ProjectDetail from "../ProjectDetail/ProjectDetail";
 import ProfilePage from "../Profile/ProfilePage";
@@ -18,44 +18,31 @@ function App() {
     return () => {
       unsubscribe();
     };
-  }, []); 
+  }, []);
 
   return (
     <main className="App">
       <p>App.jsx</p>
-      { user ? 
+      {user ? (
         <Routes>
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
 
-            element={<Home user={user} setUser={setUser} />} 
+            element={<Home user={user} />}
           />
+          <Route path="/profile" element={<ProfilePage user={user} />} />
+          <Route path="/projects" element={<ProjectList user={user} />} />
+          <Route path="/projects/new" element={<ProjectPage user={user} />} />
+          <Route path="/projects/new" element={<ProjectPage user={user} />} />
           <Route
-          path="/profile"
-          element={<ProfilePage user={user} setUser={setUser}/>}
-          />
-          <Route 
-            path="/projects" 
-            element={<ProjectList user={user} setUser={setUser} />} 
-          />
-          <Route 
-            path="/projects/new" 
-            element={<ProjectPage user={user} setUser={setUser} />} 
-          />
-          <Route 
-            path="/projects/new" 
-            element={<ProjectPage user={user} setUser={setUser} />} 
-          />
-          <Route 
-            path="/projects/:projectId" 
-            element={<ProjectDetail user={user} setUser={setUser} />} 
-
+            path="/projects/:projectId"
+            element={<ProjectDetail user={user} />}
           />
         </Routes>
-      : 
-        <AuthPage setUser={setUser}/>
-      }
+      ) : (
+        <AuthPage user={user} />
+      )}
     </main>
   );
 }
