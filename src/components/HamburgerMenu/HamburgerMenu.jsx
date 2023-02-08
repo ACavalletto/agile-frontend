@@ -1,22 +1,29 @@
 import { Link } from "react-router-dom";
-const collapsible = (e) => {
-  let target = e.target;
-  console.log(target);
-  let links = target.nextSibling;
-  console.log(links);
-  links.style.display === "block"
-    ? (links.style.display = "none")
-    : (links.style.display = "block");
-};
+
 const HamburgerMenu = () => {
   return (
-    <div>
-      <button onClick={collapsible}>HB</button>
-      <div className="categoryLinks" style={{ display: "none" }}>
-        <Link to="/home">Home</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/projects">Projects</Link>
+    <div className="pos-f-t">
+      <div className="collapse" id="navbarToggleExternalContent">
+        <div className="bg-dark p-4">
+          <h5 className="text-white h4">Collapsed Content</h5>
+          <Link to="/home">Home</Link>
+          <Link to="/profile">Profile</Link>
+          <Link to="/projects">Projects</Link>
+        </div>
       </div>
+      <nav className="navbar navbar-dark bg-dark">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+      </nav>
     </div>
   );
 };
