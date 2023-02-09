@@ -5,6 +5,7 @@ import UserInterests from "../../components/UserInterests/UserInterests";
 import UserSocials from "../../components/UserSocials/UserSocials";
 import NavigationArrows from "../../components/NavigationArrows/NavigationArrows.jsx";
 
+
 const Onboarding = () => {
   const [page, setPage] = useState(1);
   const [profileData, setprofileData] = useState({
@@ -19,6 +20,30 @@ const Onboarding = () => {
     portfolio: "",
     skills: [],
   });
+
+  const onUpdateField = (e) => {
+    const nextFormState = {
+      ...profileData,
+      [e.target.name]: e.target.value,
+    };
+    setprofileData(nextFormState);
+  };
+
+  const handleCheckboxChange = (e) => {
+    if (e.target.checked) {
+      const nextFormState = {
+        ...profileData,
+        [e.target.name]: e.target.value,
+      };
+      setprofileData(nextFormState);
+    } else {
+      const nextFormState = {
+        ...profileData,
+        [e.target.name]: "",
+      };
+      setprofileData(nextFormState);
+    }
+  }
 
   const nextPage = () => {
     if (page === 5) {
@@ -35,7 +60,7 @@ const Onboarding = () => {
   if (page === 1) {
     return (
       <>
-        <Role setprofileData={setprofileData} />
+        <Role handleCheckboxChange={handleCheckboxChange} onUpdateField = {onUpdateField} />
         <NavigationArrows
           page={page}
           nextPage={nextPage}
@@ -46,7 +71,7 @@ const Onboarding = () => {
   } else if (page === 2) {
     return (
       <>
-        <UserBio setprofileData={setprofileData} />
+        <UserBio onUpdateField={onUpdateField} />
         <NavigationArrows
           page={page}
           nextPage={nextPage}
@@ -57,7 +82,7 @@ const Onboarding = () => {
   } else if (page === 3) {
     return (
       <>
-        <UserSocials setprofileData={setprofileData} />
+        <UserSocials onUpdateField={onUpdateField} />
         <NavigationArrows
           page={page}
           nextPage={nextPage}
@@ -68,7 +93,7 @@ const Onboarding = () => {
   } else {
     return (
       <>
-        <UserInterests setprofileData={setprofileData} />
+        <UserInterests onUpdateField={onUpdateField} />
         <NavigationArrows
           page={page}
           nextPage={nextPage}

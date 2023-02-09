@@ -1,0 +1,11 @@
+#navContainer{
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 20px;
+}
+i {
+ color: blue;   
+}
+#page{
+    margin:auto;
+}
