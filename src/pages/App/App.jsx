@@ -2,6 +2,7 @@ import { auth } from "../../services/firebase";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
+import Dashboard from "../Dashboard/Dashboard";
 import Home from "../Home/Home";
 import AuthPage from "../AuthPage/AuthPage";
 import ProjectList from "../ProjectList/ProjectList";
@@ -31,6 +32,7 @@ function App() {
 
             element={<Home user={user} />}
           />
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/profile" element={<ProfilePage user={user} />} />
           <Route path="/projects" element={<ProjectList user={user} />} />
           <Route path="/projects/new" element={<NewProject user={user} />} />
