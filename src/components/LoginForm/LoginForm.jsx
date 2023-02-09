@@ -7,9 +7,9 @@ const LoginForm = ({ setUser }) => {
     email: "",
     password: "",
   });
-  const [error, setError] = useState('')
+  const [error, setError] = useState("");
 
-  const onUpdateField = e => {
+  const onUpdateField = (e) => {
     const nextFormState = {
       ...form,
       [e.target.name]: e.target.value,
@@ -17,49 +17,52 @@ const LoginForm = ({ setUser }) => {
     setForm(nextFormState);
   };
 
-  const onSubmitForm = e => {
-    e.preventDefault()
+  const onSubmitForm = (e) => {
+    e.preventDefault();
     if (!form.email || !form.password) {
       setError("Invalid entry");
     } else {
-      setError("")
+      setError("");
       emailLogin(form.email, form.password);
       setUser(true);
     }
-  } 
+  };
 
   return (
     <div className={style}>
-      <form onSubmit={onSubmitForm}>
-        <input
-          type="email"
-          name="email"
-          value={form.email}
-          placeholder="Email"
-          onChange={onUpdateField}
-          required
-        />
-        <br />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          min = "8"
-          value={form.password}
-          onChange={onUpdateField}
-          required
-        />
-        <br />
-        {error && <div>{error}</div>}
-        <br />
-
-        <button class="btn btn-primary" type="submit">
-
-          Log In
-        </button>
-      </form>
+      <div className="row">
+        <form onSubmit={onSubmitForm}>
+          <div className="col-6 text-left">
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              placeholder="Email"
+              onChange={onUpdateField}
+              required
+            />
+          </div>
+          <div className="col-6 text-left">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              min="8"
+              value={form.password}
+              onChange={onUpdateField}
+              required
+            />
+          </div>
+          {error && <div>{error}</div>}
+          <div className="col-3 text-left">
+            <button class="btn btn-primary" type="submit">
+              Log In
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default LoginForm;

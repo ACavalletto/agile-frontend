@@ -22,7 +22,6 @@ function App() {
 
   return (
     <main className="App">
-      <p>App.jsx</p>
       {user ? (
         <Routes>
           <Route
