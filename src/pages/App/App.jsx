@@ -8,6 +8,7 @@ import ProjectList from "../ProjectList/ProjectList";
 import ProjectDetail from "../ProjectDetail/ProjectDetail";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import NewProject from "../NewProject/NewProject";
+import Onboarding from "../Onboarding/Onboarding";
 import "./App.css";
 
 function App() {
@@ -39,7 +40,10 @@ function App() {
           />
         </Routes>
       ) : (
-        <AuthPage user={user} />
+        <Routes>
+          <Route path="/" element={<AuthPage user={user} />} />
+          <Route path="/onboarding" element={<Onboarding user={user} />} />
+        </Routes>
       )}
     </main>
   );
