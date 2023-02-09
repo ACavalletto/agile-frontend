@@ -11,7 +11,7 @@ const Login = ({ setUser }) => {
       <div className="row justify-content-center">
         <div className="col-4">
           <img
-            src="https://api.deepai.org/job-view-file/1d8a0872-105d-4629-819f-4886b757470f/outputs/output.jpg"
+            src="https://cdn.vectorstock.com/i/1000x1000/02/30/group-of-young-business-people-working-together-vector-19510230.webp"
             className="rounded"
             alt="otter working on a keyboard"
             style={{ height: 118.5, width: 118.5 }}
