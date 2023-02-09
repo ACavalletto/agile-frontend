@@ -27,7 +27,6 @@ function AuthPage({ user }) {
       ) : (
         <>
           <div className="auth-page-form">
-            <h1>Sign Up</h1>
             <SignUp />
           </div>
           <Link to="" onClick={handleToggle}>

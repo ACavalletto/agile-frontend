@@ -1,17 +1,26 @@
-import SignUpForm from "../SignUpForm/SignUpForm"
-import { redirect } from "react-router-dom"
-import { googleLogin } from "../../services/firebase"
+import SignUpForm from "../SignUpForm/SignUpForm";
+import { googleLogin } from "../../services/firebase";
 
-const SignUp = ({ handleToggle }) => {
+const SignUp = () => {
   return (
-    <div>
+    <div className="container" style={{ marginTop: 50 }}>
+      <h3>First lets get you signed up</h3>
       <SignUpForm />
-      <button type="button" class="btn btn-primary" onClick={() => {
-          googleLogin();
-          return redirect("/")
-      }}>Sign in with Google</button>
+      <div className="row">
+        <div className="col-3 text-left">
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={() => {
+              googleLogin();
+            }}
+          >
+            <i class="fa-brands fa-google"></i>
+          </button>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;
