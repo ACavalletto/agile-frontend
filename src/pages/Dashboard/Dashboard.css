@@ -1,7 +1,7 @@
 .dashboard {
     display: flex;
     flex-direction: column;
-    padding: 0 100px;
+    padding: 10px;
 }
 .dashboard > .buttons {
     display: flex;
@@ -13,4 +13,42 @@
     width: 60px;
     height: 60px;
     border-radius: 15px;
+    padding: 15px;
+}
+.button-icon-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: hidden;
+}
+.speech-bubble {
+    padding: 0 15px;
+}
+.task-panel {
+    background-color: rgba(217, 217, 217, 1);
+    margin: 10px 30px;
+    text-align: left;
+}
+.task-panel p {
+    font-size: x-small;
+    margin-bottom: .3rem;
+}
+.meeting-panel {
+    background-color: rgba(217, 217, 217, 1);
+    margin: 10px 30px;
+    border-radius: 50px;
+    padding: 10px;
+}
+.meeting-panel h6 {
+    font-weight: bolder;
+}
+.meeting-panel p {
+    font-size: x-small;
+    margin-bottom: 0;
+}
+.rank-panel {
+    background-color: rgba(217, 217, 217, 1);
+    border-radius: 50px;
+    margin: 10px 30px;
+    padding: 5px 0;
 }
