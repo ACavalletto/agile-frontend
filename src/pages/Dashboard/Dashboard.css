@@ -7,6 +7,12 @@
     display: flex;
     justify-content: center;
 }
+.dashboard h6 {
+    font-weight: bolder;
+}
+.dashboard p {
+    margin-bottom: 0;
+}
 .button-icon-bg {
     margin: 10px 10px;
     background-color: rgba(237, 237, 237, 1);
@@ -44,11 +50,13 @@
 }
 .meeting-panel p {
     font-size: x-small;
-    margin-bottom: 0;
 }
 .rank-panel {
     background-color: rgba(217, 217, 217, 1);
     border-radius: 50px;
     margin: 10px 30px;
     padding: 5px 0;
+}
+.rank-panel p {
+    font-weight: bolder;
 }

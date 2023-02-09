@@ -74,7 +74,7 @@ const Dashboard = ({ user }) => {
         <div>
           <h6>Next Rack: World Changer</h6>    
           <div className="rank-panel">
-            <h6>15/100 POINTS</h6>
+            <p>15/100 POINTS</p>
           </div>      
         </div>
       </div>
