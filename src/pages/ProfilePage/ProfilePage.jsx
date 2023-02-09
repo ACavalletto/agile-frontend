@@ -70,16 +70,12 @@ function ProfilePage (){
     }
     const handleSelectChange = (choices) => {
         const tempProfileInfo = {...profileInfo};
-        tempProfileInfo[choices[choices.length-1].name].push(choices[choices.length-1].value);
+        tempProfileInfo[choices[choices.length-1].name] = choices.map(c => c.value);
         setProfileInfo(tempProfileInfo);
     }
     const handleCreateSelectChange = (choices) => {
         const tempProfileInfo = {...profileInfo};
-        if (choices.label === choices.value) {
-
-        } else {
-            tempProfileInfo[choices[choices.length-1].name].push(choices[choices.length-1].value);
-        }
+        tempProfileInfo.skills = choices.map(c => c.value.toLowerCase())
         setProfileInfo(tempProfileInfo);
     }
     const handleSubmit = e =>{
@@ -141,7 +137,7 @@ function ProfilePage (){
                     isMulti
                     components={animatedComponents}
                     options={skillsOptions}
-                    onChange={handleSelectChange}
+                    onChange={handleCreateSelectChange}
                 />
 
                 {/* <input       
