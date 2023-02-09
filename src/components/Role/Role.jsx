@@ -7,7 +7,7 @@ const Role = ({ handleCheckboxChange, onUpdateField }) => {
       <form className= "mt-4 justify-content-start ">
         <h6>What is your artistry?</h6>
         <input
-          type="checkbox"
+          type="radio"
           name="role"
           value="Software Engineering"
           id="softwareEngineering"
@@ -16,7 +16,7 @@ const Role = ({ handleCheckboxChange, onUpdateField }) => {
         <label htmlFor="softwareEngineering">Software Engineering</label>
         <br/>
         <input
-          type="checkbox"
+          type="radio"
           name="role"
           value="User Experience"
           id="userExperience"
@@ -25,7 +25,7 @@ const Role = ({ handleCheckboxChange, onUpdateField }) => {
         <label htmlFor="userExperience">User Experience</label>
         <br/>
         <input
-          type="checkbox"
+          type="radio"
           name="role"
           value="Visual Design"
           id="visualDesign"
@@ -34,7 +34,7 @@ const Role = ({ handleCheckboxChange, onUpdateField }) => {
         <label htmlFor="visualDesign">Visual Design</label>
         <br/>
         <input
-          type="checkbox"
+          type="radio"
           name="role"
           value="Product Management"
           id="productManagement"
@@ -43,7 +43,7 @@ const Role = ({ handleCheckboxChange, onUpdateField }) => {
         <label htmlFor="productManagement">Product Management</label>
         <br/>
         <input
-          type="checkbox"
+          type="radio"
           name="role"
           value="Project Management"
           id="projectManagement"
