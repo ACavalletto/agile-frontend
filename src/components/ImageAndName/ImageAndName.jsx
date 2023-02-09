@@ -4,8 +4,8 @@ const ImageAndName = ({ name, image }) => {
     <div>
       <div className="imageEdit">
         <img className="avatar" src={image} alt="user profile image" />
-        // edit button will go next to img so that user can navigate to edit
-        profile page.
+        {/* edit button will go next to img so that user can navigate to edit
+        profile page. */}
       </div>
       <br />
       <h5>{name}</h5>
