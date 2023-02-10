@@ -18,6 +18,7 @@ const Onboarding = () => {
     github: "",
     linkedin: "",
     portfolio: "",
+    interests: "",
     skills: [],
   });
 
