@@ -35,6 +35,21 @@ const UserSocials = ({ onUpdateField }) => {
             style={{ visibility: "hidden" }}
           />
         </div>
+        <div id="githubDiv">
+          <button id="githubBtn" onClick={handleClick}>
+            <i class="fa-brands fa-github"></i>
+          </button>
+          <input
+            type="text"
+            name="github"
+            id="github"
+            className="rounded"
+            onChange={onUpdateField}
+            onBlur={textFocusOut}
+            placeholder="LinkedIn"
+            style={{ visibility: "hidden" }}
+          />
+        </div>
       </form>
     </div>
   );
