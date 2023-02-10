@@ -1,4 +1,4 @@
-import HamburgerMenu from "../../components/HamburgerMenu";
+import HamburgerMenu from "../../components/HamburgerMenu/HamburgerMenu";
 import ImageAndName from "../../components/ImageAndName/ImageAndName";
 import "./Dashboard.css"
 import addPerson from "../../images/add-person/72.png";
