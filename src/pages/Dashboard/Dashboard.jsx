@@ -17,7 +17,7 @@ const Dashboard = ({ user }) => {
       <HamburgerMenu />
       <div className="dashboard">
         <div className="avatar-name">
-          <img src={userAvatar} alt="generic user avatar" /><img className="edit" src={edit} alt="edit image" />
+          <img src={userAvatar} alt="generic user avatar" /><img className="edit" src={edit} alt="edit" />
           <h6>Zack Dorman</h6>
         </div>
         <div className="buttons">
@@ -31,7 +31,7 @@ const Dashboard = ({ user }) => {
             <img src={calendar} alt="calendar" />
           </div>
           <div className="button-icon-bg">
-            <img src={profile} alt="profile link image" />
+            <img src={profile} alt="profile link" />
           </div>
           <div className="button-icon-bg">
             <img src={addPerson} alt="add person" />
