@@ -1,6 +1,7 @@
+import { useState } from "react";
 import "./UserInterests.css";
 
-const UserInterests = ({ onUpdateField }) => {
+const UserInterests = ({ onUpdateArray }) => {
     const topics = [
         "Art",
         "Travel",
@@ -17,6 +18,16 @@ const UserInterests = ({ onUpdateField }) => {
         "Tech",
         "Environment"
     ]
+    const selectedInterests = [];
+
+    function handleSelection(e) {
+        e.target.classList.toggle("selected");
+        selectedInterests.includes(e.target.innerText) ? 
+            selectedInterests.splice(selectedInterests.indexOf(e.target.innerText), 1) 
+            :
+            selectedInterests.push(e.target.innerText);
+        onUpdateArray(e, selectedInterests);
+    }
 
     return (
         <div className="container">
@@ -25,7 +36,7 @@ const UserInterests = ({ onUpdateField }) => {
                 Last step, what're topics that give you meaning?
             </h5>
             <div className="topic-grid mt-4 d-flex flex-wrap justify-content-center">
-                {topics.map(t => <div className="topic-btn d-flex justify-content-center align-items-center">{t}</div>)}
+                {topics.map(t => <div className="btn btn-light topic-btn d-flex justify-content-center align-items-center interests" key={t} onClick={handleSelection}>{t}</div>)}
             </div>
         </div>
     )

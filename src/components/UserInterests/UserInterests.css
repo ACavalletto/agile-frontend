@@ -5,3 +5,6 @@
     margin: 5px;
     border-radius: 20px;
 }
+.selected {
+    background-color: blue;
+}
