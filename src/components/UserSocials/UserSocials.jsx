@@ -3,9 +3,13 @@ import "./UserSocials.css";
 const UserSocials = ({ onUpdateField }) => {
   function handleClick(e) {
     e.preventDefault();
-    console.log(e.target);
-    e.target.style.visibility = "hidden";
-    e.target.nextSibling.style.visibility = "visible";
+    if (e.target.nodeName === "I") {
+      e.target.parentElement.style.visibility = "hidden";
+      e.target.parentElement.nextElementSibling.style.visibility = "visible";
+    } else {
+      e.target.style.visibility = "hidden";
+      e.target.nextElementSibling.style.visibility = "visible";
+    }
   }
   function textFocusOut(e) {
     e.preventDefault();
@@ -22,12 +26,7 @@ const UserSocials = ({ onUpdateField }) => {
       </h5>
       <form className="mt-4" id="socialsForm">
         <div id="linkedinDiv">
-          <button
-            className="rounded"
-            id="linkedinBtn"
-            onClick={handleClick}
-            style={{ visibility: "visible" }}
-          >
+          <button className="rounded" id="linkedinBtn" onClick={handleClick}>
             <i className="fa-brands fa-linkedin"></i>
           </button>
           <input
@@ -43,7 +42,7 @@ const UserSocials = ({ onUpdateField }) => {
         </div>
         <div id="githubDiv">
           <button id="githubBtn" className="rounded" onClick={handleClick}>
-            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github" style={{ color: "black" }}></i>
           </button>
           <input
             type="text"
