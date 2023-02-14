@@ -70,6 +70,21 @@ const UserSocials = ({ onUpdateField }) => {
             style={{ visibility: "hidden" }}
           />
         </div>
+        <div id="portfolioDiv">
+          <button id="portfolioBtn" className="rounded" onClick={handleClick}>
+            Portfolio
+          </button>
+          <input
+            type="text"
+            name="portfolio"
+            id="portfolio"
+            className="rounded"
+            onChange={onUpdateField}
+            onBlur={textFocusOut}
+            placeholder="Portfolio"
+            style={{ visibility: "hidden" }}
+          />
+        </div>
       </form>
     </div>
   );
