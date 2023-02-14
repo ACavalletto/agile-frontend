@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { ToggleButton } from "react-bootstrap";
+import { ToggleButtonGroup } from "react-bootstrap";
 import "./UserInterests.css";
 
 const UserInterests = ({ onUpdateArray }) => {
+    const [selectedInterests, setSelectedInterests] = useState([]);
+    const [value, setValue] = useState([]);
+    const handleChange = (val) => setValue(val);
     const topics = [
         "Art",
         "Travel",
@@ -18,15 +23,16 @@ const UserInterests = ({ onUpdateArray }) => {
         "Tech",
         "Environment"
     ]
-    const selectedInterests = [];
 
     function handleSelection(e) {
-        e.target.classList.toggle("selected");
-        selectedInterests.includes(e.target.innerText) ? 
-            selectedInterests.splice(selectedInterests.indexOf(e.target.innerText), 1) 
+        const i = selectedInterests;
+        i.includes(e.target.innerText) ? 
+            i.splice(i.indexOf(e.target.innerText), 1) 
             :
-            selectedInterests.push(e.target.innerText);
+            i.push(e.target.innerText);
+        setSelectedInterests(i);
         onUpdateArray(e, selectedInterests);
+        console.log(selectedInterests);
     }
 
     return (
@@ -35,9 +41,17 @@ const UserInterests = ({ onUpdateArray }) => {
                 {" "}
                 Last step, what're topics that give you meaning?
             </h5>
-            <div className="topic-grid mt-4 d-flex flex-wrap justify-content-center">
+            {/* <div className="topic-grid mt-4 d-flex flex-wrap justify-content-center">
                 {topics.map(t => <div className="btn btn-light topic-btn d-flex justify-content-center align-items-center interests" key={t} onClick={handleSelection}>{t}</div>)}
-            </div>
+            </div> */}
+            <ToggleButtonGroup className="topic-grid mt-4 d-flex flex-wrap justify-content-center" type="checkbox" value={value} onChange={handleChange}>
+                {topics.map((t, idx) => <ToggleButton className="btn btn-light topic-btn d-flex justify-content-center align-items-center interests" id={t} key={idx} value={idx} onClick={handleSelection}>{t}</ToggleButton>)}
+            </ToggleButtonGroup>
+            <h5 className="mt-5">
+                {" "}
+                What tech do you want to work with?
+            </h5>
+            
         </div>
     )
 }
