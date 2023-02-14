@@ -5,3 +5,35 @@
   margin: auto;
   width: 50%;
 }
+#socialsForm {
+  display: flex;
+  flex-direction: column;
+  height: 45vh;
+}
+#linkedinDiv {
+  position: relative;
+}
+#linkedinDiv button {
+  position: absolute;
+}
+#linkedinDiv input {
+  position: absolute;
+}
+#githubDiv {
+  position: relative;
+}
+#githubDiv button {
+  position: absolute;
+}
+#githubDiv input {
+  position: absolute;
+}
+#twitterDiv {
+  position: relative;
+}
+#twitterDiv button {
+  position: absolute;
+}
+#twitterDiv input {
+  position: absolute;
+}

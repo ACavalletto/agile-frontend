@@ -56,6 +56,21 @@ const UserSocials = ({ onUpdateField }) => {
             style={{ visibility: "hidden" }}
           />
         </div>
+        <div id="twitterDiv">
+          <button id="twitterBtn" className="rounded" onClick={handleClick}>
+            <i class="fa-brands fa-twitter"></i>
+          </button>
+          <input
+            type="text"
+            name="twitter"
+            id="twitter"
+            className="rounded"
+            onChange={onUpdateField}
+            onBlur={textFocusOut}
+            placeholder="Twitter"
+            style={{ visibility: "hidden" }}
+          />
+        </div>
       </form>
     </div>
   );
