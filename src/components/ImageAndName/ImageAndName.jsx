@@ -3,7 +3,7 @@ const ImageAndName = ({ name, image }) => {
   return (
     <div>
       <div className="imageEdit">
-        <img className="avatar" src={image} alt="user profile image" />
+        <img className="avatar" src={image} alt="user profile" />
         {/* edit button will go next to img so that user can navigate to edit
         profile page. */}
       </div>

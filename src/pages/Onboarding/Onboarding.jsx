@@ -18,7 +18,7 @@ const Onboarding = () => {
     github: "",
     linkedin: "",
     portfolio: "",
-    interests: "",
+    interests: [],
     skills: [],
   });
 
@@ -29,6 +29,12 @@ const Onboarding = () => {
     };
     setprofileData(nextFormState);
   };
+
+  const onUpdateArray = (e, arr) => {
+    const nextFormState = profileData;
+    e.target.classList.contains("interests") ? nextFormState.interests = arr : nextFormState.skills = arr;
+    setprofileData(nextFormState);
+  }
 
   const handleCheckboxChange = (e) => {
     if (e.target.checked) {
@@ -94,7 +100,7 @@ const Onboarding = () => {
   } else {
     return (
       <>
-        <UserInterests onUpdateField={onUpdateField} />
+        <UserInterests onUpdateArray={onUpdateArray} />
         <NavigationArrows
           page={page}
           nextPage={nextPage}
