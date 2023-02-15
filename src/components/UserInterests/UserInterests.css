@@ -1,10 +1,10 @@
 .topic-btn {
-    background-color: rgba(217, 217, 217, 1);
-    width: 150px;
-    height: 75px;
-    margin: 5px;
-    border-radius: 20px;
+  background-color: rgba(217, 217, 217, 1);
+  width: 150px;
+  height: 75px;
+  margin: 5px;
+  border-radius: 20px;
 }
 .selected {
-    background-color: blue;
+  background-color: blue;
 }

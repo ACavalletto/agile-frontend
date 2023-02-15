@@ -21,7 +21,6 @@ const UserInterests = ({ onUpdateArray }) => {
   const selectedInterests = [];
 
   function handleSelection(e) {
-    e.preventDefault();
     e.target.classList.toggle("selected");
     selectedInterests.includes(e.target.innerText)
       ? selectedInterests.splice(

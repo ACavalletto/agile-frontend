@@ -5,7 +5,6 @@ import UserInterests from "../../components/UserInterests/UserInterests";
 import UserSocials from "../../components/UserSocials/UserSocials";
 import NavigationArrows from "../../components/NavigationArrows/NavigationArrows.jsx";
 
-
 const Onboarding = () => {
   const [page, setPage] = useState(1);
   const [profileData, setprofileData] = useState({
@@ -32,9 +31,11 @@ const Onboarding = () => {
 
   const onUpdateArray = (e, arr) => {
     const nextFormState = profileData;
-    e.target.classList.contains("interests") ? nextFormState.interests = arr : nextFormState.skills = arr;
+    e.target.classList.contains("interests")
+      ? (nextFormState.interests = arr)
+      : (nextFormState.skills = arr);
     setprofileData(nextFormState);
-  }
+  };
 
   const handleCheckboxChange = (e) => {
     if (e.target.checked) {
@@ -50,10 +51,14 @@ const Onboarding = () => {
       };
       setprofileData(nextFormState);
     }
-  }
+  };
+
+  const handleSubmit = () => {
+    //add Put route to backend to update a profile by passing profileData state when button pressed
+  };
 
   const nextPage = () => {
-    if (page === 5) {
+    if (page === 4) {
       return;
     }
     setPage(page + 1);
@@ -67,7 +72,11 @@ const Onboarding = () => {
   if (page === 1) {
     return (
       <>
-        <Role handleCheckboxChange={handleCheckboxChange} onUpdateField = {onUpdateField} />
+        <Role
+          handleCheckboxChange={handleCheckboxChange}
+          onUpdateField={onUpdateField}
+          profileData={profileData}
+        />
         <NavigationArrows
           page={page}
           nextPage={nextPage}
@@ -78,7 +87,7 @@ const Onboarding = () => {
   } else if (page === 2) {
     return (
       <>
-        <UserBio onUpdateField={onUpdateField} />
+        <UserBio onUpdateField={onUpdateField} profileData={profileData} />
         <NavigationArrows
           page={page}
           nextPage={nextPage}
@@ -89,7 +98,7 @@ const Onboarding = () => {
   } else if (page === 3) {
     return (
       <>
-        <UserSocials onUpdateField={onUpdateField} />
+        <UserSocials onUpdateField={onUpdateField} profileData={profileData} />
         <NavigationArrows
           page={page}
           nextPage={nextPage}
@@ -100,11 +109,15 @@ const Onboarding = () => {
   } else {
     return (
       <>
-        <UserInterests onUpdateArray={onUpdateArray} />
+        <UserInterests
+          onUpdateArray={onUpdateArray}
+          profileData={profileData}
+        />
         <NavigationArrows
           page={page}
           nextPage={nextPage}
           previousPage={previousPage}
+          handleSubmit={handleSubmit}
         />
       </>
     );
