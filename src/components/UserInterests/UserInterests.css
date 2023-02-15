@@ -1,9 +1,13 @@
 .topic-btn {
-  background-color: rgba(217, 217, 217, 1);
-  width: 150px;
-  height: 75px;
-  margin: 5px;
-  border-radius: 20px;
+    /* background-color: rgba(217, 217, 217, 1); */
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    /* border-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px; */
 }
 .selected {
   background-color: blue;
