@@ -14,17 +14,12 @@ function AuthPage({ user }) {
 
   return (
     <main className="auth-page">
-      {console.log(user, "authpage")}
-      <p>AuthPage</p>
       <Helmet>
         <link rel="stylesheet" href="AuthPage.css" />
       </Helmet>
       {login ? (
         <>
-          <div className="auth-page-form">
-            <h1>Log In</h1>
-            <Login />
-          </div>
+          <Login />
           <Link to="" onClick={handleToggle}>
             New here? Sign up!
           </Link>
@@ -32,7 +27,6 @@ function AuthPage({ user }) {
       ) : (
         <>
           <div className="auth-page-form">
-            <h1>Sign Up</h1>
             <SignUp />
           </div>
           <Link to="" onClick={handleToggle}>

@@ -2,6 +2,7 @@ import { auth } from "../../services/firebase";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
+import Dashboard from "../Dashboard/Dashboard";
 import Home from "../Home/Home";
 import AuthPage from "../AuthPage/AuthPage";
 import ProjectList from "../ProjectList/ProjectList";
@@ -9,6 +10,7 @@ import ProjectDetail from "../ProjectDetail/ProjectDetail";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import NewProject from "../NewProject/NewProject";
 import NewProfilePage from "../Profile/NewProfilePage";
+import Onboarding from "../Onboarding/Onboarding";
 import "./App.css";
 
 function App() {
@@ -23,7 +25,6 @@ function App() {
 
   return (
     <main className="App">
-      <p>App.jsx</p>
       {user ? (
         <Routes>
           <Route
@@ -32,6 +33,7 @@ function App() {
 
             element={<Home user={user} />}
           />
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/profile" element={<ProfilePage user={user} />} />
           <Route path="/profilepage" element={<NewProfilePage user={user} />} />
           <Route path="/projects" element={<ProjectList user={user} />} />
@@ -42,7 +44,10 @@ function App() {
           />
         </Routes>
       ) : (
-        <AuthPage user={user} />
+        <Routes>
+          <Route path="/" element={<AuthPage user={user} />} />
+          <Route path="/onboarding" element={<Onboarding user={user} />} />
+        </Routes>
       )}
     </main>
   );

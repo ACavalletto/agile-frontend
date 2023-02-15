@@ -1,0 +1,16 @@
+#bioForm #textArea{
+    text-align:center;
+}
+#bioForm textarea{
+    border-radius: 15px;
+    padding: 18px;
+    background: rgb(197, 196, 196);
+    color: rgb(63, 63, 63);
+}
+#bioForm input{
+    margin-bottom: 15px;
+    padding: 10px;
+}
+#bioForm {
+    margin: 0 15px;
+}
