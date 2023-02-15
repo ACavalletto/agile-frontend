@@ -1,0 +1,52 @@
+#socialsForm button {
+  width: 200px;
+}
+#socialsForm div {
+  margin: auto;
+  width: 50%;
+}
+#socialsForm {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+}
+#socialsForm input {
+  width: 200px;
+  padding: 10px;
+}
+#linkedinDiv {
+  position: relative;
+}
+#linkedinDiv button {
+  position: absolute;
+}
+#linkedinDiv input {
+  position: absolute;
+}
+#githubDiv {
+  position: relative;
+}
+#githubDiv button {
+  position: absolute;
+}
+#githubDiv input {
+  position: absolute;
+}
+#twitterDiv {
+  position: relative;
+}
+#twitterDiv button {
+  position: absolute;
+}
+#twitterDiv input {
+  position: absolute;
+}
+#portfolioDiv {
+  position: relative;
+}
+#portfolioDiv button {
+  position: absolute;
+}
+#portfolioDiv input {
+  position: absolute;
+}
