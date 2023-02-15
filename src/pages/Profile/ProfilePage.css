@@ -1,0 +1,11 @@
+.ProfilePic{
+    border: 1px black solid;
+    border-radius: 25px;
+    margin: 0px auto;
+    padding-left: 0px;
+}
+.closediv{
+    margin:0 auto;
+    padding-left: 150px;
+    padding-right: 150px;
+}

@@ -8,6 +8,7 @@ import ProjectList from "../ProjectList/ProjectList";
 import ProjectDetail from "../ProjectDetail/ProjectDetail";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import NewProject from "../NewProject/NewProject";
+import NewProfilePage from "../Profile/NewProfilePage";
 import "./App.css";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             element={<Home user={user} />}
           />
           <Route path="/profile" element={<ProfilePage user={user} />} />
+          <Route path="/profilepage" element={<NewProfilePage user={user} />} />
           <Route path="/projects" element={<ProjectList user={user} />} />
           <Route path="/projects/new" element={<NewProject user={user} />} />
           <Route
