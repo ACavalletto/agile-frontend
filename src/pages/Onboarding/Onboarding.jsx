@@ -30,9 +30,9 @@ const Onboarding = () => {
     setprofileData(nextFormState);
   };
 
-  const onUpdateArray = (e, arr) => {
+  const onUpdateArray = (property, arr) => {
     const nextFormState = profileData;
-    e.target.classList.contains("interests") ? nextFormState.interests = arr : nextFormState.skills = arr;
+    property === "interests" ? nextFormState.interests = arr : nextFormState.skills = arr;
     setprofileData(nextFormState);
   }
 
