@@ -6,7 +6,7 @@ const ProjectList = ({ user, setUser }) => {
     return (
         <div>
             <h1>ProjectList</h1>
-            <Link to="/">Home</Link>
+            <Link to="/projects/new">Home</Link>
             <button onClick={() => { setUser(false) }}>Logout</button>
             <PageBottomButton buttonText="+ Add New Project" />
         </div>
