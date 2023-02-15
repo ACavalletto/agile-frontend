@@ -1,0 +1,14 @@
+#pageBottomButton{
+    position: fixed;
+    bottom: 0;
+    width: 90vw;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgba(156, 149, 149, 1);
+    border-radius: 10px;
+}
+#pageBottomButton p {
+    margin-bottom: 0;
+    color: black;
+    font-weight: bolder;
+}
