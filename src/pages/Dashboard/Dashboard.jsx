@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import HamburgerMenu from "../../components/HamburgerMenu/HamburgerMenu";
 import ImageAndName from "../../components/ImageAndName/ImageAndName";
 import "./Dashboard.css"
 import addPerson from "../../images/add-person/72.png";
-import blocks from "../../images/blocks/72.png";
+import projects from "../../images/projects/72.png";
 import calendar from "../../images/calendar/72.png";
 import edit from "../../images/edit/24.png";
 import ppl from "../../images/ppl/72.png";
@@ -24,9 +25,11 @@ const Dashboard = ({ user }) => {
           <div className="button-icon-bg">
             <img src={ppl} alt="network" />
           </div>
-          <div className="button-icon-bg">
-            <img src={blocks} alt="blocks" />
-          </div>
+          <Link to="/projects">
+            <div className="button-icon-bg">
+              <img src={projects} alt="projects" />
+            </div>
+          </Link>
           <div className="button-icon-bg">
             <img src={calendar} alt="calendar" />
           </div>
