@@ -1,6 +1,6 @@
 import "./UserSocials.css";
 
-const UserSocials = ({ onUpdateField }) => {
+const UserSocials = ({ onUpdateField, profileData }) => {
   function handleClick(e) {
     e.preventDefault();
     if (e.target.nodeName === "I") {
@@ -30,6 +30,9 @@ const UserSocials = ({ onUpdateField }) => {
             <i className="fa-brands fa-linkedin"></i>
           </button>
           <input
+            {...(profileData.linkedin !== ""
+              ? { value: profileData.linkedin }
+              : {})}
             type="text"
             name="linkedin"
             id="linkedin"
@@ -45,6 +48,9 @@ const UserSocials = ({ onUpdateField }) => {
             <i class="fa-brands fa-github" style={{ color: "black" }}></i>
           </button>
           <input
+            {...(profileData.github !== ""
+              ? { value: profileData.github }
+              : {})}
             type="text"
             name="github"
             id="github"
@@ -60,6 +66,9 @@ const UserSocials = ({ onUpdateField }) => {
             <i class="fa-brands fa-twitter"></i>
           </button>
           <input
+            {...(profileData.twitter !== ""
+              ? { value: profileData.twitter }
+              : {})}
             type="text"
             name="twitter"
             id="twitter"
@@ -67,6 +76,24 @@ const UserSocials = ({ onUpdateField }) => {
             onChange={onUpdateField}
             onBlur={textFocusOut}
             placeholder="Twitter"
+            style={{ visibility: "hidden" }}
+          />
+        </div>
+        <div id="portfolioDiv">
+          <button id="portfolioBtn" className="rounded" onClick={handleClick}>
+            Portfolio
+          </button>
+          <input
+            {...(profileData.portfolio !== ""
+              ? { value: profileData.portfolio }
+              : {})}
+            type="text"
+            name="portfolio"
+            id="portfolio"
+            className="rounded"
+            onChange={onUpdateField}
+            onBlur={textFocusOut}
+            placeholder="Portfolio"
             style={{ visibility: "hidden" }}
           />
         </div>
