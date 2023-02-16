@@ -1,0 +1,9 @@
+input, textarea {
+  background-color: rgba(217, 217, 217, 1);
+}
+h6, .name {
+  display: inline;
+}
+textarea {
+  margin-top: 5px;
+}
