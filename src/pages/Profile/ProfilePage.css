@@ -9,3 +9,119 @@
     padding-left: 150px;
     padding-right: 150px;
 }
+.Socials{
+    display: flex;
+    margin:0 auto;
+    justify-content: center;
+    height: 60px;
+}
+
+.linkedin{
+    background-image: url('/src/images/logos/Vectorlinkedin_thumb.png');
+    background-size: contain;
+    width: 58px;
+    background-repeat: no-repeat;
+}
+.instagram{
+    background-image: url('/src/images/logos/insta_thumb.png');
+    background-size: contain;
+    width: 58px;
+    background-repeat: no-repeat;
+
+}
+.twitter{
+    background-image: url('/src/images/logos/Vectortwitter_thumb.png');
+    background-size: contain;
+    width: 58px;
+    background-repeat: no-repeat;
+}
+.PortfolioButton{
+    background-color: #d9d9d9;
+    margin:0 auto;
+    width: 161px;
+    height: 41px;
+    vertical-align: middle;
+    padding: 10px;
+}
+.Collaborators{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin:0 auto;
+    padding-left: 10px;
+}
+.Collaborators::-webkit-scrollbar{
+    display: none;
+}
+.collab_user{
+    background-color: #d9d9d9;
+    min-width: 63px;
+    border-radius: 30px;
+    min-height: 63px;
+    margin: 0 auto;
+
+}
+.BottomProfPage{
+    display: flex;
+    padding-left: 10px;
+}
+.ProjectStatus{
+    margin-top: 10px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    min-height: 400px;
+    width: 15vh;
+}
+.ProjectStatusSub{
+    border-bottom: 2px solid black;
+    margin: 1rem;
+
+}
+
+.ProjectCollaborators{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin:0 auto;
+    padding-left: 10px;
+    width: 30vh;
+}
+.ProjectCollaborators::-webkit-scrollbar{
+    display: none;
+}
+.Project_collab_user{
+    background-color: #d9d9d9;
+    min-width: 42px;
+    border-radius: 30px;
+    min-height: 42px;
+    margin: 0 auto;
+
+}
+
+.ProjectBio{
+    margin-bottom: 20px;
+}
+
+.ProjectTools{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin:0 auto;
+    padding-left: 10px;
+    width: 30vh;
+}
+.ProjectTools::-webkit-scrollbar{
+    display: none;
+}
+.ProjectTools_tool{
+    background-color: #d9d9d9;
+    min-width: 32px;
+    border-radius: 30px;
+    min-height: 32px;
+    margin: 0 auto;
+
+}
