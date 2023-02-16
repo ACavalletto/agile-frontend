@@ -4,7 +4,7 @@ import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
 
-function ProjectForm( {projectInfo}, {setProjectInfo} ) {
+function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
   // Options for React-Select dropdown menus
   const [isClearable, setIsClearable] = useState(true);
   const animatedComponents = makeAnimated();
@@ -50,9 +50,6 @@ function ProjectForm( {projectInfo}, {setProjectInfo} ) {
     { name: "roles", value: "pm", label: "Project Manager"},
   ]
 
-  const handleChange =({ currentTarget: input}) => {
-    setProjectInfo({...projectInfo,[input.name]:input.value})
-  }
   const handleSelectChange = (choices) => {
     const tempProjectInfo = {...projectInfo};
     tempProjectInfo[choices[choices.length-1].name] = choices.map(c => c.value);
