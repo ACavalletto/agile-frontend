@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import HamburgerMenu from "../../components/HamburgerMenu/HamburgerMenu";
 import ImageAndName from "../../components/ImageAndName/ImageAndName";
 import "./Dashboard.css"
 import addPerson from "../../images/add-person/72.png";
@@ -15,7 +14,6 @@ const Dashboard = ({ user }) => {
   console.log(user)
   return (
     <div>
-      <HamburgerMenu />
       <div className="dashboard">
         <div className="avatar-name">
           <img src={userAvatar} alt="generic user avatar" /><img className="edit" src={edit} alt="edit" />
