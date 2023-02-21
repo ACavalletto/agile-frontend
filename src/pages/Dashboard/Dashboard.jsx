@@ -7,7 +7,6 @@ import calendar from "../../images/calendar/72.png";
 import edit from "../../images/edit/24.png";
 import ppl from "../../images/ppl/72.png";
 import profile from "../../images/profile/72.png";
-import speechBubble from "../../images/speech-bubble/72.png";
 import userAvatar from "../../images/user-profile/72.png";
 
 const Dashboard = ({ user }) => {
@@ -37,14 +36,6 @@ const Dashboard = ({ user }) => {
           <div className="button-icon-bg">
             <img src={addPerson} alt="add person" />
           </div>
-        </div>
-        <hr />
-        <div>
-          <h6>You've Got Mail</h6>
-          {/* Once we have message data to fetch, this can use .map to form an array of images, and odd-numbered indeces can be tagged to have CSS reverse the speech bubble image per the wireframe. */}
-          <img className="speech-bubble" src={speechBubble} alt="message icon" />
-          <img className="speech-bubble"  src={speechBubble} alt="message icon" />
-          <img className="speech-bubble"  src={speechBubble} alt="message icon" />
         </div>
         <hr />
         <div>
