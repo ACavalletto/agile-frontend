@@ -87,7 +87,6 @@ function NewProject (user){
 
   return (
     <div className="new-project-page">
-      <HamburgerMenu />
       <Link to="/">Home</Link>
       { formToggle ? 
         <>
