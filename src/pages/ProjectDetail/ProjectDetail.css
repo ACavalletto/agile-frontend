@@ -1,0 +1,8 @@
+.project-detail-page {
+  padding: 10px 20px;
+}
+.project-info > p {
+  text-align: left;
+  font-size: smaller;
+  margin-bottom: 0;
+}

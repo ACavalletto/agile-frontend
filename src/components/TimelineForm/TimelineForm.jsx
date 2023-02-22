@@ -1,11 +1,6 @@
 import "./TimelineForm.css";
 
-function TimelineForm({ projectInfo, setProjectInfo }) {
-  function handleChange({ currentTarget: input}) {
-    const tempProjInfo = {...projectInfo};
-    tempProjInfo.timeline[input.name.slice(0, 6)][input.name.slice(7)] = input.value;
-    setProjectInfo(tempProjInfo);
-  }
+function TimelineForm({ projectInfo, setProjectInfo, handleTimelineChange }) {
 
   return (
     <div className="timeline-form">
@@ -19,7 +14,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
             type="text" 
             placeholder="Stage 1 Name"
             name="stage1.name"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage1.name}
             required
             />
@@ -28,7 +23,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
           <textarea
             placeholder="Brief Description"
             name="stage1.description"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage1.description}
             required
           />
@@ -42,7 +37,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
             type="text" 
             placeholder="Stage 2 Name"
             name="stage2.name"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage2.name}
             required
             />
@@ -51,7 +46,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
           <textarea
             placeholder="Brief Description"
             name="stage2.description"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage2.description}
             required
           />
@@ -65,7 +60,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
             type="text" 
             placeholder="Stage 3 Name"
             name="stage3.name"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage3.name}
             required
             />
@@ -74,7 +69,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
           <textarea
             placeholder="Brief Description"
             name="stage3.description"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage3.description}
             required
           />
@@ -88,7 +83,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
             type="text" 
             placeholder="Stage 4 Name"
             name="stage4.name"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage4.name}
             required
             />
@@ -97,7 +92,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
           <textarea
             placeholder="Brief Description"
             name="stage4.description"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage4.description}
             required
           />
@@ -111,7 +106,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
             type="text" 
             placeholder="Stage 5 Name"
             name="stage5.name"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage5.name}
             required
             />
@@ -120,7 +115,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
           <textarea
             placeholder="Brief Description"
             name="stage5.description"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage5.description}
             required
           />
@@ -134,7 +129,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
             type="text" 
             placeholder="Stage 6 Name"
             name="stage6.name"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage6.name}
             required
             />
@@ -143,7 +138,7 @@ function TimelineForm({ projectInfo, setProjectInfo }) {
           <textarea
             placeholder="Brief Description"
             name="stage6.description"
-            onChange={handleChange}
+            onChange={handleTimelineChange}
             value={projectInfo.timeline.stage6.description}
             required
           />

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
+import "./ProjectForm.css";
 
 function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
   // Options for React-Select dropdown menus
@@ -26,20 +26,22 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
     { name: "tech", value: "vue", label: "Vue"},
   ]
   const categoryOptions = [
-    { name: "categories", value: "art", label: "Art"},
-    { name: "categories", value: "travel", label: "Travel"},
-    { name: "categories", value: "social", label: "Social"},
-    { name: "categories", value: "religion", label: "Religion"},
-    { name: "categories", value: "media", label: "Media"},
-    { name: "categories", value: "finance", label: "Finance"},
-    { name: "categories", value: "sports", label: "Sports"},
-    { name: "categories", value: "education", label: "Education"},
-    { name: "categories", value: "medical", label: "Medical"},
-    { name: "categories", value: "culture", label: "Culture"},
-    { name: "categories", value: "career", label: "Career"},
-    { name: "categories", value: "social-justice", label: "Social Justice"},
-    { name: "categories", value: "tech", label: "Tech"},
-    { name: "categories", value: "environment", label: "Environment"},
+    { name: "categories", value: "ART", label: "Art"},
+    { name: "categories", value: "CAR", label: "Career"},
+    { name: "categories", value: "COM", label: "Community"},
+    { name: "categories", value: "CUL", label: "Culture"},
+    { name: "categories", value: "ECO", label: "Environment"},
+    { name: "categories", value: "EDU", label: "Education"},
+    { name: "categories", value: "FNC", label: "Finance"},
+    { name: "categories", value: "FOD", label: "Food"},
+    { name: "categories", value: "MED", label: "Media/Pop Culture"},
+    { name: "categories", value: "MD", label: "Medical"},
+    { name: "categories", value: "REL", label: "Religion"},
+    { name: "categories", value: "SOC", label: "Social"},
+    { name: "categories", value: "SJ", label: "Social Justice"},
+    { name: "categories", value: "SPT", label: "Sports"},
+    { name: "categories", value: "IT", label: "Technology"},
+    { name: "categories", value: "TRV", label: "Travel"},
   ]
   const roleOptions = [
     { name: "roles", value: "ux", label: "UX"},
@@ -50,14 +52,19 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
     { name: "roles", value: "pm", label: "Project Manager"},
   ]
 
-  const handleSelectChange = (choices) => {
+  const handleSelectRolesChange = (choices) => {
     const tempProjectInfo = {...projectInfo};
-    tempProjectInfo[choices[choices.length-1].name] = choices.map(c => c.value);
+    choices.length ? tempProjectInfo.roles = choices.map(c => c.value) : tempProjectInfo.roles = [""];
+    setProjectInfo(tempProjectInfo);
+  }
+  const handleSelectCategoriesChange = (choices) => {
+    const tempProjectInfo = {...projectInfo};
+    choices.length ? tempProjectInfo.categories = choices.map(c => c.value) : tempProjectInfo.categories = [""];
     setProjectInfo(tempProjectInfo);
   }
   const handleCreateSelectChange = (choices) => {
     const tempProjectInfo = {...projectInfo};
-    tempProjectInfo.skills = choices.map(c => c.value.toLowerCase())
+    tempProjectInfo.tech = choices.map(c => c.value.toLowerCase())
     setProjectInfo(tempProjectInfo);
   }
 
@@ -75,7 +82,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
           required
           />
       </div>
-      <div id="projDescription">
+      <div id="projectDescription">
         <h6>Project Description:</h6>
         <textarea
           placeholder="Description"
@@ -97,7 +104,6 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
           onChange={handleCreateSelectChange}
         />
       </div>
-      {/* This still doesn't clear properly */}
       <div id="projectRoles">
         <h6>Roles:</h6>
         <Select
@@ -106,38 +112,26 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
           isClearable={isClearable}
           components={animatedComponents}
           options={roleOptions}
-          onChange={handleSelectChange}
+          onChange={handleSelectRolesChange}
+          className="basic-multi-select"
+          classNamePrefix="select"
         />
       </div>
-      {/* This still doesn't clear properly */}
       <div id="projectCategories">
         <h6>Categories:</h6>
         <Select
           name="categories"
           isMulti
+          isClearable={isClearable}
           components={animatedComponents}
           options={categoryOptions}
-          onChange={handleSelectChange}
+          onChange={handleSelectCategoriesChange}
+          className="basic-multi-select"
+          classNamePrefix="select"
         />
       </div>
       <div id="projectLinks">
         <h6>Project Resource Links:</h6>
-        <p>GitHub</p>
-        <input
-          type="text" 
-          placeholder="http://www.github.com/"
-          name="gitHubLink"
-          onChange={handleChange}
-          value={projectInfo.gitHubLink}
-        />
-        <p>Zoom</p>
-        <input
-          type="text" 
-          placeholder="http://www.zoom.com/"
-          name="zoomLink"
-          onChange={handleChange}
-          value={projectInfo.zoomLink}
-        />
         <p>Figma</p>
         <input
           type="text" 
@@ -146,13 +140,69 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
           onChange={handleChange}
           value={projectInfo.figmaLink}
         />
-        <p>Other</p>
+        <p>GitHub (Frontend or Whole Project)</p>
         <input
           type="text" 
-          placeholder="http://www.anything.com/"
-          name="otherLink"
+          placeholder="http://www.github.com/"
+          name="gitHubFrontendLink"
           onChange={handleChange}
-          value={projectInfo.otherLink}
+          value={projectInfo.gitHubFrontendLink}
+        />
+        <p>GitHub (Backend if separate)</p>
+        <input
+          type="text" 
+          placeholder="http://www.github.com/"
+          name="gitHubLink"
+          onChange={handleChange}
+          value={projectInfo.gitHubBackendLink}
+        />
+        <p>Google Drive Link</p>
+        <input
+          type="text" 
+          placeholder="http://www.drive.google.com/"
+          name="googleDriveLink"
+          onChange={handleChange}
+          value={projectInfo.googleDriveLink}
+        />
+        <p>Jira Link</p>
+        <input
+          type="text" 
+          placeholder="http://www.jira.com/"
+          name="jiraLink"
+          onChange={handleChange}
+          value={projectInfo.jiraLink}
+        />
+        <p>Microsoft Teams Link</p>
+        <input
+          type="text" 
+          placeholder="https://www.microsoft.com/en-us/microsoft-teams/log-in"
+          name="microsoftTeamsLink"
+          onChange={handleChange}
+          value={projectInfo.microsoftTeamsLink}
+        />
+        <p>Slack Link</p>
+        <input
+          type="text" 
+          placeholder="http://www.slack.com/"
+          name="slackLink"
+          onChange={handleChange}
+          value={projectInfo.slackLink}
+        />
+        <p>Trello Link</p>
+        <input
+          type="text" 
+          placeholder="http://www.trello.com/"
+          name="trelloLink"
+          onChange={handleChange}
+          value={projectInfo.trelloLink}
+        />
+        <p>Zoom</p>
+        <input
+          type="text" 
+          placeholder="http://www.zoom.com/"
+          name="zoomLink"
+          onChange={handleChange}
+          value={projectInfo.zoomLink}
         />
       </div>
     </div>
