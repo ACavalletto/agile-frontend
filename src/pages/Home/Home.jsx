@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { logout } from "../../services/firebase";
-import HamburgerMenu from "../../components/HamburgerMenu/HamburgerMenu";
+import NavBar from "../../components/NavBar/NavBar";
 
 const Home = ({ user }) => {
   return (
     <div>
-      <HamburgerMenu />
+      <NavBar />
       <h1>Home</h1>
       <Link to="/projects">See Projects</Link>
       <br />
