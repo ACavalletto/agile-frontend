@@ -1,6 +1,11 @@
 import "./UserBio.css";
+import { useState } from "react";
 
 const UserBio = ({ onUpdateField, profileData }) => {
+  const [characterCount, setcharacterCount] = useState(0);
+  function updateCharacterCount(e) {
+    setcharacterCount(e.target.value.length);
+  }
   return (
     <div className="container">
       <h5 className="mt-5"> Now it's time for you to introduce yourself...</h5>
@@ -29,7 +34,13 @@ const UserBio = ({ onUpdateField, profileData }) => {
           `}
             maxLength="150"
             onChange={onUpdateField}
+            onInput={updateCharacterCount}
           ></textarea>
+          <div className="row justify-content-end">
+            <div className="col-2">
+              <span>{characterCount}/150</span>
+            </div>
+          </div>
         </div>
       </form>
     </div>

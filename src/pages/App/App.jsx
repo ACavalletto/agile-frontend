@@ -40,7 +40,7 @@ function App() {
     };
   }, []);
 
-  const URL = "https://agile-backend1.herokuapp.com/";
+  const URL = "https://launchpad-backend.herokuapp.com/";
 
   return (
     <main className="App">

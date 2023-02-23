@@ -24,10 +24,9 @@ const Onboarding = ({ user, URL }) => {
   async function newUser() {
     const options = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(profileData),
+      body: profileData,
     };
-    const response = await fetch(URL + "register/" + user.uid + "/", options);
+    const response = await fetch(URL + "profiles/", options);
     console.log(response);
   }
 
