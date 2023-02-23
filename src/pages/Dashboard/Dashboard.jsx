@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import NavBar from "../../components/NavBar/NavBar";
-import ImageAndName from "../../components/ImageAndName/ImageAndName";
 import "./Dashboard.css";
 import addPerson from "../../images/add-person/72.png";
 import projects from "../../images/projects/72.png";
@@ -15,7 +13,6 @@ const Dashboard = ({ user }) => {
   console.log(user);
   return (
     <div>
-      <NavBar />
       <div className="dashboard">
         <div className="avatar-name">
           <img src={userAvatar} alt="generic user avatar" />
