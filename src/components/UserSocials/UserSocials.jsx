@@ -45,7 +45,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
         </div>
         <div id="githubDiv">
           <button id="githubBtn" className="rounded" onClick={handleClick}>
-            <i class="fa-brands fa-github" style={{ color: "black" }}></i>
+            <i className="fa-brands fa-github" style={{ color: "black" }}></i>
           </button>
           <input
             {...(profileData.github !== ""
@@ -63,7 +63,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
         </div>
         <div id="twitterDiv">
           <button id="twitterBtn" className="rounded" onClick={handleClick}>
-            <i class="fa-brands fa-twitter"></i>
+            <i className="fa-brands fa-twitter"></i>
           </button>
           <input
             {...(profileData.twitter !== ""

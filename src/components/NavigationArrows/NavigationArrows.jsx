@@ -2,7 +2,7 @@ import "./NavigationArrows.css";
 
 const NavigationArrows = (props) => {
   return (
-    <div className="container text-center" id="navContainer">
+    <div className="container text-center fixed-bottom" id="navContainer">
       <div className="row">
         {props.page !== 1 ? (
           <div className="col">
@@ -25,7 +25,7 @@ const NavigationArrows = (props) => {
             </button>
           </div>
         ) : (
-          <div className="col">
+          <div className="col" id="btnCol">
             <button
               type="button"
               class="btn btn-primary"

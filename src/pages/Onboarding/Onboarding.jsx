@@ -5,11 +5,12 @@ import UserInterests from "../../components/UserInterests/UserInterests";
 import UserSocials from "../../components/UserSocials/UserSocials";
 import NavigationArrows from "../../components/NavigationArrows/NavigationArrows.jsx";
 
-const Onboarding = () => {
+const Onboarding = ({ user, URL }) => {
   const [page, setPage] = useState(1);
   const [profileData, setprofileData] = useState({
-    uid: "",
+    uid: user.uid,
     name: "",
+    photo: "",
     role: "",
     city: "",
     bio: "",
@@ -20,6 +21,14 @@ const Onboarding = () => {
     interests: [],
     skills: [],
   });
+  async function newUser() {
+    const options = {
+      method: "POST",
+      body: profileData,
+    };
+    const response = await fetch(URL + "profiles/", options);
+    console.log(response);
+  }
 
   const onUpdateField = (e) => {
     const nextFormState = {
@@ -30,8 +39,10 @@ const Onboarding = () => {
   };
 
   const onUpdateArray = (property, arr) => {
-    const nextFormState = profileData;
-    property === "interests" ? nextFormState.interests = arr : nextFormState.skills = arr;
+    const nextFormState = { ...profileData };
+    property === "interests"
+      ? (nextFormState.interests = arr)
+      : (nextFormState.skills = arr);
     setprofileData(nextFormState);
   };
 
@@ -52,7 +63,7 @@ const Onboarding = () => {
   };
 
   const handleSubmit = () => {
-    //add Put route to backend to update a profile by passing profileData state when button pressed
+    newUser();
   };
 
   const nextPage = () => {
@@ -106,18 +117,20 @@ const Onboarding = () => {
     );
   } else {
     return (
-      <>
-        <UserInterests
-          onUpdateArray={onUpdateArray}
-          profileData={profileData}
-        />
-        <NavigationArrows
-          page={page}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          handleSubmit={handleSubmit}
-        />
-      </>
+      <div className="container">
+        <div className="col">
+          <UserInterests
+            onUpdateArray={onUpdateArray}
+            profileData={profileData}
+          />
+          <NavigationArrows
+            page={page}
+            nextPage={nextPage}
+            previousPage={previousPage}
+            handleSubmit={handleSubmit}
+          />
+        </div>
+      </div>
     );
   }
 };

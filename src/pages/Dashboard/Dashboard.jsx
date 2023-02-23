@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import ImageAndName from "../../components/ImageAndName/ImageAndName";
-import "./Dashboard.css"
+import "./Dashboard.css";
 import addPerson from "../../images/add-person/72.png";
 import projects from "../../images/projects/72.png";
 import calendar from "../../images/calendar/72.png";
@@ -10,12 +9,13 @@ import profile from "../../images/profile/72.png";
 import userAvatar from "../../images/user-profile/72.png";
 
 const Dashboard = ({ user }) => {
-  console.log(user)
+  console.log(user);
   return (
     <div>
       <div className="dashboard">
         <div className="avatar-name">
-          <img src={userAvatar} alt="generic user avatar" /><img className="edit" src={edit} alt="edit" />
+          <img src={userAvatar} alt="generic user avatar" />
+          <img className="edit" src={edit} alt="edit" />
           <h6>Zack Dorman</h6>
         </div>
         <div className="buttons">
@@ -50,7 +50,6 @@ const Dashboard = ({ user }) => {
 
               <li>Task Name</li>
               <p>Project Name / Assigned By ___ /Due: ___ via ___</p>
-
             </ul>
           </div>
         </div>
@@ -64,10 +63,10 @@ const Dashboard = ({ user }) => {
         </div>
         <hr />
         <div>
-          <h6>Next Rack: World Changer</h6>    
+          <h6>Next Rack: World Changer</h6>
           <div className="rank-panel">
             <p>15/100 POINTS</p>
-          </div>      
+          </div>
         </div>
       </div>
     </div>
