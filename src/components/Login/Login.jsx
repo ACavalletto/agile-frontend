@@ -2,7 +2,26 @@ import { googleLogin } from "../../services/firebase";
 import LoginForm from "../LoginForm/LoginForm";
 import "./Login.css";
 
-const Login = ({ setUser }) => {
+const Login = ({ user, URL, setUser }) => {
+  async function newUser() {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: {
+        name: "",
+        role: "",
+        city: "",
+        bio: "",
+        twitter: "",
+        github: "",
+        linkedin: "",
+        portfolio: "",
+        interests: [],
+        skills: [],
+      },
+    };
+    const response = await fetch(URL + "/users/" + user.uid + "/", options);
+  }
   return (
     <div className="container" style={{ marginTop: 50 }}>
       <div className="row">
@@ -31,7 +50,7 @@ const Login = ({ setUser }) => {
               googleLogin();
             }}
           >
-            <i class="fa-brands fa-google"></i>
+            <i className="fa-brands fa-google"></i>
           </button>
         </div>
       </div>

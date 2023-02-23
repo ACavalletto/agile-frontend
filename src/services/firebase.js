@@ -47,7 +47,6 @@ function emailLogin(email, password) {
 
 function googleLogin() {
   auth.signInWithPopup(googleAuth);
-  return redirect("/");
 }
 
 function logout() {

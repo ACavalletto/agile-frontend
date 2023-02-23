@@ -1,11 +1,13 @@
-#navContainer{
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 20px;
-}
 i {
- color: blue;   
+  color: blue;
 }
-#page{
-    margin:auto;
+#page {
+  margin: auto;
+}
+#navContainer {
+  margin-top: 50px;
+  background: white;
+}
+button {
+  margin-block: 10px;
 }

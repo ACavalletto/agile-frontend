@@ -11,9 +11,27 @@ import ProfilePage from "../ProfilePage/ProfilePage";
 import NewProject from "../NewProject/NewProject";
 import Onboarding from "../Onboarding/Onboarding";
 import "./App.css";
-
 function App() {
   const [user, setUser] = useState(null);
+  // async function newUser() {
+  //   const options = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: {
+  //       name: "",
+  //       role: "",
+  //       city: "",
+  //       bio: "",
+  //       twitter: "",
+  //       github: "",
+  //       linkedin: "",
+  //       portfolio: "",
+  //       interests: [],
+  //       skills: [],
+  //     },
+  //   };
+  //   const response = await fetch(URL + "/users/" + user.uid + "/", options);
+  // }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user));
@@ -21,6 +39,8 @@ function App() {
       unsubscribe();
     };
   }, []);
+
+  const URL = "https://agile-backend1.herokuapp.com/";
 
   return (
     <main className="App">
@@ -31,6 +51,10 @@ function App() {
             // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
 
             element={<Home user={user} />}
+          />
+          <Route
+            path="/onboarding"
+            element={<Onboarding user={user} URL={URL} />}
           />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/profile" element={<ProfilePage user={user} />} />
@@ -43,8 +67,7 @@ function App() {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<AuthPage user={user} />} />
-          <Route path="/onboarding" element={<Onboarding user={user} />} />
+          <Route path="/" element={<AuthPage user={user} URL={URL} />} />
         </Routes>
       )}
     </main>
