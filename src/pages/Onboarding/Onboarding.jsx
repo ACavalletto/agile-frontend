@@ -19,7 +19,7 @@ const Onboarding = ({ user, URL }) => {
     linkedin: "",
     portfolio: "",
     interests: [],
-    skills: [],
+    tech: [],
   });
   async function newUser() {
     const options = {
