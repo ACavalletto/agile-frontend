@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import Dashboard from "../Dashboard/Dashboard";
-import HamburgerMenu from "../../components/HamburgerMenu/HamburgerMenu";
 import Home from "../Home/Home";
 import NewProject from "../NewProject/NewProject";
 import NewProfilePage from "../Profile/NewProfilePage";
