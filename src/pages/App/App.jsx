@@ -2,14 +2,16 @@ import { auth } from "../../services/firebase";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
-import Dashboard from "../Dashboard/Dashboard";
-import Home from "../Home/Home";
 import AuthPage from "../AuthPage/AuthPage";
-import ProjectList from "../ProjectList/ProjectList";
-import ProjectDetail from "../ProjectDetail/ProjectDetail";
-import ProfilePage from "../ProfilePage/ProfilePage";
+import Dashboard from "../Dashboard/Dashboard";
+import HamburgerMenu from "../../components/HamburgerMenu/HamburgerMenu";
+import Home from "../Home/Home";
 import NewProject from "../NewProject/NewProject";
+import NewProfilePage from "../Profile/NewProfilePage";
 import Onboarding from "../Onboarding/Onboarding";
+import ProjectDetail from "../ProjectDetail/ProjectDetail";
+import ProjectList from "../ProjectList/ProjectList";
+import ProfilePage from "../ProfilePage/ProfilePage";
 import "./App.css";
 function App() {
   const [user, setUser] = useState(null);
@@ -41,8 +43,10 @@ function App() {
             />
             <Route path="/dashboard" element={<Dashboard user={user} />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
+            <Route path="/profilepage" element={<NewProfilePage user={user} />} />
             <Route path="/projects" element={<ProjectList user={user} />} />
             <Route path="/projects/new" element={<NewProject user={user} />} />
+            <Route path="/projects/detail" element={<ProjectDetail user={user} />} /> {/* Dummy route for temporary building purposes*/}
             <Route
               path="/projects/:projectId"
               element={<ProjectDetail user={user} />}
