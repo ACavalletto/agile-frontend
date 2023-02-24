@@ -7,9 +7,20 @@ import edit from "../../images/edit/24.png";
 import ppl from "../../images/ppl/72.png";
 import profile from "../../images/profile/72.png";
 import userAvatar from "../../images/user-profile/72.png";
+import * as projectsAPI from "../../utilities/projects-api";
+import * as profilesAPI from "../../utilities/profiles-api";
 
 const Dashboard = ({ user }) => {
-  console.log(user);
+
+  // Sample calls (we wouuldn't actually want to get either of these variables on this page)
+  async function getAllProjects() {
+    const allProjects = await projectsAPI.getAllProjects();
+    const allProfiles = await profilesAPI.getLoggedInUserProfile();
+    console.log(allProjects);
+    console.log(allProfiles);
+  }
+  getAllProjects();
+
   return (
     <div>
       <div className="dashboard">
