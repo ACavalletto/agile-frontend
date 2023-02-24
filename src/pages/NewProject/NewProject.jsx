@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import HamburgerMenu from "../../components/HamburgerMenu/HamburgerMenu";
 import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TimelineForm from "../../components/TimelineForm/TimelineForm";
 import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
 
 function NewProject (user){
-  console.log(user)
   const [formToggle, setFormToggle] = useState(true);
   const [projectInfo, setProjectInfo] = useState({
     title:"",
@@ -81,6 +79,16 @@ function NewProject (user){
     formData.trello_link = formData.trelloLink;
     formData.zoom_link = formData.zoomLink;
     console.log(formData);
+
+    // Testing API calls
+    // var requestOptions = {
+    //   method: 'GET',
+    //   redirect: 'follow'
+    // };
+    // fetch("https://agile-backend1.herokuapp.com/users/2", requestOptions)
+    //   .then(response => response.text())
+    //   .then(result => console.log(result))
+    //   .catch(error => console.log('error', error));
 
     // Sends projectInfo to projects POST route (once said route is created)
   }
