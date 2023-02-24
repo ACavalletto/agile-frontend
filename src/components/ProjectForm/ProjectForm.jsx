@@ -44,12 +44,11 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
     { name: "categories", value: "TRV", label: "Travel"},
   ]
   const roleOptions = [
-    { name: "roles", value: "ux", label: "UX"},
-    { name: "roles", value: "design", label: "Design"},
-    { name: "roles", value: "front-end", label: "Front-end"},
-    { name: "roles", value: "back-end", label: "Back-end"},
-    { name: "roles", value: "full-stack", label: "Full-stack"},
-    { name: "roles", value: "pm", label: "Project Manager"},
+    { name: "roles", value: "UX", label: "UX/UI Designer"},
+    { name: "roles", value: "FE", label: "Front-end"},
+    { name: "roles", value: "BE", label: "Back-end"},
+    { name: "roles", value: "FS", label: "Full-stack"},
+    { name: "roles", value: "PM", label: "Project Manager"},
   ]
 
   const handleSelectRolesChange = (choices) => {
