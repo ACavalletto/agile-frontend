@@ -77,7 +77,6 @@ function NewProject ({ user, profile }){
 
   return (
     <div className="new-project-page">
-      <Link to="/">Home</Link>
       { formToggle ? 
         <>
           <ProjectForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleChange={handleChange} />
