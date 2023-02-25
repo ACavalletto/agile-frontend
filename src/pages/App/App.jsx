@@ -46,15 +46,12 @@ function App() {
           <Routes>
             <Route
               path="/"
-              // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
-
-              element={<Home user={user} profile={profile} />}
+              element={<Dashboard user={user} profile={profile} />}
             />
             <Route
               path="/onboarding"
               element={<Onboarding user={user} URL={URL} />}
             />
-            <Route path="/dashboard" element={<Dashboard user={user} />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/profilepage" element={<NewProfilePage user={user} />} />
             <Route path="/projects" element={<ProjectList user={user} />} />
