@@ -14,16 +14,13 @@ const Dashboard = ({ user }) => {
 
   // Sample calls (we wouuldn't actually want to get either of these variables on this page)
   async function sampleAPICalls() {
-    const allProjects = await projectsAPI.getAllProjects();
-    const currentUserProfile = await profilesAPI.getLoggedInUserProfile();
     const sampleProjectData = {
       creator: "63f90d1a1c26a298bee25e59",
-      title: "Test Project"
+      title: "Another test Project"
     }
+    // const allProjects = await projectsAPI.getAllProjects();
+    // const currentUserProfile = await profilesAPI.getLoggedInUserProfile();
     const newProject = await projectsAPI.addProject(sampleProjectData);
-    console.log(allProjects);
-    console.log(currentUserProfile);
-    console.log(newProject);
   }
   sampleAPICalls();
 
