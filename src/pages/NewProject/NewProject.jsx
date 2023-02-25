@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TimelineForm from "../../components/TimelineForm/TimelineForm";
 import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
+import * as projectsAPI from "../../utilities/projects-api";
 
-function NewProject (user){
+function NewProject ({ user, profile }){
   const [formToggle, setFormToggle] = useState(true);
   const [projectInfo, setProjectInfo] = useState({
     title:"",
-    projMembers:[""],
+    members:[],
     description:"",
-    tech:[""],
+    tech:[],
     timeline: {
       stage1: {
         name: "",
@@ -37,8 +38,8 @@ function NewProject (user){
         description: ""
       },
     },
-    roles:[""],
-    categories:[""],
+    roles:[],
+    categories:[],
     figmaLink: "",
     gitHubFrontendLink: "",
     gitHubBackendLink: "",
@@ -61,36 +62,17 @@ function NewProject (user){
     tempProjInfo.timeline[input.name.slice(0, 6)][input.name.slice(7)] = input.value;
     setProjectInfo(tempProjInfo);
   }
-  function handleSubmit() {
+  async function handleSubmit() {
     console.log(projectInfo)
 
-    // Formats data object for Python model
+    // Formats data object for model
     const formData = {...projectInfo};
-    formData.profile = user.uid;
-    formData.topics = [...formData.categories];
-    formData.project_members = [...formData.projMembers];
-    formData.figma_link = formData.figmaLink;
-    formData.gitub_frontend_link = formData.gitHubFrontendLink;
-    formData.gitub_backend_link = formData.gitHubBackendLink;
-    formData.google_drive_link = formData.googleDriveLink;
-    formData.jira_link = formData.jiraLink;
-    formData.microsoft_teams_link = formData.microsoftTeamsLink;
-    formData.slack_link = formData.slackLink;
-    formData.trello_link = formData.trelloLink;
-    formData.zoom_link = formData.zoomLink;
+    formData.creator = profile._id;
+    formData.members.push(profile._id)
     console.log(formData);
 
-    // Testing API calls
-    // var requestOptions = {
-    //   method: 'GET',
-    //   redirect: 'follow'
-    // };
-    // fetch("https://agile-backend1.herokuapp.com/users/2", requestOptions)
-    //   .then(response => response.text())
-    //   .then(result => console.log(result))
-    //   .catch(error => console.log('error', error));
-
-    // Sends projectInfo to projects POST route (once said route is created)
+    const newProject = await projectsAPI.addProject(formData);
+    console.log(newProject);
   }
 
   return (
