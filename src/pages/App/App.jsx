@@ -4,15 +4,14 @@ import { Route, Routes } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import Dashboard from "../Dashboard/Dashboard";
-import Home from "../Home/Home";
 import NewProject from "../NewProject/NewProject";
 import NewProfilePage from "../Profile/NewProfilePage";
 import Onboarding from "../Onboarding/Onboarding";
 import ProjectDetail from "../ProjectDetail/ProjectDetail";
 import ProjectList from "../ProjectList/ProjectList";
 import ProfilePage from "../ProfilePage/ProfilePage";
-import "./App.css";
 import * as profilesAPI from "../../utilities/profiles-api";
+import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
