@@ -3,14 +3,19 @@ import { useParams } from "react-router-dom";
 import CurrentTeam from "../../components/CurrentTeam/CurrentTeam";
 import ResourceLinks from "../../components/ResourceLinks/ResourceLinks";
 import Timeline from "../../components/Timeline/Timeline";
+import * as projectsAPI from "../../utilities/projects-api";
 import "./ProjectDetail.css";
 
 const ProjectDetail = ({ user }) => {
   const [project, setProject] = useState(null);
   
-  // useEffect
-    //  get project id using useParams
-    // API call to get project info, set to 
+  useEffect(function() {
+    (async function getProject() {
+      // Hard codes project ID temporarily
+      const project = await projectsAPI.showProject("63f92d2e745b13be4c310ba8")
+      console.log(project)
+    })()
+  })
 
   return (
     <div className="project-detail-page">
