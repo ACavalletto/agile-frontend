@@ -2,9 +2,10 @@ import { useState } from "react";
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
+import PageBottomButton from "../PageBottomButton/PageBottomButton";
 import "./ProjectForm.css";
 
-function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
+function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} ) {
   // Options for React-Select dropdown menus
   const [isClearable, setIsClearable] = useState(true);
   const animatedComponents = makeAnimated();
@@ -66,144 +67,160 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange} ) {
     tempProjectInfo.tech = choices.map(c => c.value.toLowerCase())
     setProjectInfo(tempProjectInfo);
   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      handleToggle();
+    } catch(err) {
+      console.log(err);
+      setProjectInfo({
+        ...projectInfo,
+        error: "Some required information is missing; try again"
+      })
+    }
+  }
 
   return (
     <div className="project-info-form">
-      <div id="projectName">
-        <h6>Project Title:</h6>
-        <input
-          display="none"
-          type="text" 
-          placeholder="Title"
-          name="title"
-          onChange={handleChange}
-          value={projectInfo.title}
-          required
+      <form onSubmit={handleSubmit}>
+        <div id="projectName">
+          <h6>Project Title:</h6>
+          <input
+            display="none"
+            type="text" 
+            placeholder="Title"
+            name="title"
+            onChange={handleChange}
+            value={projectInfo.title}
+            required
+            />
+        </div>
+        <div id="projectDescription">
+          <h6>Project Description:</h6>
+          <textarea
+            placeholder="Description"
+            name="description"
+            onChange={handleChange}
+            value={projectInfo.description}
+            required
           />
-      </div>
-      <div id="projectDescription">
-        <h6>Project Description:</h6>
-        <textarea
-          placeholder="Description"
-          name="description"
-          onChange={handleChange}
-          value={projectInfo.description}
-          required
-        />
-      </div>
-      <div id="projectTechnologies">
-        <h6>Technologies:</h6>
-        <CreatableSelect
-          className="basic-multi-select" 
-          classNamePrefix="select" 
-          name="skills"
-          isMulti
-          components={animatedComponents}
-          options={techOptions}
-          onChange={handleCreateSelectChange}
-        />
-      </div>
-      <div id="projectRoles">
-        <h6>Roles:</h6>
-        <Select
-          name="roles"
-          isMulti
-          isClearable={isClearable}
-          components={animatedComponents}
-          options={roleOptions}
-          onChange={handleSelectRolesChange}
-          className="basic-multi-select"
-          classNamePrefix="select"
-        />
-      </div>
-      <div id="projectCategories">
-        <h6>Categories:</h6>
-        <Select
-          name="categories"
-          isMulti
-          isClearable={isClearable}
-          components={animatedComponents}
-          options={categoryOptions}
-          onChange={handleSelectCategoriesChange}
-          className="basic-multi-select"
-          classNamePrefix="select"
-        />
-      </div>
-      <div id="projectLinks">
-        <h6>Project Resource Links:</h6>
-        <p>Figma</p>
-        <input
-          type="text" 
-          placeholder="http://www.figma.com/"
-          name="figmaLink"
-          onChange={handleChange}
-          value={projectInfo.figmaLink}
-        />
-        <p>GitHub (Frontend or Whole Project)</p>
-        <input
-          type="text" 
-          placeholder="http://www.github.com/"
-          name="gitHubFrontendLink"
-          onChange={handleChange}
-          value={projectInfo.gitHubFrontendLink}
-        />
-        <p>GitHub (Backend if separate)</p>
-        <input
-          type="text" 
-          placeholder="http://www.github.com/"
-          name="gitHubLink"
-          onChange={handleChange}
-          value={projectInfo.gitHubBackendLink}
-        />
-        <p>Google Drive Link</p>
-        <input
-          type="text" 
-          placeholder="http://www.drive.google.com/"
-          name="googleDriveLink"
-          onChange={handleChange}
-          value={projectInfo.googleDriveLink}
-        />
-        <p>Jira Link</p>
-        <input
-          type="text" 
-          placeholder="http://www.jira.com/"
-          name="jiraLink"
-          onChange={handleChange}
-          value={projectInfo.jiraLink}
-        />
-        <p>Microsoft Teams Link</p>
-        <input
-          type="text" 
-          placeholder="https://www.microsoft.com/en-us/microsoft-teams/log-in"
-          name="microsoftTeamsLink"
-          onChange={handleChange}
-          value={projectInfo.microsoftTeamsLink}
-        />
-        <p>Slack Link</p>
-        <input
-          type="text" 
-          placeholder="http://www.slack.com/"
-          name="slackLink"
-          onChange={handleChange}
-          value={projectInfo.slackLink}
-        />
-        <p>Trello Link</p>
-        <input
-          type="text" 
-          placeholder="http://www.trello.com/"
-          name="trelloLink"
-          onChange={handleChange}
-          value={projectInfo.trelloLink}
-        />
-        <p>Zoom</p>
-        <input
-          type="text" 
-          placeholder="http://www.zoom.com/"
-          name="zoomLink"
-          onChange={handleChange}
-          value={projectInfo.zoomLink}
-        />
-      </div>
+        </div>
+        <div id="projectTechnologies">
+          <h6>Technologies:</h6>
+          <CreatableSelect
+            className="basic-multi-select" 
+            classNamePrefix="select" 
+            name="skills"
+            isMulti
+            components={animatedComponents}
+            options={techOptions}
+            onChange={handleCreateSelectChange}
+          />
+        </div>
+        <div id="projectRoles">
+          <h6>Roles:</h6>
+          <Select
+            name="roles"
+            isMulti
+            isClearable={isClearable}
+            components={animatedComponents}
+            options={roleOptions}
+            onChange={handleSelectRolesChange}
+            className="basic-multi-select"
+            classNamePrefix="select"
+          />
+        </div>
+        <div id="projectCategories">
+          <h6>Categories:</h6>
+          <Select
+            name="categories"
+            isMulti
+            isClearable={isClearable}
+            components={animatedComponents}
+            options={categoryOptions}
+            onChange={handleSelectCategoriesChange}
+            className="basic-multi-select"
+            classNamePrefix="select"
+          />
+        </div>
+        <div id="projectLinks">
+          <h6>Project Resource Links:</h6>
+          <p>Figma</p>
+          <input
+            type="text" 
+            placeholder="http://www.figma.com/"
+            name="figmaLink"
+            onChange={handleChange}
+            value={projectInfo.figmaLink}
+          />
+          <p>GitHub (Frontend or Whole Project)</p>
+          <input
+            type="text" 
+            placeholder="http://www.github.com/"
+            name="gitHubFrontendLink"
+            onChange={handleChange}
+            value={projectInfo.gitHubFrontendLink}
+          />
+          <p>GitHub (Backend if separate)</p>
+          <input
+            type="text" 
+            placeholder="http://www.github.com/"
+            name="gitHubBackendLink"
+            onChange={handleChange}
+            value={projectInfo.gitHubBackendLink}
+          />
+          <p>Google Drive Link</p>
+          <input
+            type="text" 
+            placeholder="http://www.drive.google.com/"
+            name="googleDriveLink"
+            onChange={handleChange}
+            value={projectInfo.googleDriveLink}
+          />
+          <p>Jira Link</p>
+          <input
+            type="text" 
+            placeholder="http://www.jira.com/"
+            name="jiraLink"
+            onChange={handleChange}
+            value={projectInfo.jiraLink}
+          />
+          <p>Microsoft Teams Link</p>
+          <input
+            type="text" 
+            placeholder="https://www.microsoft.com/en-us/microsoft-teams/log-in"
+            name="microsoftTeamsLink"
+            onChange={handleChange}
+            value={projectInfo.microsoftTeamsLink}
+          />
+          <p>Slack Link</p>
+          <input
+            type="text" 
+            placeholder="http://www.slack.com/"
+            name="slackLink"
+            onChange={handleChange}
+            value={projectInfo.slackLink}
+          />
+          <p>Trello Link</p>
+          <input
+            type="text" 
+            placeholder="http://www.trello.com/"
+            name="trelloLink"
+            onChange={handleChange}
+            value={projectInfo.trelloLink}
+          />
+          <p>Zoom</p>
+          <input
+            type="text" 
+            placeholder="http://www.zoom.com/"
+            name="zoomLink"
+            onChange={handleChange}
+            value={projectInfo.zoomLink}
+          />
+          <input type="submit" className="button-primary" value="Save and Add Timeline" />
+        </div>
+      </form>
+      <p className="error-message">&nbsp;{projectInfo.error}</p>
     </div>
   )
 }

@@ -39,14 +39,14 @@ const ProjectDetail = ({ user }) => {
         </div>
         <div>
           <h4>Resources</h4>
-          <ResourceLinks />
+          <ResourceLinks project={project}/>
         </div>
         <div>
           <h4>Current Stage</h4>
         </div>
         <div>
           <h4>Your Timeline</h4>
-          <Timeline /> 
+          <Timeline project={project}/> 
         </div>
       </div>
     )
