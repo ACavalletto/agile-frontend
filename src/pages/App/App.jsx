@@ -12,8 +12,11 @@ import ProjectDetail from "../ProjectDetail/ProjectDetail";
 import ProjectList from "../ProjectList/ProjectList";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import "./App.css";
+import * as profilesAPI from "../../utilities/profiles-api";
+
 function App() {
   const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user));
@@ -21,6 +24,17 @@ function App() {
       unsubscribe();
     };
   }, []);
+
+  useEffect(function() {
+    if (!profile) {
+      (async function getuserProfile() {
+        // Hardcoded ID until onboarding and user --> profile creation is complete
+        const profileInfo = await profilesAPI.getLoggedInUserProfile("63f90d04c90e284bd7ddbca8");
+        console.log(profileInfo)
+        setProfile(profileInfo)
+      })()
+    }
+  })
 
   const URL = "https://launchpad-backend.herokuapp.com/";
 
@@ -34,7 +48,7 @@ function App() {
               path="/"
               // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
 
-              element={<Home user={user} />}
+              element={<Home user={user} profile={profile} />}
             />
             <Route
               path="/onboarding"
@@ -44,7 +58,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/profilepage" element={<NewProfilePage user={user} />} />
             <Route path="/projects" element={<ProjectList user={user} />} />
-            <Route path="/projects/new" element={<NewProject user={user} />} />
+            <Route path="/projects/new" element={<NewProject user={user} profile={profile} />} />
             <Route path="/projects/detail" element={<ProjectDetail user={user} />} /> {/* Dummy route for temporary building purposes*/}
             <Route
               path="/projects/:projectId"
