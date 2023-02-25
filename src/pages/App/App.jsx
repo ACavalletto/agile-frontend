@@ -55,7 +55,7 @@ function App() {
             <Route path="/profilepage" element={<NewProfilePage user={user} />} />
             <Route path="/projects" element={<ProjectList user={user} />} />
             <Route path="/projects/new" element={<NewProject user={user} profile={profile} />} />
-            <Route path="/projects/detail" element={<ProjectDetail user={user} />} /> {/* Dummy route for temporary building purposes*/}
+            <Route path="/projects/:projectID" element={<ProjectDetail user={user} />} /> {/* Dummy route for temporary building purposes*/}
             <Route
               path="/projects/:projectId"
               element={<ProjectDetail user={user} />}

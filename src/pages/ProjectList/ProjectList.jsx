@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
 import * as projectsAPI from "../../utilities/projects-api";
 
@@ -20,7 +21,7 @@ const ProjectList = () => {
       <div>
         <h1>Find A Project!</h1>
         {projects.map(p => 
-          <div>{p.title}</div>
+          <div><Link to={`/projects/${p._id}`}>{p.title}</Link></div>
         )}
         <PageBottomButton buttonText="+ Add New Project" link="/projects/new" />
       </div>
