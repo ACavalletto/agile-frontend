@@ -4,7 +4,7 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
         options.headers = { 'Content-Type': 'application/json' };
         options.body = JSON.stringify(payload);
     }
-    const res = await fetch(`https://launchpad-backend.herokuapp.com${url}`, options);
+    const res = await fetch(`http://localhost:4000${url}`, options);
     if (res.ok) return res.json();
     throw new Error ('Bad Request');
 }
