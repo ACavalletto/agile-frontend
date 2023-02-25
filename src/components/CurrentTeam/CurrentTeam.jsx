@@ -5,7 +5,7 @@ function CurrentTeam ({ project }) {
 
   return (
     <div className="current-team">
-      {project?.project_members.forEach(m => {
+      {project.members?.forEach(m => {
         <div className="member">
           <div className="member-image"><img src={m.image} alt="user avatar" /></div>
           <div className="member-name">{m.name}</div>

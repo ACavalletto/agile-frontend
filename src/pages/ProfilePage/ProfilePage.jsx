@@ -91,7 +91,6 @@ function ProfilePage (){
 
     return (
     <div className="Profile-Page">
-        <Link to="/">Home</Link>
         <form onSubmit={handleSubmit} className="Profile-info">
             <div id="profileName">
                 Name : {profileInfo.name} 
