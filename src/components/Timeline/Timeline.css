@@ -13,12 +13,6 @@
 .timeline .stage {
   border-top: solid black 2px;
 }
-/* .timeline #stage1, #stage3, #stage5 {
-  border-left: solid black 2px;
-}
-.timeline #stage2, #stage4, #stage6 {
-  border-right: solid black 2px;
-} */
 .timeline .left {
   border-right: solid black 2px;
 }
