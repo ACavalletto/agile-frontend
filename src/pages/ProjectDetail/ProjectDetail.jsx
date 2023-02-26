@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import CurrentTeam from "../../components/CurrentTeam/CurrentTeam";
 import ProjectRoles from "../../components/ProjectRoles/ProjectRoles";
 import ProjectTopicTags from "../../components/ProjectTopicTags/ProjectTopicTags";
@@ -12,6 +12,7 @@ import "./ProjectDetail.css";
 const ProjectDetail = ({ user }) => {
   const [project, setProject] = useState(null);
   const { projectID } = useParams();
+  const navigate = useNavigate();
   console.log(projectID);
 
   useEffect(function() {
@@ -24,6 +25,15 @@ const ProjectDetail = ({ user }) => {
     }
   })
 
+  async function deleteProject() {
+    try {
+      const deletedProject = await projectsAPI.deleteProject(projectID);
+      navigate("/projects");
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
   return (
     !project ? (
       <div>Loading Project...</div>
@@ -34,27 +44,16 @@ const ProjectDetail = ({ user }) => {
         <div className="project-info">
           <h6>About</h6>
           <p>{project.description || "" }</p>
-          <p>Tech: {project.tech?.join(", ") || ""}</p>
         </div>
         <div className="roles-and-tools">
           <ProjectRoles project={project} />
           <ProjectTools project={project} />
         </div>
-        <div>
-          <h6>Your Current Team</h6>
-          <CurrentTeam project={project} />
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <ResourceLinks project={project}/>
-        </div>
-        <div>
-          <h4>Current Stage</h4>
-        </div>
-        <div>
-          <h4>Your Timeline</h4>
-          <Timeline project={project}/> 
-        </div>
+        <CurrentTeam project={project} />
+        <h6>Current Stage</h6>
+        <Timeline project={project}/> 
+        <ResourceLinks project={project}/>
+        <button className="delete" onClick={deleteProject}>Delete Project</button>
       </div>
     )
   )
