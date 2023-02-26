@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CurrentTeam from "../../components/CurrentTeam/CurrentTeam";
+import ProjectRoles from "../../components/ProjectRoles/ProjectRoles";
+import ProjectTopicTags from "../../components/ProjectTopicTags/ProjectTopicTags";
+import ProjectTools from "../../components/ProjectTools/ProjectTools";
 import ResourceLinks from "../../components/ResourceLinks/ResourceLinks";
 import Timeline from "../../components/Timeline/Timeline";
 import * as projectsAPI from "../../utilities/projects-api";
@@ -27,11 +30,15 @@ const ProjectDetail = ({ user }) => {
     ) : (
       <div className="project-detail-page">
         <h1>{project.title} Project Center</h1>
+        <ProjectTopicTags project={project} />
         <div className="project-info">
-          <p>Description: {project.description || "" }</p>
+          <h6>About</h6>
+          <p>{project.description || "" }</p>
           <p>Tech: {project.tech?.join(", ") || ""}</p>
-          <p>Roles: {project.roles?.join(", ") || ""}</p>
-          <p>Categories: {project.categories?.join(", ") || ""}</p>
+        </div>
+        <div className="roles-and-tools">
+          <ProjectRoles project={project} />
+          <ProjectTools project={project} />
         </div>
         <div>
           <h6>Your Current Team</h6>
@@ -39,14 +46,14 @@ const ProjectDetail = ({ user }) => {
         </div>
         <div>
           <h4>Resources</h4>
-          <ResourceLinks />
+          <ResourceLinks project={project}/>
         </div>
         <div>
           <h4>Current Stage</h4>
         </div>
         <div>
           <h4>Your Timeline</h4>
-          <Timeline /> 
+          <Timeline project={project}/> 
         </div>
       </div>
     )

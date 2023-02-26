@@ -1,0 +1,10 @@
+.project-topic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  gap: 10px;
+}
+.topic-tag {
+  background-color: green;
+  border-radius: 5px;
+}

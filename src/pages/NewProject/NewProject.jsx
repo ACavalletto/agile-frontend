@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TimelineForm from "../../components/TimelineForm/TimelineForm";
 import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
@@ -49,7 +49,9 @@ function NewProject ({ user, profile }){
     slackLink: "",
     trelloLink: "",
     zoomLink: "",
+    error: "",
   })
+  const navigate = useNavigate();
 
   function handleToggle() {
     setFormToggle(!formToggle);
@@ -62,25 +64,31 @@ function NewProject ({ user, profile }){
     tempProjInfo.timeline[input.name.slice(0, 6)][input.name.slice(7)] = input.value;
     setProjectInfo(tempProjInfo);
   }
-  async function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
     console.log(projectInfo)
 
-    // Formats data object for model
-    const formData = {...projectInfo};
-    formData.creator = profile._id;
-    formData.members.push(profile._id)
-    console.log(formData);
+    try {
+      // Formats data object for model
+      const formData = {...projectInfo};
+      formData.creator = profile._id;
+      formData.members.push(profile._id)
+      console.log(formData);
 
-    const newProject = await projectsAPI.addProject(formData);
-    console.log(newProject);
+      const newProject = await projectsAPI.addProject(formData);
+      console.log(newProject);
+      navigate(`/projects/${newProject._id}`)
+    } catch(err) {
+      console.log(err);
+    }
   }
 
   return (
     <div className="new-project-page">
       { formToggle ? 
         <>
-          <ProjectForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleChange={handleChange} />
-          <PageBottomButton buttonText={"Save + Add Timeline"} onClick={handleToggle}/>
+          <ProjectForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleChange={handleChange} handleToggle={handleToggle} />
+          {/* <PageBottomButton buttonText={"Save + Add Timeline"} onClick={handleToggle}/> */}
         </>
       :
         <>
