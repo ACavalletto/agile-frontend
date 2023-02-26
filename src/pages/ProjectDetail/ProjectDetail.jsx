@@ -39,21 +39,10 @@ const ProjectDetail = ({ user }) => {
           <ProjectRoles project={project} />
           <ProjectTools project={project} />
         </div>
-        <div>
-          <h6>Your Current Team</h6>
-          <CurrentTeam project={project} />
-        </div>
-        <div>
-          <h4>Resources</h4>
-          <ResourceLinks project={project}/>
-        </div>
-        <div>
-          <h4>Current Stage</h4>
-        </div>
-        <div>
-          <h4>Your Timeline</h4>
-          <Timeline project={project}/> 
-        </div>
+        <CurrentTeam project={project} />
+        <h6>Current Stage</h6>
+        <Timeline project={project}/> 
+        <ResourceLinks project={project}/>
       </div>
     )
   )

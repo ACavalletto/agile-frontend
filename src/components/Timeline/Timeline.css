@@ -1,0 +1,27 @@
+.timeline {
+  hyphens: auto;
+  word-break: break-word;
+  word-wrap: break-word;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-word-break: break-all;
+}
+.timeline .stages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.timeline .stage {
+  border-top: solid black 2px;
+}
+/* .timeline #stage1, #stage3, #stage5 {
+  border-left: solid black 2px;
+}
+.timeline #stage2, #stage4, #stage6 {
+  border-right: solid black 2px;
+} */
+.timeline .left {
+  border-right: solid black 2px;
+}
+.timeline .right {
+  border-left: solid black 2px;
+}

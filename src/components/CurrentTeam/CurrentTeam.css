@@ -1,4 +1,4 @@
-.current-team {
+.current-team .team-list {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
