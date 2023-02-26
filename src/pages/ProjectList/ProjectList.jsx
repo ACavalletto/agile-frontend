@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
 import * as projectsAPI from "../../utilities/projects-api";
+import "./ProjectList.css";
 
 const ProjectList = () => {
   const [projects, setProjects] = useState(null);
@@ -18,11 +19,13 @@ const ProjectList = () => {
 
   return (
     projects ? (
-      <div>
+      <div className="project-list-page">
         <h1>Find A Project!</h1>
-        {projects.map(p => 
-          <div><Link to={`/projects/${p._id}`}>{p.title}</Link></div>
-        )}
+        <div className="list">
+          {projects.map(p => 
+            <div><Link to={`/projects/${p._id}`}>{p.title}</Link></div>
+          )}
+        </div>
         <PageBottomButton buttonText="+ Add New Project" link="/projects/new" />
       </div>
     ) : (
