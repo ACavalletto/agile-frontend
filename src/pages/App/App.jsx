@@ -31,9 +31,12 @@ function App() {
     const response = await checkUserExists(uid);
     // Do we build in functionality to create a blank profile here with uid.
     // May not have users name depending on how they sign up here.
-    // if (!response) {
-    //   createProfile(uid);
-    // }
+    if (!response) {
+      let profileData = {
+        uid: user.uid,
+      };
+      createProfile(profileData);
+    }
     return !response;
   }
 
