@@ -12,3 +12,6 @@
   grid-auto-columns: 1fr;
   width: 100%;
 }
+.delete {
+  background-color: red;
+}
