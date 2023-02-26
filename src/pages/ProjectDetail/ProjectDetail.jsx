@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import CurrentTeam from "../../components/CurrentTeam/CurrentTeam";
 import ProjectRoles from "../../components/ProjectRoles/ProjectRoles";
 import ProjectTopicTags from "../../components/ProjectTopicTags/ProjectTopicTags";
@@ -12,6 +12,7 @@ import "./ProjectDetail.css";
 const ProjectDetail = ({ user }) => {
   const [project, setProject] = useState(null);
   const { projectID } = useParams();
+  const navigate = useNavigate();
   console.log(projectID);
 
   useEffect(function() {
@@ -23,6 +24,15 @@ const ProjectDetail = ({ user }) => {
       })()
     }
   })
+
+  async function deleteProject() {
+    try {
+      const deletedProject = await projectsAPI.deleteProject(projectID);
+      navigate("/projects");
+    } catch(err) {
+      console.log(err)
+    }
+  }
 
   return (
     !project ? (
@@ -43,6 +53,7 @@ const ProjectDetail = ({ user }) => {
         <h6>Current Stage</h6>
         <Timeline project={project}/> 
         <ResourceLinks project={project}/>
+        <button className="delete" onClick={deleteProject}>Delete Project</button>
       </div>
     )
   )
