@@ -9,6 +9,7 @@ const Role = ({ handleCheckboxChange, onUpdateField, profileData }) => {
       </h5>
       <form className="mt-4 justify-content-start ">
         <h6>What is your artistry?</h6>
+        <br />
         <input
           {...(profileData.role === "Software Engineering" ? { checked } : {})}
           type="radio"
