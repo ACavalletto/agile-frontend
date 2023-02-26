@@ -34,7 +34,6 @@ const ProjectDetail = ({ user }) => {
         <div className="project-info">
           <h6>About</h6>
           <p>{project.description || "" }</p>
-          <p>Tech: {project.tech?.join(", ") || ""}</p>
         </div>
         <div className="roles-and-tools">
           <ProjectRoles project={project} />

@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import "./ResourceLinks.css";
-import figma from "../../images/tech-icons/figma-original.svg";
-import gitHub from "../../images/tech-icons/github-original.svg";
-import googleDrive from "../../images/tech-icons/google_drive.svg";
-import jira from "../../images/tech-icons/jira-original.svg";
-import microsoftTeams from "../../images/tech-icons/microsoft_teams.svg";
-import slack from "../../images/tech-icons/slack-original.svg";
-import trello from "../../images/tech-icons/trello-plain.svg";
-import zoom from "../../images/tech-icons/zoom.png";
+import figma from "../../images/resource-icons/figma.svg";
+import gitHub from "../../images/resource-icons/github.svg";
+import googleDrive from "../../images/resource-icons/google-drive.svg";
+import jira from "../../images/resource-icons/jira.svg";
+import microsoftTeams from "../../images/resource-icons/microsoft-teams.svg";
+import slack from "../../images/resource-icons/slack.svg";
+import trello from "../../images/resource-icons/trello.svg";
+import zoom from "../../images/resource-icons/zoom.png";
 
 function ResourceLinks ({ project }) {
   return (

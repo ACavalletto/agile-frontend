@@ -1,0 +1,19 @@
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 5px;
+  justify-content: center;
+}
+.tech-icon {
+  height: 30px;
+  width: 30px;
+}
+.tech-icon img {
+  max-height: 30px;
+  max-width: 30px;
+}
+.tech-list .tech-name {
+  font-size: 10px;
+  word-wrap: break-word;
+}

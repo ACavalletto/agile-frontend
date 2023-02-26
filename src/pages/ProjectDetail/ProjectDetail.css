@@ -7,5 +7,8 @@
   margin-bottom: 0;
 }
 .roles-and-tools {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  width: 100%;
 }
