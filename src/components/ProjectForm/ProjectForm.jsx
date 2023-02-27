@@ -26,6 +26,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
     { name: "tech", value: "ruby-rails", label: "Ruby on Rails"},
     { name: "tech", value: "vue", label: "Vue"},
   ]
+  const techPresets = techOptions.filter(t => projectInfo.tech.includes(t.value));
   const categoryOptions = [
     { name: "categories", value: "ART", label: "Art"},
     { name: "categories", value: "CAR", label: "Career"},
@@ -44,6 +45,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
     { name: "categories", value: "IT", label: "Technology"},
     { name: "categories", value: "TRV", label: "Travel"},
   ]
+  const categoryPresets = categoryOptions.filter(c => projectInfo.categories.includes(c.value)) || "";
   const roleOptions = [
     { name: "roles", value: "UX", label: "UX/UI Designer"},
     { name: "roles", value: "FE", label: "Front-end"},
@@ -51,6 +53,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
     { name: "roles", value: "FS", label: "Full-stack"},
     { name: "roles", value: "PM", label: "Project Manager"},
   ]
+  const rolePresets = roleOptions.filter(r => projectInfo.roles.includes(r.value)) || "";
 
   const handleSelectRolesChange = (choices) => {
     const tempProjectInfo = {...projectInfo};
@@ -113,6 +116,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
             name="skills"
             isMulti
             components={animatedComponents}
+            defaultValue={techPresets}
             options={techOptions}
             onChange={handleCreateSelectChange}
           />
@@ -124,6 +128,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
             isMulti
             isClearable={isClearable}
             components={animatedComponents}
+            defaultValue ={rolePresets}
             options={roleOptions}
             onChange={handleSelectRolesChange}
             className="basic-multi-select"
@@ -137,6 +142,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
             isMulti
             isClearable={isClearable}
             components={animatedComponents}
+            defaultValue={categoryPresets}
             options={categoryOptions}
             onChange={handleSelectCategoriesChange}
             className="basic-multi-select"
