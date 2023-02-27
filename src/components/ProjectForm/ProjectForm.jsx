@@ -5,7 +5,7 @@ import makeAnimated from 'react-select/animated';
 import PageBottomButton from "../PageBottomButton/PageBottomButton";
 import "./ProjectForm.css";
 
-function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} ) {
+function ProjectForm({ projectInfo, setProjectInfo, handleChange, handleToggle, handleSubmit, editToggle }) {
   // Options for React-Select dropdown menus
   const [isClearable, setIsClearable] = useState(true);
   const animatedComponents = makeAnimated();
@@ -70,7 +70,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
     tempProjectInfo.tech = choices.map(c => c.value.toLowerCase())
     setProjectInfo(tempProjectInfo);
   }
-  const handleSubmit = (e) => {
+  const handleSubmitGoToTimeline = (e) => {
     e.preventDefault();
     try {
       handleToggle();
@@ -85,7 +85,7 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
 
   return (
     <div className="project-info-form">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitGoToTimeline}>
         <div id="projectName">
           <h6>Project Title:</h6>
           <input
@@ -223,9 +223,15 @@ function ProjectForm( {projectInfo, setProjectInfo, handleChange, handleToggle} 
             onChange={handleChange}
             value={projectInfo.zoomLink}
           />
-          <input type="submit" className="button-primary" value="Save and Add Timeline" />
+          <br />
+          <input type="submit" className="button-primary" value={editToggle ? "Update Project and Edit Timeline" : "Save and Add Timeline"} />
+          {editToggle && ( 
+            <input type="submit" className="button-primary" value="Just Update Project" onClick={handleSubmit} /> 
+          )}
         </div>
       </form>
+      
+      
       <p className="error-message">&nbsp;{projectInfo.error}</p>
     </div>
   )

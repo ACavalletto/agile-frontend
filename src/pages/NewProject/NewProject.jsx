@@ -5,8 +5,7 @@ import TimelineForm from "../../components/TimelineForm/TimelineForm";
 import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
 import * as projectsAPI from "../../utilities/projects-api";
 
-function NewProject ({ user, profile, project = null }){
-  console.log(profile)
+function NewProject ({ user, profile, project = null, editToggle, setEditToggle }){
   const [formToggle, setFormToggle] = useState(true);
   const [projectInfo, setProjectInfo] = useState(project || {
     title:"",
@@ -73,16 +72,18 @@ function NewProject ({ user, profile, project = null }){
       // Formats data object for model
       const formData = {...projectInfo};
       if (formData._id) {
+        const updatedProject = await projectsAPI.updateProject(formData._id, formData);
+        // setEditToggle(!editToggle);
+        // setProjectInfo(updatedProject);
+        // navigate(`/projects/${formData._id}`);
       } else {
         formData.creator = profile._id;
         formData.members.push(profile._id)
         console.log(formData);
         const newProject = await projectsAPI.addProject(formData);
         console.log(newProject);
-        navigate(`/projects/${newProject._id}`)
-
+        navigate(`/projects/${newProject._id}`);
       }
-
     } catch(err) {
       console.log(err);
     }
@@ -92,18 +93,17 @@ function NewProject ({ user, profile, project = null }){
     <div className="new-project-page">
       { formToggle ? 
         <>
-          <ProjectForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleChange={handleChange} handleToggle={handleToggle} />
+          <ProjectForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleChange={handleChange} handleToggle={handleToggle} editToggle={editToggle} handleSubmit={handleSubmit} />
           {/* <PageBottomButton buttonText={"Save + Add Timeline"} onClick={handleToggle}/> */}
         </>
       :
         <>
-          <TimelineForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleTimelineChange={handleTimelineChange} />
-          <Link to="" onClick={handleToggle}>Go Back</Link>
+          <TimelineForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleTimelineChange={handleTimelineChange} handleToggle={handleToggle} handleSubmit={handleSubmit} editToggle={editToggle}/>
+          {/* <Link to="" onClick={handleToggle}>Go Back</Link>
           <br />
-          <Link to="/projects" onClick={handleSubmit} >Save New Project!</Link> {/* This route needs to be updated to specific project id route */}
+          <Link to="/projects" onClick={handleSubmit} >Save New Project!</Link> This route needs to be updated to specific project id route */}
         </>
       }
-
     </div>
   )
 }
