@@ -5,9 +5,10 @@ import TimelineForm from "../../components/TimelineForm/TimelineForm";
 import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
 import * as projectsAPI from "../../utilities/projects-api";
 
-function NewProject ({ user, profile }){
+function NewProject ({ user, profile, project = null }){
+  console.log(profile)
   const [formToggle, setFormToggle] = useState(true);
-  const [projectInfo, setProjectInfo] = useState({
+  const [projectInfo, setProjectInfo] = useState(project || {
     title:"",
     members:[],
     description:"",
@@ -71,13 +72,17 @@ function NewProject ({ user, profile }){
     try {
       // Formats data object for model
       const formData = {...projectInfo};
-      formData.creator = profile._id;
-      formData.members.push(profile._id)
-      console.log(formData);
+      if (formData._id) {
+      } else {
+        formData.creator = profile._id;
+        formData.members.push(profile._id)
+        console.log(formData);
+        const newProject = await projectsAPI.addProject(formData);
+        console.log(newProject);
+        navigate(`/projects/${newProject._id}`)
 
-      const newProject = await projectsAPI.addProject(formData);
-      console.log(newProject);
-      navigate(`/projects/${newProject._id}`)
+      }
+
     } catch(err) {
       console.log(err);
     }

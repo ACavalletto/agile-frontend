@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CurrentTeam from "../../components/CurrentTeam/CurrentTeam";
+import NewProject from "../NewProject/NewProject";
 import ProjectRoles from "../../components/ProjectRoles/ProjectRoles";
 import ProjectTopicTags from "../../components/ProjectTopicTags/ProjectTopicTags";
 import ProjectTools from "../../components/ProjectTools/ProjectTools";
@@ -11,6 +12,7 @@ import "./ProjectDetail.css";
 
 const ProjectDetail = ({ user }) => {
   const [project, setProject] = useState(null);
+  const [editToggle, setEditToggle] = useState(false);
   const { projectID } = useParams();
   const navigate = useNavigate();
   console.log(projectID);
@@ -24,6 +26,10 @@ const ProjectDetail = ({ user }) => {
       })()
     }
   })
+
+  function handleEditToggle() {
+    setEditToggle(!editToggle);
+  }
 
   async function deleteProject() {
     try {
@@ -40,20 +46,30 @@ const ProjectDetail = ({ user }) => {
     ) : (
       <div className="project-detail-page">
         <h1>{project.title} Project Center</h1>
-        <ProjectTopicTags project={project} />
-        <div className="project-info">
-          <h6>About</h6>
-          <p>{project.description || "" }</p>
-        </div>
-        <div className="roles-and-tools">
-          <ProjectRoles project={project} />
-          <ProjectTools project={project} />
-        </div>
-        <CurrentTeam project={project} />
-        <h6>Current Stage</h6>
-        <Timeline project={project}/> 
-        <ResourceLinks project={project}/>
-        <button className="delete" onClick={deleteProject}>Delete Project</button>
+        {editToggle? 
+          <div className="edit-project">
+            <NewProject project={project} setProject={setProject} />
+            <button className="edit" onClick={handleEditToggle}>Just Save Project</button>
+          </div>
+        : 
+          <>
+            <ProjectTopicTags project={project} />
+            <div className="project-info">
+              <h6>About</h6>
+              <p>{project.description || "" }</p>
+            </div>
+            <div className="roles-and-tools">
+              <ProjectRoles project={project} />
+              <ProjectTools project={project} />
+            </div>
+            <CurrentTeam project={project} />
+            <h6>Current Stage</h6>
+            <Timeline project={project}/> 
+            <ResourceLinks project={project}/>
+            <button className="edit" onClick={handleEditToggle}>Edit Project</button>
+            <button className="delete" onClick={deleteProject}>Delete Project</button>
+          </>
+        }
       </div>
     )
   )
