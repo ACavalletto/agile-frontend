@@ -2,9 +2,9 @@ import { auth } from "../../services/firebase";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import {
-  getAllProfiles,
   checkUserExists,
   createProfile,
+  getLoggedInUserProfile,
 } from "../../utilities/profiles-api";
 import NavBar from "../../components/NavBar/NavBar";
 import Dashboard from "../Dashboard/Dashboard";
@@ -19,6 +19,7 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user));
@@ -27,18 +28,39 @@ function App() {
     };
   }, []);
 
-  async function userCheck(uid) {
-    const response = await checkUserExists(uid);
-    // Do we build in functionality to create a blank profile here with uid.
-    // May not have users name depending on how they sign up here.
-    if (!response) {
-      let profileData = {
-        uid: user.uid,
-      };
-      createProfile(profileData);
+  useEffect(() => {
+    if (user) {
+      async function userCheck(uid) {
+        const response = await checkUserExists(uid);
+        const profileResponse = await getLoggedInUserProfile(uid);
+        // May not have users name depending on how they sign up here.
+        if (!response) {
+          let profileData = {
+            uid: uid,
+          };
+          createProfile(profileData);
+        } else {
+          setProfile(profileResponse);
+        }
+      }
+      userCheck(user.uid);
     }
-    return !response;
-  }
+  }, [user]);
+
+  // async function userCheck(uid) {
+  //   const response = await checkUserExists(uid);
+  //   //const profileResponse = await getLoggedInUserProfile(user.uid)
+  //   // May not have users name depending on how they sign up here.
+  //   if (!response) {
+  //     let profileData = {
+  //       uid: user.uid,
+  //     };
+  //     createProfile(profileData);
+  //     return !response;
+  //   }//else if(response){
+  //     //setProfile(profileResponse)
+  //   //}
+  // }
 
   const URL = "https://launchpad-backend.herokuapp.com/";
 
@@ -54,7 +76,7 @@ function App() {
 
               element={<Home user={user} />}
             />
-            {userCheck(user.uid) && (
+            {!profile && (
               <Route
                 path="/onboarding"
                 element={<Onboarding user={user} URL={URL} />}

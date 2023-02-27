@@ -1,4 +1,8 @@
 import { useState } from "react";
+import {
+  getLoggedInUserProfile,
+  updateProfile,
+} from "../../utilities/profiles-api";
 import Role from "../../components/Role/Role";
 import UserBio from "../../components/UserBio/UserBio";
 import UserInterests from "../../components/UserInterests/UserInterests";
@@ -8,7 +12,6 @@ import NavigationArrows from "../../components/NavigationArrows/NavigationArrows
 const Onboarding = ({ user, URL }) => {
   const [page, setPage] = useState(1);
   const [profileData, setprofileData] = useState({
-    uid: user.uid,
     name: "",
     photo: "",
     role: "",
@@ -22,12 +25,9 @@ const Onboarding = ({ user, URL }) => {
     tech: [],
   });
   async function newUser() {
-    const options = {
-      method: "POST",
-      body: profileData,
-    };
-    const response = await fetch(URL + "profiles/", options);
-    console.log(response);
+    const profileId = await getLoggedInUserProfile(user.uid);
+    const response = await updateProfile(profileId._id, profileData);
+    console.log(profileId._id);
   }
 
   const onUpdateField = (e) => {
