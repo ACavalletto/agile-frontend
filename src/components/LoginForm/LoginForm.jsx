@@ -55,7 +55,7 @@ const LoginForm = ({ setUser }) => {
           </div>
           {error && <div>{error}</div>}
           <div className="col-3 text-left">
-            <button class="btn btn-primary" type="submit">
+            <button className="btn btn-primary" type="submit">
               Log In
             </button>
           </div>
