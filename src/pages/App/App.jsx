@@ -47,21 +47,6 @@ function App() {
     }
   }, [user]);
 
-  // async function userCheck(uid) {
-  //   const response = await checkUserExists(uid);
-  //   //const profileResponse = await getLoggedInUserProfile(user.uid)
-  //   // May not have users name depending on how they sign up here.
-  //   if (!response) {
-  //     let profileData = {
-  //       uid: user.uid,
-  //     };
-  //     createProfile(profileData);
-  //     return !response;
-  //   }//else if(response){
-  //     //setProfile(profileResponse)
-  //   //}
-  // }
-
   const URL = "https://launchpad-backend.herokuapp.com/";
 
   return (
@@ -74,15 +59,14 @@ function App() {
               path="/"
               // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
 
-              element={<Home user={user} />}
+              element={<Dashboard user={user} />}
             />
-            {!profile && (
+            {profile?.newUser && (
               <Route
                 path="/onboarding"
                 element={<Onboarding user={user} URL={URL} />}
               />
             )}
-            <Route path="/dashboard" element={<Dashboard user={user} />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/projects" element={<ProjectList user={user} />} />
             <Route path="/projects/new" element={<NewProject user={user} />} />
