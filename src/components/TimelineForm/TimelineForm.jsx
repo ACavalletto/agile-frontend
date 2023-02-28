@@ -1,6 +1,6 @@
 import "./TimelineForm.css";
 
-function TimelineForm({ projectInfo, setProjectInfo, handleTimelineChange }) {
+function TimelineForm({ projectInfo, setProjectInfo, handleTimelineChange, handleToggle, handleSubmit, editToggle }) {
 
   return (
     <div className="timeline-form">
@@ -144,6 +144,9 @@ function TimelineForm({ projectInfo, setProjectInfo, handleTimelineChange }) {
           />
         </div>
       </div>
+      <button onClick={handleToggle}>Go Back</button>
+      <br />
+      <button onClick={handleSubmit}>{editToggle ? "Update Timeline" : "Save New Timeline"}</button>
     </div>
   )
 }

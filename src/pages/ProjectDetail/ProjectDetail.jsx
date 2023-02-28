@@ -10,17 +10,17 @@ import Timeline from "../../components/Timeline/Timeline";
 import * as projectsAPI from "../../utilities/projects-api";
 import "./ProjectDetail.css";
 
-const ProjectDetail = ({ user }) => {
+const ProjectDetail = ({ user, profile }) => {
   const [project, setProject] = useState(null);
   const [editToggle, setEditToggle] = useState(false);
-  const { projectID } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
-  console.log(projectID);
+  console.log(id);
 
   useEffect(function() {
     if (!project) {
       (async function getProject() {
-        const projectInfo = await projectsAPI.showProject(projectID)
+        const projectInfo = await projectsAPI.showProject(id)
         console.log(projectInfo)
         setProject(projectInfo)
       })()
@@ -33,7 +33,7 @@ const ProjectDetail = ({ user }) => {
 
   async function deleteProject() {
     try {
-      const deletedProject = await projectsAPI.deleteProject(projectID);
+      const deletedProject = await projectsAPI.deleteProject(id);
       navigate("/projects");
     } catch(err) {
       console.log(err)
@@ -46,17 +46,22 @@ const ProjectDetail = ({ user }) => {
     ) : (
       <div className="project-detail-page">
         <h1>{project.title} Project Center</h1>
-        {editToggle? 
+        {editToggle ? 
           <div className="edit-project">
-            <NewProject project={project} setProject={setProject} />
-            <button className="edit" onClick={handleEditToggle}>Just Save Project</button>
+            <NewProject 
+              project={project} 
+              setProject={setProject} 
+              editToggle={editToggle} 
+              setEditToggle={setEditToggle}
+              profile={profile} 
+              />
           </div>
         : 
           <>
             <ProjectTopicTags project={project} />
             <div className="project-info">
               <h6>About</h6>
-              <p>{project.description || "" }</p>
+              <p>{project.description}</p>
             </div>
             <div className="roles-and-tools">
               <ProjectRoles project={project} />

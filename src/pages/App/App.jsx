@@ -57,8 +57,6 @@ function App() {
           <Routes>
             <Route
               path="/"
-              // Home is just a placeholder for now, since we haven't decided how we want to route unlogged-in users
-
               element={<Dashboard user={user} />}
             />
             {profile?.newUser && (
@@ -67,12 +65,12 @@ function App() {
                 element={<Onboarding user={user} URL={URL} />}
               />
             )}
-            <Route path="/profile" element={<ProfilePage user={user} />} />
+            <Route path="/profile" element={<ProfilePage user={user} profile={profile} />} />
             <Route path="/projects" element={<ProjectList user={user} />} />
-            <Route path="/projects/new" element={<NewProject user={user} />} />
+            <Route path="/projects/new" element={<NewProject user={user} profile={profile} />} />
             <Route
-              path="/projects/:projectId"
-              element={<ProjectDetail user={user} />}
+              path="/projects/:id"
+              element={<ProjectDetail user={user} profile={profile} />}
             />
           </Routes>
         </>
