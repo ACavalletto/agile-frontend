@@ -21,11 +21,9 @@ const ProjectList = () => {
   return (
     projects ? (
       <div className="project-list-page">
-        <h1>Find A Project!</h1>
         <div className="list">
           {projects.map(p => 
-            // <div><Link to={`/projects/${p._id}`}>{p.title}</Link></div>
-            <ProjectListItem project={p} />
+            <ProjectListItem project={p} key={p._id} />
           )}
         </div>
         <PageBottomButton buttonText="+ Add New Project" link="/projects/new" />
