@@ -18,17 +18,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px 0;
+  height: 15vh;
 }
 .project-image {
-  width: 30%;
+  width: 60%;
 }
 .project-image img {
-  min-width: 40px;
-  min-height: 40px;
+  width: 110px;
+  height: 80px;
 }
 .project-info {
   text-align: left;
   width: 70%;
+}
+.project-info > div {
+  margin-bottom: 5px;
 }
 .bookmark-img {
   margin: 0 10px;

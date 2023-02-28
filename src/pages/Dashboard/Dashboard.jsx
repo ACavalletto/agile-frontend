@@ -11,19 +11,6 @@ import * as projectsAPI from "../../utilities/projects-api";
 import * as profilesAPI from "../../utilities/profiles-api";
 
 const Dashboard = ({ user }) => {
-
-  // Sample calls (we wouuldn't actually want to get either of these variables on this page)
-  async function sampleAPICalls() {
-    const sampleProjectData = {
-      creator: "63f90d1a1c26a298bee25e59",
-      title: "Another test Project"
-    }
-    // const allProjects = await projectsAPI.getAllProjects();
-    // const currentUserProfile = await profilesAPI.getLoggedInUserProfile();
-    const newProject = await projectsAPI.addProject(sampleProjectData);
-  }
-  sampleAPICalls();
-
   return (
     <div>
       <div className="dashboard">
