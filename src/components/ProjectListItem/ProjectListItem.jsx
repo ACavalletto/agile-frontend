@@ -21,10 +21,10 @@ const ProjectListItem = ({ project }) => {
               <img />
             </div>
             <div className="project-info">
-              <h6>{project.title}</h6>
-              <div>{roleList}</div>
-              <div>Current Team Size: {project.members.length}</div>
-              <div>Project Time Length: 3 Weeks</div>
+              <h6 className="heading-text">{project.title}</h6>
+              <div className="sub-heading-text">{roleList}</div>
+              <div className="body-text">Current Team Size: {project.members.length}</div>
+              <div className="body-text">Project Time Length: 3 Weeks</div>
             </div>
           </div>
         </Link>
