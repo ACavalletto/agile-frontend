@@ -72,9 +72,9 @@ function NewProject ({ user, profile, project = null, editToggle, setEditToggle 
       const formData = {...projectInfo};
       if (formData._id) {
         const updatedProject = await projectsAPI.updateProject(formData._id, formData);
-        // setEditToggle(!editToggle);
-        // setProjectInfo(updatedProject);
-        // navigate(`/projects/${formData._id}`);
+        setEditToggle(!editToggle);
+        setProjectInfo(updatedProject);
+        navigate(`/projects/${formData._id}`);
       } else {
         formData.creator = profile._id;
         formData.members.push(profile._id)
