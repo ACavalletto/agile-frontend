@@ -13,6 +13,7 @@ const ProjectListItem = ({ project }) => {
             <div>{project.title}</div>
             <div>{project.roles[0]}</div>
             <div>Current Team Size: {project.members.length}</div>
+            <div>Project Time Length: 3 Weeks</div>
           </div>
         </div>
         <div>b</div>
