@@ -6,7 +6,10 @@ form {
     margin-bottom: 10px;
 }
 form input{
-    margin: 5px 0;
-    height: 20px;
-    width: 150px;
+    background-color: white;
+    border-color: #381565;
+    border-radius: 80px;
+    font-size: large;
+    width: 200px;
+    height: 30px;
 }

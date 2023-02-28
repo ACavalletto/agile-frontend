@@ -1,3 +1,5 @@
+
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -59,4 +61,56 @@
   
   .slider.round:before {
     border-radius: 50%;
+  }
+
+  .background {
+    z-index: 1
+  }
+
+  #puzzle {
+    position:absolute;
+    left: -190px;
+    top: -60px;
+    overflow: hidden;
+    width: 600px;
+  }
+
+  #magnify {
+    position: absolute;
+    right: -230px;
+    top: -20px;
+    width: 350px;
+  }
+
+  #launchPad {
+    margin-top: 90px;
+  }
+
+  #logo {
+    position:absolute;
+    top: 200px;
+    left: 140px;
+    height: 250px;
+    width: 300px;
+  }
+
+  #laptop {
+    position: absolute;
+    top: 390px;
+    left: 150px;
+    width: 412px;
+  }
+
+  #cogs {
+    width: 200px;
+    left: 150px;
+  }
+
+  #mail {
+    width: 200px;
+  }
+
+  .container {
+    height: 100vh;
+    margin: 0;
   }

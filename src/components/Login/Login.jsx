@@ -1,6 +1,13 @@
 import { googleLogin } from "../../services/firebase";
 import LoginForm from "../LoginForm/LoginForm";
 import "./Login.css";
+import welcomeHeading from  "./images/welcomeHeading.png";
+import logo from "./images/launchpadLogo.png";
+import puzzle from "./images/puzzle.png";
+import magnify from "./images/magnify.png";
+import laptop from "./images/laptop.png";
+import cogs from "./images/cogs.png";
+import mail from "./images/mail.png"
 
 const Login = ({ user, URL, setUser }) => {
   async function newUser() {
@@ -24,18 +31,12 @@ const Login = ({ user, URL, setUser }) => {
   }
   return (
     <div className="container" style={{ marginTop: 50 }}>
+      <img className="background" id="puzzle" src={puzzle}/>
+      <img className="background" id="magnify" src={magnify}/>
       <div className="row">
-        <h3>Welcome to "App Name"</h3>
+        <img id="launchPad" src={welcomeHeading}/><img id="logo" src={logo}/>
       </div>
       <div className="row justify-content-center">
-        <div className="col-4">
-          <img
-            src="https://cdn.vectorstock.com/i/1000x1000/02/30/group-of-young-business-people-working-together-vector-19510230.webp"
-            className="rounded"
-            alt="otter working on a keyboard"
-            style={{ height: 118.5, width: 118.5 }}
-          />
-        </div>
       </div>
       <div className="row">
         <div className="col-3 text-left">Sign in</div>
@@ -54,6 +55,9 @@ const Login = ({ user, URL, setUser }) => {
           </button>
         </div>
       </div>
+      <img id="laptop" className="background" src={laptop}/>
+      <img id="cogs" className="background" src={cogs}/>
+      <img id="mail" className="background" src={mail}/>
     </div>
   );
 };
