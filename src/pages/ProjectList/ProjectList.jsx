@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
+import AddProjectButton from "../../components/AddProjectButton/AddProjectButton";
 import ProjectListItem from "../../components/ProjectListItem/ProjectListItem"; 
 import * as projectsAPI from "../../utilities/projects-api";
 import "./ProjectList.css";
@@ -26,7 +26,7 @@ const ProjectList = () => {
             <ProjectListItem project={p} key={p._id} />
           )}
         </div>
-        <PageBottomButton buttonText="+ Add New Project" link="/projects/new" />
+        <AddProjectButton />
       </div>
     ) : (
       <div>Loading Projects...</div>

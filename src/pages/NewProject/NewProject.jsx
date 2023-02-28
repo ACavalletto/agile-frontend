@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TimelineForm from "../../components/TimelineForm/TimelineForm";
-import PageBottomButton from "../../components/PageBottomButton/PageBottomButton";
 import * as projectsAPI from "../../utilities/projects-api";
 
 function NewProject ({ user, profile, project = null, editToggle, setEditToggle }){
@@ -94,14 +93,10 @@ function NewProject ({ user, profile, project = null, editToggle, setEditToggle 
       { formToggle ? 
         <>
           <ProjectForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleChange={handleChange} handleToggle={handleToggle} editToggle={editToggle} handleSubmit={handleSubmit} />
-          {/* <PageBottomButton buttonText={"Save + Add Timeline"} onClick={handleToggle}/> */}
         </>
       :
         <>
           <TimelineForm projectInfo={projectInfo} setProjectInfo={setProjectInfo} handleTimelineChange={handleTimelineChange} handleToggle={handleToggle} handleSubmit={handleSubmit} editToggle={editToggle}/>
-          {/* <Link to="" onClick={handleToggle}>Go Back</Link>
-          <br />
-          <Link to="/projects" onClick={handleSubmit} >Save New Project!</Link> This route needs to be updated to specific project id route */}
         </>
       }
     </div>

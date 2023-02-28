@@ -2,7 +2,6 @@ import { useState } from "react";
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
-import PageBottomButton from "../PageBottomButton/PageBottomButton";
 import "./ProjectForm.css";
 
 function ProjectForm({ projectInfo, setProjectInfo, handleChange, handleToggle, handleSubmit, editToggle }) {

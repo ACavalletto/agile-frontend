@@ -1,0 +1,23 @@
+#addProjectButton{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  background-color: rgba(255, 130, 111, 1);
+  border-radius: 100%;
+  filter: drop-shadow(1px 3px 3px rgb(59, 59, 59))
+}
+#addProjectButton span {
+  position: inherit;
+  top: -5px;
+  color: white;
+  font-size: 70px;
+  font-weight: 700;
+  margin: 0;
+  /* vertical-align: middle; */
+}
