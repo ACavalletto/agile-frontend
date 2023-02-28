@@ -11,6 +11,27 @@
   pointer-events: none;
 }
 
+.heading-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 18px;
+}
+.body-text {
+  font-family: 'Mukta Malar', sans-serif;
+  font-size: 12px;
+  color: grey;
+}
+.sub-heading-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+}
+.button-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+}
+.sub-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
