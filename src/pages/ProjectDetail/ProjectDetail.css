@@ -13,9 +13,9 @@
   margin: 20px;
   width: 75vw;
   align-self: center;
+  text-align: left;
 }
 .project-detail-page .project-info-pane > p {
-  text-align: left;
   font-size: smaller;
   margin-bottom: 0;
 }

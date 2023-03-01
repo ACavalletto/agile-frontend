@@ -16,47 +16,47 @@ function ResourceLinks ({ project }) {
       <div className="resource-links">
         {project.figmaLink ? (
           <div className="img-box">
-            <Link to={project.figmaLink}><img src={figma} /></Link>
+            <Link to={project.figmaLink} target="_blank"><img src={figma} /></Link>
           </div>
         ) : ("")}
         {project.gitHubFrontendLink ? (
           <div className="img-box">
-            <Link to={project.gitHubFrontendLink}><img src={gitHub} /></Link>
+            <Link to={project.gitHubFrontendLink} target="_blank"><img src={gitHub} /></Link>
           </div>
         ) : ("")}
         {project.gitHubBackendLink ? (
           <div className="img-box">
-            <Link to={project.gitHubBackendLink}><img src={gitHub} /></Link><span className="subtitle">Backend</span>
+            <Link to={project.gitHubBackendLink} target="_blank"><img src={gitHub} /></Link><span className="subtitle">Backend</span>
           </div>
         ) : ("")}
         {project.googleDriveLink ? (
           <div className="img-box">
-            <Link to={project.googleDriveLink}><img src={googleDrive} /></Link>
+            <Link to={project.googleDriveLink} target="_blank"><img src={googleDrive} /></Link>
           </div>
         ) : ("")}
         {project.jiraLink ? (
           <div className="img-box">
-            <Link to={project.jiraLink}><img src={jira} /></Link>
+            <Link to={project.jiraLink} target="_blank"><img src={jira} /></Link>
           </div>
         ) : ("")}
         {project.microsoftTeamsLink ? (
           <div className="img-box">
-            <Link to={project.microsoftTeamsLink}><img src={microsoftTeams} /></Link>
+            <Link to={project.microsoftTeamsLink} target="_blank"><img src={microsoftTeams} /></Link>
           </div>
         ) : ("")}
         {project.slackLink ? (
           <div className="img-box">
-            <Link to={project.slackLink}><img src={slack} /></Link>
+            <Link to={project.slackLink} target="_blank"><img src={slack} /></Link>
           </div>
         ) : ("")}
         {project.trelloLink ? (
           <div className="img-box">
-            <Link to={project.trelloLink}><img src={trello} /></Link>
+            <Link to={project.trelloLink} target="_blank"><img src={trello} /></Link>
           </div>
         ) : ("")}
         {project.zoomLink ? (
           <div className="img-box">
-            <Link to={project.zoomLink}><img src={zoom} /></Link>
+            <Link to={project.zoomLink} target="_blank"><img src={zoom} /></Link>
           </div>
         ) : ("")}
       </div>
