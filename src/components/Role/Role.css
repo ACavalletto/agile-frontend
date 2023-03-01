@@ -13,6 +13,19 @@ form label[for="city"]{
     margin-top: 30px;
 }
 form input[type="text"]{
-    background: rgb(197, 196, 196);
-    border: none;
+    /* background: rgb(197, 196, 196); */
+    
+    border: 1px solid rgba(56, 21, 101, 1);
+    height: 35px;
+}
+.container{
+   color: rgba(56, 21, 101, 1);
+   background-position: right -10px bottom -100px;
+   
+}
+.Role-bg{
+    background: url('./role-page-bg.png');
+    height: 100%;
+    border: 1px solid black;
+
 }

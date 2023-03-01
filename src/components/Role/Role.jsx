@@ -72,7 +72,7 @@ const Role = ({ handleCheckboxChange, onUpdateField, profileData }) => {
           type="text"
           name="city"
           id="city"
-          className="rounded"
+          className="rounded-role"
           onChange={onUpdateField}
         />
       </form>
