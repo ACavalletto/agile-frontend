@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CurrentTeam from "../../components/CurrentTeam/CurrentTeam";
+import JoinRequestButton from "../../components/JoinRequestButton/JoinRequestButton";
+import JoinRequestList from "../../components/JoinRequestList/JoinRequestList";
 import NewProject from "../NewProject/NewProject";
 import ProjectRoles from "../../components/ProjectRoles/ProjectRoles";
 import ProjectTopicTags from "../../components/ProjectTopicTags/ProjectTopicTags";
@@ -21,6 +23,12 @@ const ProjectDetail = ({ user, profile }) => {
       (async function getProject() {
         const projectInfo = await projectsAPI.showProject(id)
         setProject(projectInfo)
+        if ("joinRequests" in projectInfo) {
+          console.log(projectInfo.joinRequests);
+        } else {
+          console.log("no join requests")
+        }
+        console.log(projectInfo)
       })()
     }
   })
@@ -65,7 +73,18 @@ const ProjectDetail = ({ user, profile }) => {
               <ProjectRoles project={project} />
               <ProjectTools project={project} />
             </div>
+            {project.creator === profile._id && (
+              <JoinRequestList project={project} />
+            )}
             <CurrentTeam project={project} />
+            {!project.members.includes(profile._id) && (project.joinRequests.filter(p => p.id === profile._id).length === 0) && (
+              <JoinRequestButton 
+                project={project} 
+                setProject={setProject} 
+                profile={profile} 
+                user={user}
+              />
+            )}
             <h6 className="purple-text">Current Stage</h6>
             <Timeline project={project}/> 
             <ResourceLinks project={project}/>
