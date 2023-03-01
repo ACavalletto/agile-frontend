@@ -73,19 +73,21 @@ const ProjectDetail = ({ user, profile }) => {
               <ProjectRoles project={project} />
               <ProjectTools project={project} />
             </div>
-            {project.creator === profile._id && (
-              <JoinRequestList project={project} />
-            )}
             <CurrentTeam project={project} />
-            {!project.members.includes(profile._id) && (project.joinRequests.filter(p => p.id === profile._id).length === 0) && (
-              <JoinRequestButton 
-                project={project} 
-                setProject={setProject} 
-                profile={profile} 
-                user={user}
-              />
-            )}
-            <h6 className="purple-text">Current Stage</h6>
+            <div className="join-request-section">
+              {!project.members.includes(profile._id) && (project.joinRequests.filter(p => p.id === profile._id).length === 0) && (
+                <JoinRequestButton 
+                  project={project} 
+                  setProject={setProject} 
+                  profile={profile} 
+                  user={user}
+                />
+              )}
+            {project.creator === profile._id && project.joinRequests.length > 0  && (
+              <JoinRequestList project={project} setProject={setProject} />
+            )} {/* CHANGE CONDITIONAL: > 0  */}
+            </div>
+            {/* <h6 className="purple-text">Current Stage</h6> */}
             <Timeline project={project}/> 
             <ResourceLinks project={project}/>
             <div className="buttons">
