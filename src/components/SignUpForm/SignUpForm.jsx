@@ -22,7 +22,7 @@ const SignUpForm = () => {
     e.preventDefault();
     if (form.password !== form.confirmPassword) {
       setError("Passwords do not match");
-    } else if (form.password.length > 8) {
+    } else if (form.password.length < 8) {
       setError("Password must be at least 8 characters");
     } else {
       setError("");
@@ -66,7 +66,7 @@ const SignUpForm = () => {
         {error && <div>{error}</div>}
         <br />
         <div className="col-4 text-left">
-          <button class="btn btn-primary" type="submit">
+          <button className="btn btn-primary" type="submit">
             Sign Up
           </button>
         </div>

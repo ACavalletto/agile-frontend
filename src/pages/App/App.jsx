@@ -37,6 +37,7 @@ function App() {
         if (!response) {
           let profileData = {
             uid: uid,
+            photo: user?.photoURL ? user.photoURL : "",
           };
           createProfile(profileData);
         } else {
@@ -65,9 +66,15 @@ function App() {
                 element={<Onboarding user={user} URL={URL} />}
               />
             )}
-            <Route path="/profile" element={<ProfilePage user={user} profile={profile} />} />
+            <Route
+              path="/profile"
+              element={<ProfilePage user={user} profile={profile} />}
+            />
             <Route path="/projects" element={<ProjectList user={user} />} />
-            <Route path="/projects/new" element={<NewProject user={user} profile={profile} />} />
+            <Route
+              path="/projects/new"
+              element={<NewProject user={user} profile={profile} />}
+            />
             <Route
               path="/projects/:id"
               element={<ProjectDetail user={user} profile={profile} />}
