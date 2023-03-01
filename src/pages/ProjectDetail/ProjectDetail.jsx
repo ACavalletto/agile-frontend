@@ -15,13 +15,11 @@ const ProjectDetail = ({ user, profile }) => {
   const [editToggle, setEditToggle] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log(id);
 
   useEffect(function() {
     if (!project) {
       (async function getProject() {
         const projectInfo = await projectsAPI.showProject(id)
-        console.log(projectInfo)
         setProject(projectInfo)
       })()
     }
@@ -45,7 +43,7 @@ const ProjectDetail = ({ user, profile }) => {
       <div>Loading Project...</div>
     ) : (
       <div className="project-detail-page">
-        <h1>{project.title} Project Center</h1>
+        <h1 className="purple-text">{project.title} Project Center</h1>
         {editToggle ? 
           <div className="edit-project">
             <NewProject 
@@ -59,7 +57,7 @@ const ProjectDetail = ({ user, profile }) => {
         : 
           <>
             <ProjectTopicTags project={project} />
-            <div className="project-info">
+            <div className="project-info-pane">
               <h6>About</h6>
               <p>{project.description}</p>
             </div>
@@ -68,11 +66,13 @@ const ProjectDetail = ({ user, profile }) => {
               <ProjectTools project={project} />
             </div>
             <CurrentTeam project={project} />
-            <h6>Current Stage</h6>
+            <h6 className="purple-text">Current Stage</h6>
             <Timeline project={project}/> 
             <ResourceLinks project={project}/>
-            <button className="edit" onClick={handleEditToggle}>Edit Project</button>
-            <button className="delete" onClick={deleteProject}>Delete Project</button>
+            <div className="buttons">
+              <button className="purple-bg" onClick={handleEditToggle}>Edit Project</button>
+              <button className="purple-bg" onClick={deleteProject}>Delete Project</button>
+            </div>
           </>
         }
       </div>

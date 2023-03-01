@@ -5,17 +5,26 @@
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   -ms-word-break: break-all;
+  margin-bottom: 30px;
+}
+.timeline h6 {
+  margin-bottom: 30px;
 }
 .timeline .stages {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .timeline .stage {
-  border-top: solid black 2px;
+  border-top: solid darkgray 2px;
+  text-align: left;
+  padding: 10px;
+}
+.timeline .stage-name {
+  font-size: 20px;
 }
 .timeline .left {
-  border-right: solid black 2px;
+  border-right: solid darkgray 2px;
 }
 .timeline .right {
-  border-left: solid black 2px;
+  border-left: solid darkgray 2px;
 }

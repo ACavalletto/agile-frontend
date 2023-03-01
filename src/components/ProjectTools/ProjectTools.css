@@ -1,9 +1,12 @@
+.project-tools {
+  text-align: left;
+}
 .tech-list {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   margin: 5px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .tech-icon {
   height: 30px;

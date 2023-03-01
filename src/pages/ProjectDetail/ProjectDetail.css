@@ -1,17 +1,40 @@
 .project-detail-page {
+  display: flex;
+  flex-direction: column;
   padding: 10px 20px;
 }
-.project-info > p {
+.project-detail-page > h1 {
+  font-weight: 800;
+}
+.project-detail-page h1, h4, h5, h6 {
+  font-weight: bold;
+}
+.project-detail-page .project-info-pane {
+  margin: 20px;
+  width: 75vw;
+  align-self: center;
+}
+.project-detail-page .project-info-pane > p {
   text-align: left;
   font-size: smaller;
   margin-bottom: 0;
 }
-.roles-and-tools {
+.project-detail-page .roles-and-tools {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   width: 100%;
 }
-.delete {
-  background-color: red;
+.project-detail-page .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.project-detail-page button {
+  height: fit-content;
+  width: fit-content;
+  margin-top: 15px;
+  padding: 5px 15px;
+  font-size: large;
+  border: none;
+  border-radius: 80px;
 }

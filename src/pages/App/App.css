@@ -50,6 +50,9 @@ html, body, .App {
   background-color: rgba(56, 21, 101, 1);
   color: white;
 }
+.purple-text {
+  color: rgba(56, 21, 101, 1);
+}
 
 
 

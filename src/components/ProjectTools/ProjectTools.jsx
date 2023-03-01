@@ -1,8 +1,6 @@
 import "./ProjectTools.css";
 
 const ProjectTools = ({ project }) => {
-  console.log(project.tech)
-
   // Find more icons to add at: https://github.com/devicons/devicon/tree/master/icons
   const ICON_REFERENCES = {
     angular: "https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/angularjs/angularjs-original.svg",
@@ -24,8 +22,8 @@ const ProjectTools = ({ project }) => {
   }
 
   return (
-    <div>
-      <h6>Tools/Skills</h6>
+    <div className="project-tools">
+      <h6 className="purple-text">Tools/Skills</h6>
       {project.tech ? (
       <div className="tech-list">
         {project.tech.map(t => (
