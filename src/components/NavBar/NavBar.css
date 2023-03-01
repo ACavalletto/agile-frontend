@@ -1,0 +1,19 @@
+#navbar {
+  background-color: rgba(246, 246, 246, 1);
+}
+.nav-link {
+  color: black;
+  border-bottom: solid 1px darkgray;
+}
+#navbar .userPhoto {
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+#navbar .userPhoto img {
+  height: 35px;
+  width: 35px;
+}

@@ -1,9 +1,27 @@
-input, textarea {
-  background-color: rgba(217, 217, 217, 1);
+.timeline-form {
+  background-image: url(/src/images/clock-bg/1000.png);
 }
-h6, .name {
-  display: inline;
+.timeline-form form > h6{
+  margin-bottom: 20px;
 }
-textarea {
-  margin-top: 5px;
+.timeline-form #subtitle {
+  text-align: center;
+}
+.timeline-form .stage-field > h6 {
+  font-weight:800;
+  margin: 0 40px;
+  padding-top: 10px;
+}
+.timeline-form .input-fields {
+  width: 60%;
+}
+.timeline-form input, textarea {
+  width: 100%;
+}
+.timeline-form textarea {
+  margin: 5px 0 15px;
+}
+.timeline-form .buttons {
+  display: flex;
+  justify-content: space-between;
 }

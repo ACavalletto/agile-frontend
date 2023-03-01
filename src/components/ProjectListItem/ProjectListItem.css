@@ -10,7 +10,6 @@
 }
 .project-list-item-box {
   width: 100%;
-  background-color: rgba(210, 233, 149, 1);
   border-radius: 15px;
   filter: drop-shadow(1px 4px 3px rgba(194, 194,194))
 }
