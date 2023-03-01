@@ -1,7 +1,6 @@
 import "./ProjectTopicTags.css";
 
 const ProjectTopicTags = ({ project }) => {
-  console.log(project.categories)
   const categoryOptions = {
     "ART": "Art",
     "CAR": "Career",
@@ -25,7 +24,7 @@ const ProjectTopicTags = ({ project }) => {
     project.categories.length ? (
     <div className="project-topic-tags">
       {project.categories.map(c => (
-        <div className="topic-tag"key={c}>{categoryOptions[c]}</div>
+        <div className="topic-tag green-bg"key={c}>{categoryOptions[c]}</div>
       ))}
     </div>
     ) : ("")

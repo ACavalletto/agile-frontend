@@ -5,7 +5,7 @@ function CurrentTeam ({ project }) {
 
   return (
     <div className="current-team">
-      <h6>Current Team</h6>
+      <h6 className="purple-text">Current Team</h6>
       <div className="team-list">
         {project.members?.forEach(m => {
           <div className="member">

@@ -12,7 +12,7 @@ import zoom from "../../images/resource-icons/zoom.png";
 function ResourceLinks ({ project }) {
   return (
     <div className="resources">
-      <h6>Resources</h6>
+      <h6 className="purple-text">Resources</h6>
       <div className="resource-links">
         {project.figmaLink ? (
           <div className="img-box">

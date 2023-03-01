@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import AddProjectButton from "../../components/AddProjectButton/AddProjectButton";
 import ProjectListItem from "../../components/ProjectListItem/ProjectListItem"; 
 import * as projectsAPI from "../../utilities/projects-api";
@@ -12,7 +11,6 @@ const ProjectList = () => {
     if (!projects) {
       (async function getProjects() {
         const allProjects = await projectsAPI.getAllProjects();
-        console.log(allProjects);
         setProjects(allProjects);
       })()
     }

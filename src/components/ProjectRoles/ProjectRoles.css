@@ -1,5 +1,11 @@
+.project-roles {
+  text-align: left;
+}
 .role-list {
   display: flex;
   flex-wrap: wrap;
   margin: 5px;
+}
+.role-list p {
+  color: grey;
 }

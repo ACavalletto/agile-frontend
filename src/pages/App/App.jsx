@@ -57,7 +57,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Dashboard user={user} />}
+              element={<Dashboard user={user} profile={profile} />}
             />
             {profile?.newUser && (
               <Route

@@ -29,7 +29,7 @@ const ProjectListItem = ({ project }) => {
 
   return (
     <div className="project-list-item">
-      <div className="project-list-item-box">
+      <div className="project-list-item-box green-bg">
         <Link to={`/projects/${project._id}`}>
           <div className="project-list-item-box-contents">
             <div className="project-image">

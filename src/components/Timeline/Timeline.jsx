@@ -5,7 +5,7 @@ function Timeline ({ project }) {
 
   return (
     <div className="timeline">
-      <h6>Your Timeline</h6>
+      <h6 className="purple-text">Your Timeline</h6>
       {t ? (
           <div className="stages">
             <div className="left"></div>

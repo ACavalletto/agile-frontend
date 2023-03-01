@@ -2,8 +2,11 @@
   box-sizing: border-box;
 }
 
-.App {
+html, body, .App {
   text-align: center;
+  font-family: 'Jost', sans-serif;
+  background-color: rgba(246, 246, 246, 1);
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -11,6 +14,11 @@
   pointer-events: none;
 }
 
+/*  */
+/* Global brand Styling */
+/*  */
+
+/* Fonts */
 .heading-text {
   font-family: 'Jost', sans-serif;
   font-size: 18px;
@@ -33,6 +41,22 @@
   font-family: 'Jost', sans-serif;
   font-size: 9px;
 }
+
+/* Colors */
+.green-bg {
+  background-color: rgba(210, 233, 149, 1);
+}
+.purple-bg {
+  background-color: rgba(56, 21, 101, 1);
+  color: white;
+}
+.purple-text {
+  color: rgba(56, 21, 101, 1);
+}
+
+
+
+/* Media Queries */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

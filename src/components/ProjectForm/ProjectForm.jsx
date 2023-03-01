@@ -85,6 +85,7 @@ function ProjectForm({ projectInfo, setProjectInfo, handleChange, handleToggle, 
   return (
     <div className="project-info-form">
       <form onSubmit={handleSubmitGoToTimeline}>
+        <h4>Enter Project Details</h4>
         <div id="projectName">
           <h6>Project Title:</h6>
           <input
@@ -223,9 +224,9 @@ function ProjectForm({ projectInfo, setProjectInfo, handleChange, handleToggle, 
             value={projectInfo.zoomLink}
           />
           <br />
-          <input type="submit" className="button-primary" value={editToggle ? "Update Project and Edit Timeline" : "Save and Add Timeline"} />
+          <input type="submit" className="purple-bg" value={editToggle ? "Update Project and Edit Timeline" : "Save and Add Timeline >> "} />
           {editToggle && ( 
-            <input type="submit" className="button-primary" value="Just Update Project" onClick={handleSubmit} /> 
+            <input type="submit" className="purple-bg" value="Just Update Project" onClick={handleSubmit} /> 
           )}
         </div>
       </form>
