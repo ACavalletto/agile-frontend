@@ -34,6 +34,7 @@ function App() {
         const response = await checkUserExists(uid);
         const profileResponse = await getLoggedInUserProfile(uid);
         // May not have users name depending on how they sign up here.
+        console.log(profileResponse)
         if (!response) {
           let profileData = {
             uid: uid,

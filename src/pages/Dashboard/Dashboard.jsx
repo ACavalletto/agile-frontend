@@ -21,37 +21,40 @@ const Dashboard = ({ user }) => {
         </div>
         <div className="buttons">
           <div className="button-icon-bg">
-            <img src={ppl} alt="network" />
+            <img src={ppl} alt="network" className="button-icon"/>
           </div>
           <Link to="/projects">
             <div className="button-icon-bg">
-              <img src={projects} alt="projects" />
+              <img src={projects} alt="projects" className="button-icon"/>
             </div>
           </Link>
           <div className="button-icon-bg">
-            <img src={calendar} alt="calendar" />
+            <img src={calendar} alt="calendar" className="button-icon"/>
           </div>
           <div className="button-icon-bg">
-            <img src={profile} alt="profile link" />
+            <img src={profile} alt="profile link" className="button-icon"/>
           </div>
           <div className="button-icon-bg">
-            <img src={addPerson} alt="add person" />
+            <img src={addPerson} alt="add person" className="button-icon"/>
           </div>
         </div>
         <hr />
         <div>
           <h6>What's In Store...</h6>
           <div className="task-panel">
-            <ul>
-              {/* Contents here will also be converted from real data using .map. */}
-              <li>Task Name</li>
-              <p>Project Name / Assigned By ___ /Due: ___ via ___</p>
-              <li>Task Name</li>
-              <p>Project Name / Assigned By ___ /Due: ___ via ___</p>
+            <div className="task-panel-list">
+              <ul>
+                {/* Contents here will also be converted from real data using .map. */}
+                <li>Task Name</li>
+                <p>Project Name / Assigned By ___ /Due: ___ via ___</p>
+                <li>Task Name</li>
+                <p>Project Name / Assigned By ___ /Due: ___ via ___</p>
 
-              <li>Task Name</li>
-              <p>Project Name / Assigned By ___ /Due: ___ via ___</p>
-            </ul>
+                <li>Task Name</li>
+                <p>Project Name / Assigned By ___ /Due: ___ via ___</p>
+              </ul>
+            </div>
+            <div className="enter-tasks-button"> {">"} </div>
           </div>
         </div>
         <hr />

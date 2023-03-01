@@ -15,7 +15,7 @@
 }
 .button-icon-bg {
     margin: 10px 10px;
-    background-color: rgba(237, 237, 237, 1);
+    background-color: #381565;
     width: 60px;
     height: 60px;
     border-radius: 15px;
@@ -30,20 +30,29 @@
 .speech-bubble {
     padding: 0 15px;
 }
-.task-panel {
-    background-color: rgba(217, 217, 217, 1);
-    margin: 10px 30px;
+.task-panel{
+    display: flex;
+    align-items: center;
+}
+.task-panel-list {
+    background-color: #D2e994;
+    margin: 10px 10px 10px 30px;
     text-align: left;
+    border-radius: 15px;
 }
 .task-panel p {
     font-size: x-small;
     margin-bottom: .3rem;
 }
+.enter-tasks-button{
+    margin:0;
+}
 .meeting-panel {
-    background-color: rgba(217, 217, 217, 1);
+    background-color:#381565;
     margin: 10px 30px;
     border-radius: 50px;
     padding: 10px;
+    color:#ffffff
 }
 .meeting-panel h6 {
     font-weight: bolder;
@@ -59,4 +68,7 @@
 }
 .rank-panel p {
     font-weight: bolder;
+}
+.button-icon{
+    filter: invert(100%);
 }
