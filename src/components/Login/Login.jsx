@@ -30,7 +30,7 @@ const Login = ({ user, URL, setUser }) => {
     const response = await fetch(URL + "/users/" + user.uid + "/", options);
   }
   return (
-    <div className="container" style={{ marginTop: 50 }}>
+    <div className="container-login" style={{ marginTop: 50 }}>
       <img className="background" id="puzzle" src={puzzle}/>
       <img className="background" id="magnify" src={magnify}/>
       <div className="row">
