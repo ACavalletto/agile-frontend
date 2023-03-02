@@ -4,7 +4,7 @@ import ProjectForm from "../../components/ProjectForm/ProjectForm";
 import TimelineForm from "../../components/TimelineForm/TimelineForm";
 import * as projectsAPI from "../../utilities/projects-api";
 
-function NewProject ({ user, profile, project = null, editToggle, setEditToggle }){
+function NewProject ({ profile, project = null, setProject, editToggle, setEditToggle }){
   const [formToggle, setFormToggle] = useState(true);
   const [projectInfo, setProjectInfo] = useState(project || {
     title:"",
@@ -73,14 +73,12 @@ function NewProject ({ user, profile, project = null, editToggle, setEditToggle 
       if (formData._id) {
         const updatedProject = await projectsAPI.updateProject(formData._id, formData);
         setEditToggle(!editToggle);
-        setProjectInfo(updatedProject);
+        setProject(updatedProject);
         navigate(`/projects/${formData._id}`);
       } else {
         formData.creator = profile._id;
         formData.members.push(profile._id)
-        console.log(formData);
         const newProject = await projectsAPI.addProject(formData);
-        console.log(newProject);
         navigate(`/projects/${newProject._id}`);
       }
     } catch(err) {

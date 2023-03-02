@@ -55,16 +55,18 @@ function App() {
         <>
           <NavBar />
           <Routes>
-            <Route
-              path="/"
-              element={<Dashboard user={user} profile={profile} />}
-            />
-            {profile?.newUser && (
+            {profile?.newUser ? (
               <Route
-                path="/onboarding"
-                element={<Onboarding user={user} URL={URL} />}
+                path="/"
+                element={<Onboarding user={user} profile={profile} setProfile={setProfile} URL={URL} />}
               />
-            )}
+            ) : (
+              <Route
+                path="/"
+                element={<Dashboard user={user} profile={profile} />}
+              />
+            )
+            }
             <Route path="/profile" element={<NewProfilePage user={user} profile={profile} />} />
             <Route path="/projects" element={<ProjectList user={user} />} />
             <Route path="/projects/new" element={<NewProject user={user} profile={profile} />} />

@@ -73,7 +73,19 @@ const UserInterests = ({ onUpdateArray, profileData }) => {
 
   return (
     <div className="container" id="interestsContainer">
-      <h5 className="mt-5">
+      <h5> What tech do you want to work with?</h5>
+      <div id="profileSkills">
+        <CreatableSelect
+          className="basic-multi-select"
+          classNamePrefix="select"
+          name="skills"
+          isMulti
+          components={animatedComponents}
+          options={skillsOptions}
+          onChange={handleCreateSelectChange}
+        />
+      </div>
+      <h5>
         {" "}
         Last step, what're topics that give you meaning?
       </h5>
@@ -101,18 +113,7 @@ const UserInterests = ({ onUpdateArray, profileData }) => {
           </ToggleButton>
         ))}
       </ToggleButtonGroup>
-      <h5 className="mt-5"> What tech do you want to work with?</h5>
-      <div id="profileSkills">
-        <CreatableSelect
-          className="basic-multi-select"
-          classNamePrefix="select"
-          name="skills"
-          isMulti
-          components={animatedComponents}
-          options={skillsOptions}
-          onChange={handleCreateSelectChange}
-        />
-      </div>
+
     </div>
   );
 };

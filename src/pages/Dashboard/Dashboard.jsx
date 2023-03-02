@@ -11,7 +11,6 @@ import * as projectsAPI from "../../utilities/projects-api";
 import * as profilesAPI from "../../utilities/profiles-api";
 
 const Dashboard = ({ user, profile }) => {
-  console.log(user);
   return (
     <div>
       <div className="dashboard">

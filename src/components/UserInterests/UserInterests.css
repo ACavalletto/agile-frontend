@@ -15,6 +15,9 @@
 #interestsContainer {
   margin-bottom: 100px;
 }
+#interestsContainer h5 {
+  margin-top: 2em;
+}
 .Art{
   background-image: url('./topiclogos/Art.png');
   background-repeat: no-repeat;
