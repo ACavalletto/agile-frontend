@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   getLoggedInUserProfile,
   updateProfile,
@@ -9,7 +10,7 @@ import UserInterests from "../../components/UserInterests/UserInterests";
 import UserSocials from "../../components/UserSocials/UserSocials";
 import NavigationArrows from "../../components/NavigationArrows/NavigationArrows.jsx";
 
-const Onboarding = ({ user, URL }) => {
+const Onboarding = ({ user, setProfile, URL }) => {
   const [page, setPage] = useState(1);
   const [profileData, setprofileData] = useState({
     name: "",
@@ -24,10 +25,15 @@ const Onboarding = ({ user, URL }) => {
     interests: [],
     tech: [],
   });
+  const navigate = useNavigate();
+
   async function newUser() {
     const profileId = await getLoggedInUserProfile(user.uid);
+    profileData.newUser = false;
     const response = await updateProfile(profileId._id, profileData);
-    console.log(profileId._id);
+    console.log(profileId._id, response);
+    setProfile(response);
+    navigate("/");
   }
 
   const onUpdateField = (e) => {

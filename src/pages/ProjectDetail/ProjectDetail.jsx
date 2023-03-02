@@ -84,10 +84,12 @@ const ProjectDetail = ({ user, profile }) => {
             {/* <h6 className="purple-text">Current Stage</h6> */}
             <Timeline project={project}/> 
             <ResourceLinks project={project}/>
+            {project.creator === profile._id && (
             <div className="buttons">
               <button className="purple-bg" onClick={handleEditToggle}>Edit Project</button>
               <button className="purple-bg" onClick={deleteProject}>Delete Project</button>
             </div>
+            )}
           </>
         }
       </div>
