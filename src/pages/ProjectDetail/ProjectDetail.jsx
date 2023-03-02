@@ -85,7 +85,7 @@ const ProjectDetail = ({ user, profile }) => {
               )}
             {project.creator === profile._id && project.joinRequests.length > 0  && (
               <JoinRequestList project={project} setProject={setProject} />
-            )} {/* CHANGE CONDITIONAL: > 0  */}
+            )}
             </div>
             {/* <h6 className="purple-text">Current Stage</h6> */}
             <Timeline project={project}/> 

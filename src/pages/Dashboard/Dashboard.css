@@ -6,6 +6,9 @@
 .dashboard > .buttons {
     display: flex;
     justify-content: center;
+  }
+.dashboard > .buttons a {
+  text-decoration: none;
 }
 .dashboard h6 {
     font-weight: bolder;
