@@ -12,7 +12,7 @@ import Home from "../Home/Home";
 import AuthPage from "../AuthPage/AuthPage";
 import ProjectList from "../ProjectList/ProjectList";
 import ProjectDetail from "../ProjectDetail/ProjectDetail";
-import ProfilePage from "../ProfilePage/ProfilePage";
+import NewProfilePage from "../Profile/NewProfilePage";
 import NewProject from "../NewProject/NewProject";
 import Onboarding from "../Onboarding/Onboarding";
 import "./App.css";
@@ -65,7 +65,7 @@ function App() {
                 element={<Onboarding user={user} URL={URL} />}
               />
             )}
-            <Route path="/profile" element={<ProfilePage user={user} profile={profile} />} />
+            <Route path="/profile" element={<NewProfilePage user={user} profile={profile} />} />
             <Route path="/projects" element={<ProjectList user={user} />} />
             <Route path="/projects/new" element={<NewProject user={user} profile={profile} />} />
             <Route
