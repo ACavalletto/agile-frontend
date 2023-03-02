@@ -37,6 +37,8 @@ function App() {
         if (!response) {
           let profileData = {
             uid: uid,
+            photo: user?.photoURL ? user.photoURL : "",
+            name: user?.displayName ? user.displayName : "",
           };
           createProfile(profileData);
         } else {
