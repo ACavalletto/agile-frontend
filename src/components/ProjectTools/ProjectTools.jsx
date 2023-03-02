@@ -27,7 +27,7 @@ const ProjectTools = ({ project }) => {
       {project.tech ? (
       <div className="tech-list">
         {project.tech.map(t => (
-          <div className="tech-icon">
+          <div className="tech-icon" key={t}>
             {ICON_REFERENCES[t.toLowerCase()] ? 
               <img src={ICON_REFERENCES[t.toLowerCase()]} key={t}/>
             : <p className="tech-name" key={t}>{t}</p>}
