@@ -14,7 +14,6 @@ const Onboarding = ({ user, setProfile, URL }) => {
   const [page, setPage] = useState(1);
   const [profileData, setprofileData] = useState({
     name: "",
-    photo: "",
     role: "",
     city: "",
     bio: "",
