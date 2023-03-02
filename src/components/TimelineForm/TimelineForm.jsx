@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import "./TimelineForm.css";
 
 function TimelineForm({ projectInfo, setProjectInfo, handleTimelineChange, handleToggle, handleSubmit, editToggle }) {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 
   return (
     <div className="project-info-form timeline-form">
