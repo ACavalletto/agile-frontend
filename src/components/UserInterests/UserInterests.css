@@ -15,3 +15,154 @@
 #interestsContainer {
   margin-bottom: 100px;
 }
+.Art{
+  background-image: url('./topiclogos/Art.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+
+
+
+.Travel{
+  background-image: url('./topiclogos/Travel.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Social{
+  background-image: url('./topiclogos/Social.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Religion{
+  background-image: url('./topiclogos/Religion.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Media{
+  background-image: url('./topiclogos/Media.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Finance{
+  background-image: url('./topiclogos/Finance.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Sports{
+  background-image: url('./topiclogos/Sports.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Education{
+  background-image: url('./topiclogos/Education.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Medical{
+  background-image: url('./topiclogos/Medical.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Culture{
+  background-image: url('./topiclogos/Culture.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+
+/* 
+
+"Career",
+"Social Justice",
+"Tech",
+"Environment",
+]; */
+.Career{
+  background-image: url('./topiclogos/Career.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Justice{
+  background-image: url('./topiclogos/Social Justice.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Tech{
+  background-image: url('./topiclogos/Tech.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.Environment{
+  background-image: url('./topiclogos/Environment.png');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100%;
+  color:#fff;
+  font-weight: 800;
+  font-size: 1.2em;
+}

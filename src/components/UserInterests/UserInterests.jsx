@@ -26,6 +26,8 @@ const UserInterests = ({ onUpdateArray, profileData }) => {
     "Tech",
     "Environment",
   ];
+
+
   const animatedComponents = makeAnimated();
   const skillsOptions = [
     { name: "skills", value: "adobe", label: "Adobe Design Suite" },
@@ -65,6 +67,10 @@ const UserInterests = ({ onUpdateArray, profileData }) => {
     console.log(s);
   }
 
+  function changeTopicBG (topic) {
+
+  }
+
   return (
     <div className="container" id="interestsContainer">
       <h5 className="mt-5">
@@ -80,12 +86,17 @@ const UserInterests = ({ onUpdateArray, profileData }) => {
         {topics.map((t, idx) => (
           <ToggleButton
             //{...(profileData.interests.includes(t) ? { checked } : {})}
-            className="btn btn-light topic-btn d-flex justify-content-center align-items-center interests"
+            className={"btn btn-light topic-btn d-flex justify-content-center align-items-center interests " + t}
+          
             id={t}
             key={idx}
-            value={idx}
+            value={t}
             onClick={handleTopicSelection}
+            // bsPrefix={t}
+       
+            // style = {{backgroundImage:URL('./topiclogos/'+t+'.png')}}
           >
+            {console.log(t)}
             {t}
           </ToggleButton>
         ))}
