@@ -14,10 +14,8 @@
 }
 #addProjectButton span {
   position: inherit;
-  top: -5px;
   color: white;
   font-size: 70px;
   font-weight: 700;
   margin: 0;
-  /* vertical-align: middle; */
 }
