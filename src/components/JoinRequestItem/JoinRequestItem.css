@@ -1,0 +1,16 @@
+.join-request-item a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.approve-deny-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.approve-deny-buttons span {
+  font-size: xx-large;
+  padding: 10px;
+}

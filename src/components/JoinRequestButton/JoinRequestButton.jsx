@@ -5,7 +5,7 @@ function JoinRequestButton ({ project, setProject, profile, user }) {
 
   async function handleJoin(){
     const joiningProfile = {
-      name: user.displayName,
+      displayName: profile.name,
       photo: profile.photo,
       id: profile._id
     }
@@ -17,7 +17,7 @@ function JoinRequestButton ({ project, setProject, profile, user }) {
     } else {
       tempProject.joinRequests = [joiningProfile];
     }
-    const updatedProject = await updateProject(project._id, project);
+    const updatedProject = await updateProject(project._id, tempProject);
     setProject(updatedProject);
     console.log(updatedProject);
   }

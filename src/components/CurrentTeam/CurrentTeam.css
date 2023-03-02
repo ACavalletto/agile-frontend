@@ -1,24 +1,8 @@
-.current-team .team-list {
+.team-list {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   justify-content: center;
   align-items: start;
   margin: 10px;
-}
-.current-team .member {
-  max-width: 50px;
-}
-.current-team .member-image img {
-  max-width: 45px;
-  object-fit: contain;
-}
-.current-team .member-name {
-  font-size: x-small;
-  hyphens: auto;
-  word-break: break-word;
-  word-wrap: break-word;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-word-break: break-all;
 }
