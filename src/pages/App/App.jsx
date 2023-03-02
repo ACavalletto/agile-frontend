@@ -8,7 +8,6 @@ import {
 } from "../../utilities/profiles-api";
 import NavBar from "../../components/NavBar/NavBar";
 import Dashboard from "../Dashboard/Dashboard";
-import Home from "../Home/Home";
 import AuthPage from "../AuthPage/AuthPage";
 import ProjectList from "../ProjectList/ProjectList";
 import ProjectDetail from "../ProjectDetail/ProjectDetail";
@@ -69,8 +68,8 @@ function App() {
               />
             )
             }
-            <Route path="/profile" element={<NewProfilePage user={user} profile={profile} />} />
-            <Route path="/projects" element={<ProjectList user={user} />} />
+            <Route path="/profile/" element={<NewProfilePage user={user} profile={profile} />} />
+            <Route path="/projects/" element={<ProjectList user={user} />} />
             <Route path="/projects/new" element={<NewProject user={user} profile={profile} />} />
             <Route
               path="/projects/:id"
