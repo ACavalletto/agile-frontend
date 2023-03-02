@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
@@ -53,6 +53,10 @@ function ProjectForm({ projectInfo, setProjectInfo, handleChange, handleToggle, 
     { name: "roles", value: "PM", label: "Project Manager"},
   ]
   const rolePresets = roleOptions.filter(r => projectInfo.roles.includes(r.value)) || "";
+
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 
   const handleSelectRolesChange = (choices) => {
     const tempProjectInfo = {...projectInfo};
