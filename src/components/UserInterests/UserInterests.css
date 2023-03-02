@@ -28,7 +28,9 @@
   font-weight: 800;
   font-size: 1.2em;
 }
-
+.btn-group>.btn-check:checked+.btn {
+  z-index: 0;
+}
 
 
 .Travel{
