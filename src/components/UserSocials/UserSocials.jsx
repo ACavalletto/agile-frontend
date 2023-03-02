@@ -2,6 +2,8 @@ import "./UserSocials.css";
 
 const UserSocials = ({ onUpdateField, profileData }) => {
   function handleClick(e) {
+
+    // console.log(profileData)
     e.preventDefault();
     if (e.target.nodeName === "I") {
       e.target.parentElement.style.visibility = "hidden";
@@ -26,8 +28,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
       </h5>
       <form className="mt-4" id="socialsForm">
         <div id="linkedinDiv">
-          <button className="rounded" id="linkedinBtn" onClick={handleClick}>
-            <i className="fa-brands fa-linkedin"></i>
+          <button className="customround" id="linkedinBtn" onClick={handleClick}>
           </button>
           <input
             {...(profileData.linkedin !== ""
@@ -36,7 +37,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
             type="text"
             name="linkedin"
             id="linkedin"
-            className="rounded"
+            className="customround"
             onChange={onUpdateField}
             onBlur={textFocusOut}
             placeholder="LinkedIn"
@@ -44,8 +45,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
           />
         </div>
         <div id="githubDiv">
-          <button id="githubBtn" className="rounded" onClick={handleClick}>
-            <i className="fa-brands fa-github" style={{ color: "black" }}></i>
+          <button id="githubBtn" className="customround" onClick={handleClick}>
           </button>
           <input
             {...(profileData.github !== ""
@@ -54,7 +54,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
             type="text"
             name="github"
             id="github"
-            className="rounded"
+            className="customround"
             onChange={onUpdateField}
             onBlur={textFocusOut}
             placeholder="Github"
@@ -62,8 +62,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
           />
         </div>
         <div id="twitterDiv">
-          <button id="twitterBtn" className="rounded" onClick={handleClick}>
-            <i className="fa-brands fa-twitter"></i>
+          <button id="twitterBtn" className="customround" onClick={handleClick}>
           </button>
           <input
             {...(profileData.twitter !== ""
@@ -72,7 +71,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
             type="text"
             name="twitter"
             id="twitter"
-            className="rounded"
+            className="customround"
             onChange={onUpdateField}
             onBlur={textFocusOut}
             placeholder="Twitter"
@@ -80,8 +79,7 @@ const UserSocials = ({ onUpdateField, profileData }) => {
           />
         </div>
         <div id="portfolioDiv">
-          <button id="portfolioBtn" className="rounded" onClick={handleClick}>
-            Portfolio
+          <button id="portfolioBtn" className="customround" onClick={handleClick}>
           </button>
           <input
             {...(profileData.portfolio !== ""
@@ -90,10 +88,10 @@ const UserSocials = ({ onUpdateField, profileData }) => {
             type="text"
             name="portfolio"
             id="portfolio"
-            className="rounded"
+            className="customround"
             onChange={onUpdateField}
             onBlur={textFocusOut}
-            placeholder="Portfolio"
+            placeholder="Slack"
             style={{ visibility: "hidden" }}
           />
         </div>

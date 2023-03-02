@@ -1,9 +1,10 @@
 #socialsForm button {
-  width: 200px;
+  border-radius: 30px;
+  width: 290px;
 }
 #socialsForm div {
   margin: auto;
-  width: 50%;
+  width: 75%;
 }
 #socialsForm {
   display: flex;
@@ -11,8 +12,10 @@
   height: 50vh;
 }
 #socialsForm input {
-  width: 200px;
+  width: 290px;
+  height: 85px;
   padding: 10px;
+  text-align: center;
 }
 #linkedinDiv {
   position: relative;
@@ -50,3 +53,33 @@
 #portfolioDiv input {
   position: absolute;
 }
+#linkedinBtn {
+  height: 85px;
+  background-image: url('./linkedinbw.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#githubBtn {
+  height: 85px;  
+  background-image: url('./githubbw.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#twitterBtn {
+  height: 85px;
+  background-image: url('./twitterbw.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#portfolioBtn {
+  height: 85px;
+  background-image: url('./slackbw.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.customround{
+  border-radius: 30px;
+
+}
+
+
