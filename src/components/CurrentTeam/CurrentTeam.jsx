@@ -8,7 +8,7 @@ function CurrentTeam ({ project }) {
       <h6 className="purple-text">Current Team</h6>
       <div className="team-list">
         {project.members?.map(m => (
-          <MemberPhotoAndName profile={m} />
+          <MemberPhotoAndName profile={m} key={m.name}/>
         ))}
       </div>
     </div>
