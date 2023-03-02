@@ -21,14 +21,8 @@ const ProjectDetail = ({ user, profile }) => {
   useEffect(function() {
     if (!project) {
       (async function getProject() {
-        const projectInfo = await projectsAPI.showProject(id)
-        setProject(projectInfo)
-        if ("joinRequests" in projectInfo) {
-          console.log(projectInfo.joinRequests);
-        } else {
-          console.log("no join requests")
-        }
-        console.log(projectInfo)
+        const projectInfo = await projectsAPI.showProject(id);
+        setProject(projectInfo);
       })()
     }
   })
@@ -42,7 +36,7 @@ const ProjectDetail = ({ user, profile }) => {
       const deletedProject = await projectsAPI.deleteProject(id);
       navigate("/projects");
     } catch(err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
@@ -75,7 +69,7 @@ const ProjectDetail = ({ user, profile }) => {
             </div>
             <CurrentTeam project={project} />
             <div className="join-request-section">
-              {!project.members.includes(profile._id) && (project.joinRequests.filter(p => p.id === profile._id).length === 0) && (
+              {(project.members.filter(p => p._id === profile._id).length === 0) && project.creator !== profile._id && (project.joinRequests.filter(p => p.id === profile._id).length === 0) && (
                 <JoinRequestButton 
                   project={project} 
                   setProject={setProject} 
