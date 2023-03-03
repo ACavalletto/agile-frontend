@@ -74,6 +74,10 @@ function App() {
               path="/projects/:id"
               element={<ProjectDetail user={user} profile={profile} setProfile={setProfile} />}
             />
+            <Route
+                path="/onboarding"
+                element={<Onboarding user={user} profile={profile} setProfile={setProfile} URL={URL} />}
+              />
           </Routes>
         </>
       ) : (
