@@ -10,9 +10,10 @@ import ProjectTools from "../../components/ProjectTools/ProjectTools";
 import ResourceLinks from "../../components/ResourceLinks/ResourceLinks";
 import Timeline from "../../components/Timeline/Timeline";
 import * as projectsAPI from "../../utilities/projects-api";
+import * as profilesAPI from "../../utilities/profiles-api";
 import "./ProjectDetail.css";
 
-const ProjectDetail = ({ user, profile }) => {
+const ProjectDetail = ({ user, profile, setProfile }) => {
   const [project, setProject] = useState(null);
   const [editToggle, setEditToggle] = useState(false);
   const { id } = useParams();
@@ -23,6 +24,15 @@ const ProjectDetail = ({ user, profile }) => {
       (async function getProject() {
         const projectInfo = await projectsAPI.showProject(id);
         setProject(projectInfo);
+      })()
+    }
+  })
+
+  useEffect(function() {
+    if (!profile) {
+      (async function getProfile() {
+        const profileInfo = await profilesAPI.getLoggedInUserProfile(user.uid);
+        setProfile(profileInfo);
       })()
     }
   })

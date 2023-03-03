@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import addPerson from "../../images/add-person/72.png";
@@ -10,16 +11,16 @@ import userAvatar from "../../images/user-profile/72.png";
 import * as projectsAPI from "../../utilities/projects-api";
 import * as profilesAPI from "../../utilities/profiles-api";
 
-const Dashboard = ({ user, profile }) => {
+const Dashboard = ({ user, profile, setProfile }) => {
   return (
     <div>
       <div className="dashboard">
         <div className="avatar-name">
-          <div>
-            <img src={userAvatar} alt="generic user avatar" />
+          <div className="images">
+            <img className="avatar" src={profile?.photo ? profile.photo : userAvatar } alt="user avatar" />
             <img className="edit" src={edit} alt="edit" />
           </div>
-          <h6>{user.displayName}</h6>
+          <h6>{profile?.name}</h6>
         </div>
         <div className="buttons">
           <div className="button-icon-bg purple-bg">

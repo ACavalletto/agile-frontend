@@ -22,9 +22,16 @@
   justify-content: center;
   align-items: center;
 }
-.avatar-name > img {
+.images {
+  margin-left: 15px;
+}
+.avatar-name  img.avatar{
   height: 50px;
   width: 50px;
+  max-width: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
 }
 .edit {
   height: 15px;
