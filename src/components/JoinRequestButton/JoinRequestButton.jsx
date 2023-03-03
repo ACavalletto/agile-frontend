@@ -19,7 +19,6 @@ function JoinRequestButton ({ project, setProject, profile, user }) {
     }
     const updatedProject = await updateProject(project._id, tempProject);
     setProject(updatedProject);
-    console.log(updatedProject);
   }
 
   return (
