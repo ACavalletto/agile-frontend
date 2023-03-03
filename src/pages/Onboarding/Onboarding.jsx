@@ -47,7 +47,7 @@ const Onboarding = ({ user, setProfile, URL }) => {
     const nextFormState = { ...profileData };
     property === "interests"
       ? (nextFormState.interests = arr)
-      : (nextFormState.skills = arr);
+      : (nextFormState.tech = arr);
     setprofileData(nextFormState);
   };
 
