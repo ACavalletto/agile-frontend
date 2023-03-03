@@ -64,7 +64,7 @@ function App() {
             ) : (
               <Route
                 path="/"
-                element={<Dashboard user={user} profile={profile} />}
+                element={<Dashboard user={user} profile={profile} setProfile={setProfile} />}
               />
             )}
             <Route path="/profile" element={<NewProfilePage user={user} profile={profile} />} />
@@ -72,7 +72,7 @@ function App() {
             <Route path="/projects/new" element={<NewProject user={user} profile={profile} />} />
             <Route
               path="/projects/:id"
-              element={<ProjectDetail user={user} profile={profile} />}
+              element={<ProjectDetail user={user} profile={profile} setProfile={setProfile} />}
             />
           </Routes>
         </>
