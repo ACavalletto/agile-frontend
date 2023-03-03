@@ -5,7 +5,7 @@ function MemberPhotoAndName({ profile }) {
   return (
     <div className="member">
       <div className="member-image">
-        <img src={profile.photo ? `url("${profile.photo}")` : userAvatar } alt="user photo" />
+        <img src={profile.photo ? profile.photo : userAvatar } alt="user photo" />
       </div>
       <div className="member-name">{profile.name}</div>
     </div>

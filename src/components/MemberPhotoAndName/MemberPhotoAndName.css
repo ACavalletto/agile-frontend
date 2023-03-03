@@ -3,7 +3,9 @@
 }
 .member-image img {
   max-width: 45px;
-  object-fit: contain;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
 }
 .member-name {
   font-size: x-small;
